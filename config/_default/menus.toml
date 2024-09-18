@@ -23,9 +23,9 @@
     weight = 4
 
 [[main]]
-    identifier = "donate"
-    name = "Donate"
-    url = "https://ko-fi.com/nixentric"
+    identifier = "Support"
+    name = "Support"
+    url = "https://buymeacoffee.com/cvandusen"
     weight = 5
     
 # Social Media Configuration
