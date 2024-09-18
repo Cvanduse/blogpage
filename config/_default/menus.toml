@@ -7,13 +7,13 @@
 [[main]]
     identifier = "About Me"
     name = "About Me"
-    url = "https://f2d2cv.com/"
+    url = "https://fwd2cv.com/"
     weight = 2
 
 [[main]]
     identifier = "Socials"
     name = "Socials"
-    url = "https://links.fwd2cv.com"
+    url = "https://links.fwd2cv.com/"
     weight = 3
 
 [[main]]
