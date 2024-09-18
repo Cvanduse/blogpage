@@ -231,6 +231,14 @@
   nav a.active {
     @apply text-gray-900 dark:text-gray-100;
   }
+
+  .responsive-flex {
+    @apply flex flex-col md:flex-row;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-3;
+  }
   
   /* Content overrides */
   #content {
