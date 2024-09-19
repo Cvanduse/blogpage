@@ -33,17 +33,17 @@
 [[social]]
     identifier = "twitter"
     name = "Twitter"
-    url = "#"
+    url = "https://x.com/FWD2CV"
     weight = 1
 
 [[social]]
     identifier = "instagram"
     name = "Instagram"
-    url = "#"
+    url = "https://www.instagram.com/fwd2cv/"
     weight = 2
 
 [[social]]
     identifier = "github"
     name = "GitHub"
-    url = "#"
+    url = "https://github.com/Cvanduse"
     weight = 3
