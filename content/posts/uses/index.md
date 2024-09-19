@@ -14,7 +14,61 @@ I get a lot of questions about the tools I use for different parts of my work, s
 
 A few of the links below are affiliate links which means I get paid or rewarded in some way if you use them to purchase, but rest assured these are all tools and services I actually use.
 
-# Headings
+
+## Workstation:
+---
+
+- 16" MacBook Pro, 2.4ghz 8-Core i9, 32GB of RAM, AMD Radeon Pro 5500M 8GB Graphics (2019)
+  - Prior to this I was using a 2015 5K iMac as my main machine and a 2014 13" MacBook Pro for travel. This machine is more powerful than my iMac and feels just as portable as my 13" did — really love this computer.
+
+- Apple Compact Wired Keyboard
+  - I can't stand the arrow keys on the keyboards Apple makes today so I use this relic instead. They didn't make the wired version for very long so it can be hard to find but the wireless one takes AA batteries which is a huge pain.
+
+-  Magic Mouse 2
+  - Used to think I preferred the trackpad after being a laptop-only user for so long, but I love the extra precision you get with a real mouse, especially for video and audio editing.
+
+- Magic Trackpad 2
+  - I keep this on the left hand side of my keyboard but it doesn't see much use. Usually just to scroll Twitter if my right hand is busy holding a drink.
+
+- IKEA BEKANT sit/stand desk
+  - This desk has poor reviews for some reason but I think it's great. It's quite big, really deep, and super stable. I stand probably 25% of the time and don't really find the lack of presets to be a problem.
+
+- Herman Miller Aeron chair
+  - Super expensive but worth every penny for me.
+
+## Development:
+---
+
+
+## Design:
+---
+
+
+## Productivity:
+---
+
+- Alfred
+  - I forgot to add this originally because it's so baked into my workflow that I forgot it was even there. I use it to launch apps, for clipboard management, for customer support snippets, and probably tons more I'm still forgetting.
+
+- Todoist
+  - I use Todoist to keep track of my todos. I really like the scheduled and recurring tasks features, lets me use Todoist for a lot of stuff that you might normally put in a calendar.
+
+- Calendly
+  - I use Calendly to schedule podcast interviews and other meetings. So much nicer than trying to work out a time to chat by going back and forth in an email thread.
+
+- 1Password
+ - Such a great password manager, installing this for the first time was life-changing.
+
+
+- Dropbox
+ - I keep all my important files in Dropbox so they are available on both my machines. I don't use anything else for backups because literally nothing that isn't in Dropbox is important.
+
+
+## Hosting:
+---
+
+
+## Workstation
 
 ---
 
