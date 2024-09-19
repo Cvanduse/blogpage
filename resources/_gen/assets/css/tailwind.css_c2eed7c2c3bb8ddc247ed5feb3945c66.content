@@ -601,6 +601,7 @@ video {
   body {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 1rem;
   text-align: justify;
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -613,6 +614,20 @@ video {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+  @media (min-width: 640px) {
+
+  body {
+    padding: 1.5rem;
+  }
+}
+
+  @media (min-width: 768px) {
+
+  body {
+    padding: 2rem;
+  }
 }
   
   h1, h2, h3, h4, h5, h6 {
@@ -628,14 +643,46 @@ video {
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
   
+ h1 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+  
+ @media (min-width: 640px) {
+
   h1 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+  
+ @media (min-width: 768px) {
+
+  h1 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
   
   h2 {
-  font-size: 1.875rem;
-  line-height: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+  
+  @media (min-width: 640px) {
+
+  h2 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+  
+  @media (min-width: 768px) {
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
   
   h3 {
@@ -862,8 +909,8 @@ video {
 }
 
   footer {
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .order-1 {
   order: 1;

@@ -1,9 +1,27 @@
 {{ define "main" }} 
 
-<div class="py-2 flex flex-col gap-1">
+<div class="py-2 responsive-flex gap-1">
   <h3 class="title-small">{{ .Title }}</h3>
 </div>
 
-    <section>{{ .Content }} </section>
+<section>
+  <div class="responsive-grid">
+    <div class="grid-item">
+      <!-- Grid item 1 content -->
+      {{ .Content }}
+    </div>
+    <div class="grid-item">
+      <!-- Grid item 2 content -->
+    </div>
+    <div class="grid-item">
+      <!-- Grid item 3 content -->
+    </div>
+  </div>
+</section>
+
+<!-- Optional: Adding a section visible only on desktop -->
+<nav class="show-on-desktop">
+  <!-- Desktop-only navigation or content -->
+</nav>
 
 {{ end }}
