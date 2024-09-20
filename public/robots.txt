@@ -4,17 +4,21 @@ Disallow: /
 
 Disallow: /categories/
 
-Disallow: /tags/hello/
+Disallow: /tags/favorite-things/
 
-Disallow: /categories/hello/
+Disallow: /categories/favorite-things/
 
-Disallow: /posts/markdown-cheat-sheet/
+Disallow: /posts/uses/
 
 Disallow: /posts/
 
 Disallow: /tags/
 
-Disallow: /posts/uses/
+Disallow: /tags/hello/
+
+Disallow: /categories/hello/
+
+Disallow: /posts/markdown-cheat-sheet/
 
 Disallow: /tags/whatsapp/
 
