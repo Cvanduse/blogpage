@@ -26,17 +26,19 @@
           </div>
         </div>
 
-        <button @click="toggleMenu" class="block md:hidden mt-2 md:mt-0">
-          
-          <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-          </svg>
-          
-          <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
-            <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
-          </svg>
-        </button>
-      </header>
+          <!-- Added "Menu" label and adjusted the button -->
+  <div class="flex items-center">
+    <span class="text-black dark:text-white mr-2">Menu</span>
+    <button @click="toggleMenu" class="block md:hidden mt-2 md:mt-0">
+      <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+      <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+        <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
 
     
       <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
