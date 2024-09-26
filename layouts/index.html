@@ -26,12 +26,11 @@
           </div>
         </div>
 
-        <button @click="toggleMenu" class="block md:hidden mt-2 md:mt-0">
-          
+         <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0">
+          <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
           <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
-          
           <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
             <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
           </svg>
@@ -84,7 +83,7 @@
           © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
         </div>
         <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
-          <span>Say Hello ⮕ </span> <!-- Added "Say Hello" here -->
+          <span>⮕ </span> <!-- Added "Say Hello" here -->
           <ul class="flex gap-5">
             <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
             <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
