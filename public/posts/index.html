@@ -20,7 +20,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
 
-<link rel="stylesheet" href="http://localhost:1313/css/app.css" /></head>
+<link rel="stylesheet" href="http://localhost:1313/css/app.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  </head>
 
   <body class="max-w-screen-md mx-auto">
     <div class="header">
@@ -266,5 +268,19 @@
   </ul>
 </div>
 
-</footer></body>
+</footer>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          menuOpen: false
+        },
+        methods: {
+          toggleMenu: function () {
+            this.menuOpen = !this.menuOpen;
+          }
+        }
+      });
+    </script>
+  </body>
 </html>
