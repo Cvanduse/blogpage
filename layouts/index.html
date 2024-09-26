@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-US" class="scroll-smooth dark">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta name="generator" content="Hugo 0.134.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christopher Van Dusen</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+      .gradient-text {
+        font-size: 2em;
+        font-weight: bold;
+        background: linear-gradient(to right, #8EC5FC, #E0C3FC, #FF93D6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    </style>
   </head>
 
   <body class="max-w-screen-md mx-auto">
@@ -27,81 +38,75 @@
           </div>
         </div>
 
-        
-        <button @click="toggleMenu" class="block md:hidden mt-2 md:mt-0">
-          
+        <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0">
+          <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
           <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
-          
           <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
             <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
           </svg>
         </button>
       </header>
 
-      
       <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
         <ul class="flex space-x-6">
           <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
           <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a></li>
+          <li><a href="/work" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a></li>
           <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a></li>
           <li><a href="/tags" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a></li>
           <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a></li>
         </ul>
       </nav>
 
-      
       <nav v-show="menuOpen" class="flex flex-col md:hidden space-y-2 px-8">
         <ul class="flex flex-col space-y-2">
           <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
           <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a></li>
+          <li><a href="/work" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a></li>
           <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a></li>
           <li><a href="/tags" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a></li>
           <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a></li>
         </ul>
       </nav>
 
-      
       <main v-show="!menuOpen" id="content" class="py-4 px-6 md:px-12 md:py-6 flex flex-col gap-4">
-        <h3 class="title-small text-2xl font-bold">
-  <img src="/img/waving-hand.gif" alt="Waving Hand" class="inline-block w-20 h-20"> Hey there!
-</h3>
+        <h3 class="title-small text-2xl font-bold gradient-text">
+          <img src="/img/waving-hand.gif" alt="Waving Hand" class="inline-block w-20 h-20"> Hey there!
+        </h3>
         <section class="leading-relaxed text-lg">
           <p>
-      I'm <a href="https://twitter.com/adamwathan" class="text-black font-bold">@adamwathan</a>, a full-stack developer, entrepreneur, and <a href="https://twitter.com/mijustin/status/1065299912013709312" class="text-black font-bold">Justin's worst nightmare</a>. I share everything I know about making awesome software through my articles, talks, podcast, and courses.
-    </p>  <p>
-      <br>
-      Curious about how I work? Check out my <a href="/uses" class="text-black font-bold">uses</a> page for a full list of all the software, gadgets, and services I use.
-    </p>
-    <p>
-      <br>
-      Connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="text-black font-bold">LinkedIn. 🚀 </a>
-    </p>
-      <br>
-      Best,
-    </p>
-    
-<img src="/img/Chris.jpeg" alt="C. Van Dusen Signature" class="mt-4 float-left w-auto h-16">
+            I'm <a href="https://twitter.com/adamwathan" class="text-black font-bold">@adamwathan</a>, a full-stack developer, entrepreneur, and <a href="https://twitter.com/mijustin/status/1065299912013709312" class="text-black font-bold">Justin's worst nightmare</a>. I share everything I know about making awesome software through my articles, talks, podcast, and courses.
+          </p>
+          <p>
+            <br />
+            Curious about how I work? Check out my <a href="/uses" class="text-black font-bold">uses</a> page for a full list of all the software, gadgets, and services I use.
+          </p>
+          <p>
+            <br />
+            Connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="text-black font-bold">LinkedIn. 🚀 </a>
+          </p>
+          <br />
+          Best,
         </section>
       </main>
 
-      
-    <footer v-show="!menuOpen" class="pt-6 pb-8 px-6 md:px-10 md:pb-10 grid gap-3 sm:grid-cols-2">
-    <div class="text-xs font-semibold text-gray-500 order-2 sm:order-1">
-      © 2024 — <a href="#">Chris Van Dusen</a>
-    </div>
-    <div class="order-1 sm:order-2">
-      <ul class="flex sm:justify-end gap-5 text-xs font-semibold text-gray-500">
-        <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-        <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-      </ul>
-    </div>
-  </footer>
+      <footer v-show="!menuOpen" class="pt-6 pb-8 px-6 md:px-10 md:pb-10 flex justify-between items-center">
+        <div class="text-xs font-semibold text-gray-500">
+          © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
+        </div>
+        <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
+          <span>Say Hello ⮕ </span>
+          <ul class="flex gap-5">
+            <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </footer>
     </div>
 
-    
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
       new Vue({
