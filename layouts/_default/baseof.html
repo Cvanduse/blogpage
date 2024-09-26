@@ -2,6 +2,8 @@
 <html lang="{{ .Site.LanguageCode | default `en` }}" class="scroll-smooth dark">
   <head>
     {{- partial "head/index" . -}}
+    <!-- Add Vue.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
 
   <body class="max-w-screen-md mx-auto">
@@ -16,5 +18,20 @@
     </main>
 
     {{- partial "footer/index" . -}}
+
+    <!-- Vue.js app initialization -->
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          menuOpen: false
+        },
+        methods: {
+          toggleMenu: function () {
+            this.menuOpen = !this.menuOpen;
+          }
+        }
+      });
+    </script>
   </body>
 </html>
