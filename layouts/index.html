@@ -39,7 +39,7 @@
         </div>
 
         <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0">
-          <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
+          <span class="mr-2">{{ "{{ menuOpen ? 'Close' : 'Menu' }}" | safeHTML }}</span>
           <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
@@ -63,11 +63,11 @@
       <nav v-show="menuOpen" class="flex flex-col md:hidden space-y-2 px-8">
         <ul class="flex flex-col space-y-2">
           <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
-          <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a></li>
-          <li><a href="/work" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a></li>
-          <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a></li>
-          <li><a href="/tags" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a></li>
-          <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a></li>
+          <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover=text-gray-300">About Me</a></li>
+          <li><a href="/work" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Work</a></li>
+          <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Socials</a></li>
+          <li><a href="/tags" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Tags</a></li>
+          <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Support</a></li>
         </ul>
       </nav>
 
