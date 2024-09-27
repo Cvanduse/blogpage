@@ -11,9 +11,9 @@
     weight = 2
 
 [[main]]
-    identifier = "Work"
-    name = "Work"
-    url = "/about"
+    identifier = "work"
+    name = "Work 2"
+    url = "/work/"
     weight = 3
 
 [[main]]

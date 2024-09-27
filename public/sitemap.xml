@@ -40,5 +40,7 @@
     <loc>http://localhost:1313/categories/javascript/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/uncategories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/work/</loc>
   </url>
 </urlset>

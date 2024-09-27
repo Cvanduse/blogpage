@@ -27,3 +27,5 @@ Disallow: /categories/css/
 Disallow: /categories/javascript/
 
 Disallow: /categories/uncategories/
+
+Disallow: /work/
