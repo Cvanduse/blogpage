@@ -20,32 +20,6 @@
        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet" />
 
       }
-<style>
-  /* Pill-shaped border for navigation items */
-  .nav-item {
-    display: inline-block;
-    padding: 8px 16px; /* Adjust padding for the pill shape */
-    border: 2px solid black; /* Border color */
-    border-radius: 30px; /* Large radius for the oval effect */
-    text-align: center;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-
-  .nav-item a {
-    text-decoration: none;
-    color: black;
-    display: block;
-  }
-
-  .nav-item:hover {
-    background-color: #f0f0f0; /* Background color on hover */
-    border-color: #8EC5FC; /* Change border color on hover */
-  }
-
-  .nav-item a:hover {
-    color: #8EC5FC; /* Change text color on hover */
-  }
-</style>
 
 <style>
     body {
@@ -208,28 +182,94 @@
 
       <!-- Main Content -->
       <main v-show="!menuOpen" id="content" class="py-4 px-6 md:px-12 md:py-6 flex flex-col gap-4">
-        <h3 class="title-small text-2xl font-bold gradient-text">Work.</h3>
-        <br>
+        <h3 class="title-small text-4xl font-bold gradient-text text-center mb-0">Work.</h3>
+<p class="text-center text-lg mt-0">
+  It has been an absolute pleasure to put my heart and soul into these projects. While you're here, browse these projects.
+</p>
+<p class="text-center text-lg mt-0">
+</p>
+      <!-- Sub-navigation -->
 
-        <!-- Sub-navigation -->
-        <nav style="margin-bottom: 20px;">
-          <ul style="display: flex; justify-content: center; list-style: none; padding: 0;">
-            <li style="margin: 0 15px;"><a href="#" data-content="content1" style="text-decoration: none; color: black; font-size: 1rem; padding: 5px; border-bottom: 2px solid transparent;" onclick="changeContent('content1')">For anyone</a></li>
-            <li style="margin: 0 15px;"><a href="#" data-content="content2" style="text-decoration: none; color: black; font-size: 1rem; padding: 5px; border-bottom: 2px solid transparent;" onclick="changeContent('content2')">Recruiters</a></li>
-            <li style="margin: 0 15px;"><a href="#" data-content="content3" style="text-decoration: none; color: black; font-size: 1rem; padding: 5px; border-bottom: 2px solid transparent;" onclick="changeContent('content3')">Design Directors</a></li>
-          </ul>
-        </nav>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css">
 
-        <!-- Dynamic Content Area -->
-        <section id="dynamic-content">
-          <h1 style="font-size: 4rem; max-width: 800px; margin: 0 auto; line-height: 1.2;">Hello there, I’m a designer who cares about making beautiful things that help people.</h1>
-        </section>
+  <style>
+    /* General pill styling */
+    .pill {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border-radius: 50px;
+      text-decoration: none;
+      color: #000;
+      border: 2px solid transparent;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Hover effect to add border and change background */
+    .pill:hover {
+      background-color: #00bfa6;
+      color: #fff;
+      border-color: #00bfa6;
+    }
+
+    /* Flexbox for centering the navigation */
+    .pill-nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    /* Flex items */
+    .pill-nav li {
+      margin: 0 15px;
+    }
+  </style>
+</head>
+
+
+<nav style="margin-bottom: 20px; text-align: center;">
+  <ul style="display: flex; justify-content: center; list-style: none; padding: 0;">
+    <li style="margin: 0 15px;">
+      <a href="#" onclick="changeContent('anyone')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+        For anyone
+      </a>
+    </li>
+    <li style="margin: 0 15px;">
+      <a href="#" onclick="changeContent('recruiters')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+        Recruiters
+      </a>
+    </li>
+    <li style="margin: 0 15px;">
+      <a href="#" onclick="changeContent('directors')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+        Design Directors
+      </a>
+    </li>
+  </ul>
+</nav>
+      <!-- Dynamic Content Area -->
+      <section id="dynamic-content">
+        Hello there, I’m a designer who cares about making beautiful things that help people.
+      </section>
+
+    <script>
+      function changeContent(target) {
+        var contentMap = {
+          anyone: "Hello there, I’m a designer who cares about making beautiful things that help people.",
+          recruiters: "Hello there, I’m looking for a job and care about making beautiful things that help people.",
+          directors: "Hi, Design Directors! Let's collaborate on leading innovative projects."
+        };
+
+        document.getElementById('dynamic-content').innerText = contentMap[target];
+      }
+    </script>
 
         <!-- Job Section -->
          <section id="dynamic-content">
         <section style="max-width: 800px; margin: 0 auto;">
-          <br> <br> <br>
-
+          <br> 
         </section>
           <h2 style="font-size: 1.5rem; color: #333; text-align: left; margin-bottom: 20px;">Work Experience</h2>
 
@@ -266,20 +306,28 @@
       </div>
     </div>
 
-
+    <!-- Job 4 -->
+    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px;">
+      <div style="flex: 1;">
+        <h3 style="font-size: 1.3rem; color: #333;">Senior Sales Associate</h3>
+        <p style="font-size: 0.9rem; color: #777;">J.D. Power &middot; Oct 2017 – Aug 2020</p>
+      </div>
+      <div>
+        <img src="logo3.png" alt="Prospa logo" style="width: 50px; height: auto; border-radius: 10px;">
+      </div>
+    </div>
   </section>
 
   <h3 class="title-small text-2xl font-bold gradient-text"> What people i've worked with say about me</h3>
 
 
-
-    <h3 class="title-small text-2xl font-bold gradient-text"> And that's a wrap! Piqued your interest? Just holler!</h3>
-
+<section id="dynamic-content">
+        <section style="max-width: 800px; margin: 0 auto;">
      <section class="testimonials-section">
-    <h2>Testimonials</h2>
     <div class="testimonials-container">
 
       <!-- Testimonial 1 -->
+      <br>
       <div class="testimonial-card">
         <p class="testimonial-text">
           Oriol is a highly professional and talented designer. While working at Typeform, 
@@ -295,6 +343,7 @@
         </div>
       </div>
 
+<br>
       <!-- Testimonial 2 -->
       <div class="testimonial-card">
         <p class="testimonial-text">
@@ -309,7 +358,7 @@
           <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Brian Yeung">
         </div>
       </div>
-
+<br>
       <!-- Testimonial 3 -->
       <div class="testimonial-card">
         <p class="testimonial-text">
@@ -324,37 +373,8 @@
           <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Denise Ene">
         </div>
       </div>
-
-    </div>
-  </section>
-
-
-</head>
-<body>
-
-
-<script>
-  // JavaScript for accordion functionality
-  var acc = document.getElementsByClassName("accordion");
-  var i;
-
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      // Toggle active class for styling
-      this.classList.toggle("active");
-
-      // Get the associated panel and toggle its max-height
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;  // collapse
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";  // expand
-      }
-    });
-  }
-</script>
-
-
+<br>
+      <h3 class="title-small text-2xl font-bold gradient-text"> And that's a wrap! Piqued your interest? Just holler!</h3>
 </body>
 </html>
       </main>

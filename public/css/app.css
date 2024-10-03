@@ -912,6 +912,7 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+  /* Header and Footer Background Styles */
 .order-1 {
   order: 1;
 }
@@ -1401,6 +1402,46 @@ nav a.active:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    background: linear-gradient(49deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #f8ef6f 95%);
+
+    width: 380px;
+    height: 350px;
+
+    border-radius: 12px;
+
+    position: relative;
+}
+
+.card-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 50px 40px;
+
+    background-color: #222222;
+    color: #ffffff;
+
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+.card:hover .card-container {
+    border-radius: 10px;
+    inset: 3px;
+}
+
 @media (min-width: 640px) {
 
   .sm\:order-1 {
