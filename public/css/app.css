@@ -912,7 +912,6 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-  /* Header and Footer Background Styles */
 .order-1 {
   order: 1;
 }
@@ -1468,3 +1467,4 @@ body {
     gap: 2.5rem;
   }
 }
+
