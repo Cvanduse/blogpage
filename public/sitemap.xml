@@ -2,45 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:65210/</loc>
+    <loc>http://localhost:50504/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/categories/</loc>
+    <loc>http://localhost:50504/categories/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/tags/favorite-things/</loc>
+    <loc>http://localhost:50504/tags/favorite-things/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/categories/favorite-things/</loc>
+    <loc>http://localhost:50504/categories/favorite-things/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/posts/uses/</loc>
+    <loc>http://localhost:50504/posts/uses/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/posts/</loc>
+    <loc>http://localhost:50504/posts/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/tags/</loc>
+    <loc>http://localhost:50504/tags/</loc>
     <lastmod>2024-09-18T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/tags/hello/</loc>
+    <loc>http://localhost:50504/tags/hello/</loc>
     <lastmod>2022-08-27T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/categories/hello/</loc>
+    <loc>http://localhost:50504/categories/hello/</loc>
     <lastmod>2022-08-27T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/posts/markdown-cheat-sheet/</loc>
+    <loc>http://localhost:50504/posts/markdown-cheat-sheet/</loc>
     <lastmod>2022-08-27T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/tags/whatsapp/</loc>
+    <loc>http://localhost:50504/tags/whatsapp/</loc>
     <lastmod>2022-08-27T09:16:45+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:65210/categories/css/</loc>
+    <loc>http://localhost:50504/about/</loc>
   </url><url>
-    <loc>http://localhost:65210/categories/javascript/</loc>
+    <loc>http://localhost:50504/categories/css/</loc>
   </url><url>
-    <loc>http://localhost:65210/categories/uncategories/</loc>
+    <loc>http://localhost:50504/categories/javascript/</loc>
   </url><url>
-    <loc>http://localhost:65210/work/</loc>
+    <loc>http://localhost:50504/categories/uncategories/</loc>
+  </url><url>
+    <loc>http://localhost:50504/work/</loc>
   </url>
 </urlset>

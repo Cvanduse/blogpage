@@ -22,6 +22,8 @@ Disallow: /posts/markdown-cheat-sheet/
 
 Disallow: /tags/whatsapp/
 
+Disallow: /about/
+
 Disallow: /categories/css/
 
 Disallow: /categories/javascript/
