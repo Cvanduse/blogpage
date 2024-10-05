@@ -438,75 +438,83 @@
   </script>
 
  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff; /* Site background remains light */
-      color: #333;
-      padding: 20px;
+    .bucket-list-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        color: #333;
     }
 
-    .inspired-list-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 10px;
-      color: #333;
+    .bucket-list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 10px;
     }
 
-    .inspired-list-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      margin-bottom: 10px;
+    .bucket-list-content {
+        display: none;
     }
 
-    .inspired-list-content {
-      display: none;
+    .expanded .bucket-list-content {
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    .expanded .inspired-list-content {
-      display: flex;
-      flex-wrap: wrap;
+    .bucket-list-header h3 {
+        font-weight: bold;
+        color: #333;
     }
 
-    .inspired-list-header h3 {
-      font-weight: bold;
-      color: #333;
+    .bucket-list-header svg {
+        transition: transform 0.2s ease;
     }
 
-    .inspired-list-header svg {
-      transition: transform 0.2s ease;
+    .expanded .bucket-list-header svg {
+        transform: rotate(180deg);
     }
 
-    .expanded .inspired-list-header svg {
-      transform: rotate(180deg);
+    .bucket-list-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        width: 50%;
     }
 
-    .inspired-list-item {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      margin: 5px 0;
-      color: #000;
-      font-size: 16px;
+    .bucket-list-item label {
+        margin-left: 8px;
+        color: #333;
     }
 
-    .inspired-list-item a {
-      color: inherit;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
+    .checkbox {
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        padding: 6px;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        cursor: default;
     }
 
-    .inspired-list-item a:hover {
-      color: #00bfa6; /* Change color on hover */
+    .checkbox:checked {
+        background-color: #00bfa6;
+        border-color: #00bfa6;
     }
 
-    .arrow {
-      margin-left: 5px;
+    .checkbox:checked::after {
+        content: '✓';
+        font-size: 14px;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 3px;
     }
-  </style>
+</style>
 </head>
 <body>
 
