@@ -267,8 +267,22 @@
 </head>
 
 
+<style>
+  @media (max-width: 600px) {
+     
+    #nav-list {
+      flex-direction: column;
+      align-items: center;
+    }
+     
+    #nav-list li {
+      margin: 10px 0;
+    }
+  }
+</style>
+
 <nav style="margin-bottom: 20px; text-align: center;">
-  <ul style="display: flex; justify-content: center; list-style: none; padding: 0;">
+  <ul id="nav-list" style="display: flex; justify-content: center; list-style: none; padding: 0;">
     <li style="margin: 0 15px;">
       <a href="#" onclick="changeContent('anyone')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
         For anyone
@@ -286,6 +300,22 @@
     </li>
   </ul>
 </nav>
+
+<style>
+  @media (max-width: 600px) {
+     
+    #nav-list {
+      flex-direction: column;
+      align-items: center;
+    }
+     
+    #nav-list li {
+      margin: 10px 0;
+    }
+  }
+</style>
+
+
       
       <section id="dynamic-content">
         Hello there, I’m a designer who cares about making beautiful things that help people.
@@ -313,8 +343,8 @@
           
           <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff7f3; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 2px solid #fdbf8f;">
             <div style="flex: 1;">
-              <h3 style="font-size: 1.3rem; color: #333;"> Developer & System Analyst, Salesforce </h3>
-              <p style="font-size: 0.9rem; color: #777;">Builders Vision &middot; Oct 2024 – Present</p>
+              <h3 style="font-size: 1.3rem; color: #333;"> Sr. System Adminstrator, Salesforce </h3>
+              <p style="font-size: 0.9rem; color: #777;">SiriusXM &middot; Oct 2024 – Present</p>
             </div>
             <div>
               <img src="/img/sirius.png" alt="Sirius logo" style="width: 50px; height: auto; border-radius: 10px;">
@@ -336,7 +366,7 @@
     <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px;">
       <div style="flex: 1;">
         <h3 style="font-size: 1.3rem; color: #333;">Salesforce Application Developer II</h3>
-        <p style="font-size: 0.9rem; color: #777;">United Wholesale Mortgage &middot; Aug 2020 – Jul 2021</p>
+        <p style="font-size: 0.9rem; color: #777;">UWM &middot; Aug 2020 – Jul 2021</p>
       </div>
       <div>
         <img src="/img/uwm.jpg" alt="UWM logo" style="width: 50px; height: auto; border-radius: 10px;">
@@ -436,7 +466,32 @@
         </footer>
     </div>
 
+<script>
+  function adjustNavForMobile() {
+    const navList = document.getElementById('nav-list');
+    if (window.innerWidth <= 600) {
+      navList.style.flexDirection = 'column';
+      navList.style.alignItems = 'center';
+      const navItems = navList.getElementsByTagName('li');
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].style.margin = '15px 0';
+      }
+    } else {
+      navList.style.flexDirection = 'row';
+      navList.style.alignItems = 'flex-start';
+      const navItems = navList.getElementsByTagName('li');
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].style.margin = '0 15px';
+      }
+    }
+  }
 
+  
+  adjustNavForMobile();
+
+  
+  window.addEventListener('resize', adjustNavForMobile);
+</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
       new Vue({
