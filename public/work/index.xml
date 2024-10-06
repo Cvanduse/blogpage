@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Work on Christopher Van Dusen</title>
-    <link>http://localhost:1313/work/</link>
+    <link>http://localhost:59299/work/</link>
     <description>Recent content in Work on Christopher Van Dusen</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>{year}</copyright>
-    <atom:link href="http://localhost:1313/work/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59299/work/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
