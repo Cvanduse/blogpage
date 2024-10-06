@@ -80,6 +80,39 @@
             display: none;
         }
 
+     .highlighted-link {
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none; /* Remove default underline */
+}
+
+.highlighted-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.8em;
+    background-color: #fcdfe5; /* Pink highlight */
+    z-index: -1;
+}
+
+.highlighted-link-blue::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.8em;
+    background-color: #a0d8f1; /* Light Blue highlight */
+    z-index: -1;
+}
+
+.highlighted-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
     </style>
   </head>
 
@@ -175,14 +208,16 @@
           </p>
           <p>
             <br />
-            Curious about how I work? Check out my <a href="/uses" class="text-black font-bold">uses</a> page for a full list of all the software, gadgets, and services I use.
-          </p>
-          <p>
-            <br />
-            Connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="text-black font-bold">LinkedIn. 🚀 </a>
+            <p>
+  Curious about how I work? Check out my <a href="#" class="highlighted-link"><strong>uses</strong></a> page for a full list of all the software, gadgets, and services I use.
+</p>
+<br>
+            Connect with me on <a href="#" class="highlighted-link"><strong>LinkedIn.</strong></a> 🚀 </a>
           </p>
           <br />
           Best,
+          <h3 class="title-small text-2xl font-bold gradient-text">
+          <img src="/img/chris.png" alt="signature" class="inline-block w-30 h-10"></h3>
         </section>
       </main>
 
