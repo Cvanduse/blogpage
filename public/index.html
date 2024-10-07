@@ -114,6 +114,67 @@
     text-decoration: underline;  
 }
 
+.testimonials-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .swiper-slide {
+      background-color: white;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #00C853;
+      font-weight: bold;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    .author-details {
+      color: #999;
+    }
+
+     
+    .swiper-pagination-bullet {
+      background-color: #00C853;
+    }
+
+    @media (max-width: 768px) {
+      .swiper-slide {
+        width: 90%;
+      }
+    }
+
     </style>
   </head>
 
@@ -158,16 +219,28 @@
               </ul>
             </nav>
                 
-                <nav class="mobile-menu">
-                    <ul class="flex flex-col space-y-2 px-8">
-                        <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
-                        <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover=text-gray-300">About Me</a></li>
-                        <li><a href="/work" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Work</a></li>
-                        <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Socials</a></li>
-                        <li><a href="/tags" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Tags</a></li>
-                        <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Support</a></li>
-                    </ul>
-                </nav>
+<nav class="mobile-menu">
+  <ul class="flex flex-col space-y-4 px-8">
+    <li>
+      <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
+    </li>
+    <li>
+      <a href="https://fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
+    </li>
+    <li>
+      <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+    </li>
+    <li>
+      <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
+    </li>
+    <li>
+      <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a>
+    </li>
+    <li>
+      <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
+    </li>
+  </ul>
+</nav>
             </div>
         </header>
 
@@ -178,7 +251,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
                 <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
             </svg>
-            <span class="text-xs">What's Happening</span>
+            <span class="text-xs">What's Happening Now</span>
         </div>
         <span class="flex items-center space-x-1 text-xs md:text-xs">
             <p>Launched</p>
@@ -210,15 +283,54 @@
           <p>
             <br />
             <p>
-  Curious about how I work? Check out my <a href="#" class="highlighted-link"><strong>uses</strong></a> page for a full list of all the software, gadgets, and services I use.
-</p>
-<br>
+22
             Connect with me on <a href="#" class="highlighted-link"><strong>LinkedIn.</strong></a> 🚀 </a>
           </p>
           <br />
           Best,
           <h3 class="title-small text-2xl font-bold gradient-text">
           <img src="/img/chris.png" alt="signature" class="inline-block w-30 h-10"></h3>
+
+          <div class="overflow-x-scroll scroll-snap-x snap-mandatory flex space-x-4 p-4">
+    <div class="testimonial snap-center flex-shrink-0 w-full sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+        <p class="text-lg font-semibold text-black">
+            Oriol is a highly professional and talented designer. While working at Typeform, he earned my abiding trust...
+        </p>
+        <div class="flex items-center mt-4">
+            <img src="path-to-image.jpg" alt="Chad Bonner" class="w-10 h-10 rounded-full lazyload">
+            <div class="ml-4">
+                <p class="text-black font-bold">Chad Bonner</p>
+                <p class="text-gray-500">Director of Product Mgmt. @ Typeform</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonial snap-center flex-shrink-0 w-full sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+        <p class="text-lg font-semibold text-green-600">
+            Oriol proved himself to be an invaluable senior member, helping lead projects around engagement and discovery...
+        </p>
+        <div class="flex items-center mt-4">
+            <img src="path-to-image.jpg" alt="Brian Yeung" class="w-10 h-10 rounded-full lazyload">
+            <div class="ml-4">
+                <p class="text-black font-bold">Brian Yeung</p>
+                <p class="text-gray-500">Director of Product Design @ Zalando</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonial snap-center flex-shrink-0 w-full sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+        <p class="text-lg font-semibold text-black">
+            Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with...
+        </p>
+        <div class="flex items-center mt-4">
+            <img src="path-to-image.jpg" alt="Denise Ene" class="w-10 h-10 rounded-full lazyload">
+            <div class="ml-4">
+                <p class="text-black font-bold">Denise Ene</p>
+                <p class="text-gray-500">Senior Product Designer @ Typeform</p>
+            </div>
+        </div>
+    </div>
+</div>
         </section>
       </main>
 
