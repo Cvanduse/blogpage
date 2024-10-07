@@ -391,55 +391,104 @@
 <section id="dynamic-content">
         <section style="max-width: 800px; margin: 0 auto;">
      <section class="testimonials-section">
-    <div class="testimonials-container">
+   
+    <div class="relative max-w-4xl mx-auto">
+        
+        <div id="testimonialCarousel" class="overflow-x-scroll scroll-snap-x snap-mandatory flex space-x-4 p-4 hide-scrollbar">
+             
+    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+      <p class="text-lg font-semibold text-black">
+        " Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with. 
+          He’s also a confident leader. I witnessed him working on <span class="testimonial-highlight">end-to-end journeys that involved alignment between cross-team stakeholders</span>."
+      </p>
+      <div class="flex items-center mt-4">
+        <img src="path-to-image.jpg" alt="Chad Bonner" class="w-10 h-10 rounded-full lazyload">
+        <div class="ml-4">
+          <p class="text-black font-bold">Chad Bonner</p>
+          <p class="text-gray-500">Director of Product Mgmt. @ Typeform</p>
+        </div>
+      </div>
+    </div>
 
-      
-      <br>
-      <div class="testimonial-card">
-        <p class="testimonial-text">
-          Oriol is a highly professional and talented designer. While working at Typeform, 
-          <span class="testimonial-highlight">he earned my abiding trust, and was well respected for his integrity and work ethic by colleagues.</span>
-          I’d recommend him, without reservation, to any design organization looking for A players.
-        </p>
-        <div class="author-info">
-          <div>
-            <p class="testimonial-author">Chad Bonner</p>
-            <p class="testimonial-role">Director of Product Mgmt. @ Typeform</p>
-          </div>
-          <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Chad Bonner">
+    
+    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+      <p class="text-lg font-semibold text-green-600">
+        Oriol proved himself to be an invaluable senior member, helping lead projects around engagement and discovery...
+      </p>
+      <div class="flex items-center mt-4">
+        <img src="path-to-image.jpg" alt="Brian Yeung" class="w-10 h-10 rounded-full lazyload">
+        <div class="ml-4">
+          <p class="text-black font-bold">Brian Yeung</p>
+          <p class="text-gray-500">Director of Product Design @ Zalando</p>
         </div>
       </div>
+    </div>
 
-<br>
-      
-      <div class="testimonial-card">
-        <p class="testimonial-text">
-          Oriol proved himself to be an invaluable senior member, helping lead projects around engagement and discovery, 
-          and generally <span class="testimonial-highlight">improving the quality and toolset of the design team. He managed complex stakeholder relationships</span>, overall he’d be an asset to any team.
-        </p>
-        <div class="author-info">
-          <div>
-            <p class="testimonial-author">Brian Yeung</p>
-            <p class="testimonial-role">Director of Product Design @ Zalando</p>
-          </div>
-          <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Brian Yeung">
+    
+    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
+      <p class="text-lg font-semibold text-black">
+        Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with...
+      </p>
+      <div class="flex items-center mt-4">
+        <img src="path-to-image.jpg" alt="Denise Ene" class="w-10 h-10 rounded-full lazyload">
+        <div class="ml-4">
+          <p class="text-black font-bold">Denise Ene</p>
+          <p class="text-gray-500">Senior Product Designer @ Typeform</p>
         </div>
       </div>
-<br>
-      
-      <div class="testimonial-card">
-        <p class="testimonial-text">
-          Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with. 
-          He’s also a confident leader. I witnessed him working on <span class="testimonial-highlight">end-to-end journeys that involved alignment between cross-team stakeholders</span>.
-        </p>
-        <div class="author-info">
-          <div>
-            <p class="testimonial-author">Denise Ene</p>
-            <p class="testimonial-role">Senior Product Designer @ Typeform</p>
-          </div>
-          <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/1.jpg" alt="Denise Ene">
-        </div>
-      </div>
+    </div>
+  </div>
+        
+        <button id="scrollLeftBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
+            ❮
+        </button>
+        <button id="scrollRightBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
+            ❯
+        </button>
+    </div>
+    
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('testimonialCarousel');
+            const leftBtn = document.getElementById('scrollLeftBtn');
+            const rightBtn = document.getElementById('scrollRightBtn');
+            const debugText = document.getElementById('debugText');
+
+            function updateDebugInfo() {
+                debugText.textContent = `
+                    ScrollLeft: ${container.scrollLeft}
+                    ClientWidth: ${container.clientWidth}
+                    ScrollWidth: ${container.scrollWidth}
+                `;
+            }
+
+            function scroll(direction) {
+                const scrollAmount = container.clientWidth;
+                const currentScroll = container.scrollLeft;
+                const targetScroll = direction === 'left' 
+                    ? Math.max(currentScroll - scrollAmount, 0)
+                    : Math.min(currentScroll + scrollAmount, container.scrollWidth - container.clientWidth);
+                
+                container.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+
+                updateDebugInfo();
+            }
+
+            leftBtn.addEventListener('click', () => scroll('left'));
+            rightBtn.addEventListener('click', () => scroll('right'));
+
+            
+            updateDebugInfo();
+
+            
+            container.addEventListener('scroll', updateDebugInfo);
+        });
+    </script>
 <br>
       <h3 class="title-small text-2xl font-bold gradient-text"> And that's a wrap! Piqued your interest? Just holler!</h3>
 </body>
