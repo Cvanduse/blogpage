@@ -524,21 +524,79 @@
             </div>
         </div>
     </div>
-</section>
+    <br>
+   
+    <div class="bucket-list-container">
+        <div class="values-list">
+            <div class="values-list-header flex justify-between items-center cursor-pointer" onclick="toggleValuesList()">
+                <h3 class="section-title" style="margin-left: 10px;">My Values</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-values">
+                    <path d="M6 9l6 6 6-6"></path>
+                </svg>
+            </div>
 
- <h1>Things I would love to talk over a cup of tea!</h1>
+            <div class="values-list-content" style="display: none;">
+                
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <div class="icon bg-gray-300 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 text-xl font-bold">Curiosity</h4>
+                    <p class="text-gray-700">
+                        Adopting a beginner’s mindset and asking questions help me gather context to break down complex concepts into simple, easy-to-use solutions.
+                    </p>
+                </div>
+            </div>
 
-    <div class="topics">
-        <div>Design philosophy</div>
-        <div>Jony Ive</div>
-        <div>Anime</div>
-        <div>Music</div>
-        <div>Shrimad Bhagwad Geeta</div>
-        <div>Karate Goju Ryu style</div>
-        <div>Dan Brown novels</div>
-        <div>Swimming</div>
-        <div>Trekking to Mt Everest Base camp</div>
+                 
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <div class="icon bg-gray-300 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 text-xl font-bold">Bias for Action</h4>
+                    <p class="text-gray-700">
+                        Being outcome-oriented helps me spearhead action plans to discover needs and problems, define solution spaces, design explorations, and deliver products rapidly.
+                    </p>
+                </div>
+            </div>
+               
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <div class="icon bg-gray-300 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 9v4H7V9H4V7l3-3h10l3 3v2h-3z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 text-xl font-bold">Inclusion</h4>
+                    <p class="text-gray-700">
+                        Break down silos to provide transparency and build trust by involving cross-functional partners in the design process and sharing ideas regularly.
+                    </p>
+                </div>
+            </div>
+
+                
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <div class="icon bg-gray-300 rounded-full p-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.5v7m-6 2.5v-1.5h12V18H6z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-gray-900 text-xl font-bold">Win-Win</h4>
+                    <p class="text-gray-700">
+                        Build a shared alignment with collaborators, partners, and stakeholders to deliver positive outcomes for both users and the business.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
 <script>
     function toggleBucketList() {
@@ -566,8 +624,35 @@
             inspiredListHeader.style.transform = "rotate(0deg)";
         }
     }
+
+    function toggleValuesList() {
+        const valuesListSection = document.querySelector('.values-list-content');
+        const valuesListHeader = document.querySelector('.arrow-icon-values');
+        
+        if (valuesListSection.style.display === "none" || !valuesListSection.style.display) {
+            valuesListSection.style.display = "grid";
+            valuesListHeader.style.transform = "rotate(180deg)";
+        } else {
+            valuesListSection.style.display = "none";
+            valuesListHeader.style.transform = "rotate(0deg)";
+        }
+    }
 </script>
 
+<br>
+<br>
+ <h1 class="text-center text-3xl font-bold">Things I would love to talk over a cup of tea!</h1>
+    <div class="topics">
+        <div>Design philosophy</div>
+        <div>Jony Ive</div>
+        <div>Anime</div>
+        <div>Music</div>
+        <div>Shrimad Bhagwad Geeta</div>
+        <div>Karate Goju Ryu style</div>
+        <div>Dan Brown novels</div>
+        <div>Swimming</div>
+        <div>Trekking to Mt Everest Base camp</div>
+    </div>
   <script>
   
   var acc = document.getElementsByClassName("accordion");
