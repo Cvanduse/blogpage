@@ -160,6 +160,30 @@
         min-width: 300px;  
       }
     }
+
+    .mobile-menu {
+  position: absolute;  
+  top: 300px;  
+  left: 0;
+  right: 0;
+  z-index: 0;  
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;  
+  padding: 0 20px;
+}
+
+.mobile-menu a {
+  font-size: 2rem;  
+  color: #000;
+}
+
+.mobile-menu a:hover {
+  color: #gray-500;
+}
   </style>
 
 </head>
@@ -175,14 +199,14 @@
                                 <img src="/img/profilecv.png" width="1080" height="1080" alt="Christopher Van Dusen" />
                             </a>
                         </div>
-                        <div class="ml-0 md:ml-5 mt-2 md:mt-0 text-center md:text-left">
+                        <div class="ml-0 md:ml-5 mt-1 md:mt-0 text-center md:text-left">
                             <a href="#">
                                 <h2 id="site-title" class="text-3xl font-bold text-black">Christopher <BR> Van Dusen</h2>
                             </a>
                         </div>
                     </div>
 
-                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black">
+                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-5 md:mt-0 text-black">
                         <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
                         <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -205,14 +229,26 @@
             </nav>
                 
                 <nav class="mobile-menu">
-                    <ul class="flex flex-col space-y-2 px-8">
-                        <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
-                        <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover=text-gray-300">About Me</a></li>
-                        <li><a href="/work" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Work</a></li>
-                        <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Socials</a></li>
-                        <li><a href="/tags" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Tags</a></li>
-                        <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Support</a></li>
-                    </ul>
+                  <ul class="flex flex-col space-y-4 px-8">
+                    <li>
+                      <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
+                    </li>
+                    <li>
+                      <a href="https://fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
+                    </li>
+                    <li>
+                      <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+                    </li>
+                    <li>
+                      <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
+                    </li>
+                    <li>
+                      <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a>
+                    </li>
+                    <li>
+                      <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
+                    </li>
+                  </ul>
                 </nav>
             </div>
         </header>
