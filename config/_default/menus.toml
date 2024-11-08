@@ -7,7 +7,7 @@
 [[main]]
     identifier = "About Me"
     name = "About Me"
-    url = "https://fwd2cv.com/"
+    url = "/about/"
     weight = 2
 
 [[main]]
