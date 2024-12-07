@@ -8,7 +8,7 @@ description = "Hello"
 avatar = "img/profile-picture.jpg"
 
 #favicon
-favicon = "img/favicon.ico"
+favicon = "icons/favicon.ico"
 
 # disqus is a comment system. see https://disqus.com
 disqusShortname = ""
