@@ -12,7 +12,7 @@
 
 [[main]]
     identifier = "work"
-    name = "Work 2"
+    name = "Work"
     url = "/work/"
     weight = 3
 
