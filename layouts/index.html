@@ -221,6 +221,22 @@
     letter-spacing: 1px;
 }
 
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .projects-grid {
     display: flex;
     justify-content: center;
@@ -235,6 +251,13 @@
     text-align: center;
     width: 200px;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for project cards */
+.project-card:hover {
+    transform: translateY(-10px); /* Lift the card */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
 }
 
 .project-image img {
@@ -242,6 +265,12 @@
     height: 80px;
     margin-bottom: 12px;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for images */
+.project-card:hover .project-image img {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 .project-tag {
@@ -268,6 +297,12 @@
     font-size: 1rem;
     font-weight: 600;
     margin: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for title */
+.project-card:hover .project-title {
+    color: #6366f1; /* Blue accent color */
 }
 
 .project-year {
@@ -281,9 +316,12 @@
     font-size: 0.875rem;
     color: #6366f1; /* Blue */
     text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
+/* Hover effect for "View All" link */
 .view-all:hover {
+    color: #4f46e5; /* Darker blue */
     text-decoration: underline;
 }
     </style>
