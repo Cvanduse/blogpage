@@ -322,6 +322,23 @@
     }
 }
 
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Hidden by default */
+    z-index: 2;
+    color: white;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .overlay-content {
+    opacity: 1; /* Show content on hover */
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
 /* Single Column on Very Small Devices */
 @media (max-width: 480px) {
     .projects-grid {
@@ -452,7 +469,10 @@
                 <img src="/img/chat.jpg" alt="Advisory Logo" />
             </div>
             <h3 class="project-title">Advisory</h3>
+                <p class="project-description">Cool abstract shapes for visual design</p>
             <p class="project-year">2024</p>
+             <div class="overlay-content">
+        <span class="icon">↗</span>
         </div>
         <!-- Project Card 2 -->
         <div class="project-card">
