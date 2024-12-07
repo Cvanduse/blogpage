@@ -228,6 +228,15 @@
     max-width: 1200px;
 }
 
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .projects-grid {
     display: flex;
     justify-content: center;
@@ -235,68 +244,85 @@
 }
 
 .project-card {
-    position: relative;
-    width: 200px;
-    height: 250px;
     background-color: #ffffff;
-    border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    width: 200px;
+    position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for project cards */
 .project-card:hover {
-    transform: translateY(-10px); /* Lift effect */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project-image {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    transform: translateY(-10px); /* Lift the card */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
 }
 
 .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
+/* Hover effect for images */
 .project-card:hover .project-image img {
-    opacity: 0.3; /* Dim the image on hover */
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-.project-overlay {
+.project-tag {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
 }
 
-.project-card:hover .project-overlay {
-    opacity: 1; /* Show overlay on hover */
+.project-tag.wip {
+    background-color: #34d399; /* Green */
 }
 
-.overlay-title {
-    font-size: 1.2rem;
+.project-tag.new {
+    background-color: #f87171; /* Red */
+}
+
+.project-title {
+    font-size: 1rem;
     font-weight: 600;
-    color: #000000;
-    margin-bottom: 10px;
+    margin: 8px 0;
+    transition: color 0.3s ease;
 }
 
-.overlay-description {
-    font-size: 0.9rem;
-    color: #6b7280; /* Gray */
-    margin-bottom: 10px;
+/* Hover effect for title */
+.project-card:hover .project-title {
+    color: #6366f1; /* Blue accent color */
 }
 
-.overlay-year {
-    font-size: 0.8rem;
-    color: #9ca3af; /* Lighter gray */
+.project-year {
+    font-size: 0.875rem;
+    color: #9ca3af; /* Gray */
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.875rem;
+    color: #6366f1; /* Blue */
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Hover effect for "View All" link */
+.view-all:hover {
+    color: #4f46e5; /* Darker blue */
+    text-decoration: underline;
 }
     </style>
   </head>
@@ -425,21 +451,15 @@
             <h3 class="project-title">Figma</h3>
             <p class="project-year">2024</p>
         </div>
-        <div class="current-projects">
-    <div class="projects-grid">
-        <!-- Project Card -->
+        <!-- Croods V2 Card -->
         <div class="project-card">
             <div class="project-image">
-                <img src="croods-logo.png" alt="Croods V2 Logo" />
-                <div class="project-overlay">
-                    <h3 class="overlay-title">Croods V2</h3>
-                    <p class="overlay-description">New illustration system & Figma Plugin</p>
-                    <p class="overlay-year">2024</p>
-                </div>
+                <img src="/img/chris.png" alt="Croods V2 Logo" />
+                <span class="project-tag wip">WIP</span>
             </div>
+            <h3 class="project-title">Croods V2</h3>
+            <p class="project-year">2024</p>
         </div>
-    </div>
-</div>
         <!-- Cool Shapes Card -->
         <div class="project-card">
             <div class="project-image">
