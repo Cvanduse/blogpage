@@ -237,9 +237,25 @@
     letter-spacing: 1px;
 }
 
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .projects-grid {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
 }
 
@@ -249,15 +265,13 @@
     border-radius: 12px;
     padding: 16px;
     text-align: center;
-    width: 200px;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for project cards */
 .project-card:hover {
-    transform: translateY(-10px); /* Lift the card */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-image img {
@@ -265,44 +279,12 @@
     height: 80px;
     margin-bottom: 12px;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-/* Hover effect for images */
-.project-card:hover .project-image img {
-    transform: scale(1.1); /* Slight zoom on hover */
-}
-
-.project-tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 10px;
-    font-weight: 700;
-    color: #ffffff;
-    padding: 4px 8px;
-    border-radius: 8px;
-    text-transform: uppercase;
-}
-
-.project-tag.wip {
-    background-color: #34d399; /* Green */
-}
-
-.project-tag.new {
-    background-color: #f87171; /* Red */
 }
 
 .project-title {
     font-size: 1rem;
     font-weight: 600;
     margin: 8px 0;
-    transition: color 0.3s ease;
-}
-
-/* Hover effect for title */
-.project-card:hover .project-title {
-    color: #6366f1; /* Blue accent color */
 }
 
 .project-year {
@@ -310,19 +292,19 @@
     color: #9ca3af; /* Gray */
 }
 
-.view-all {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 0.875rem;
-    color: #6366f1; /* Blue */
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+/* Responsive Design for 2 Cards Per Row */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
 }
 
-/* Hover effect for "View All" link */
-.view-all:hover {
-    color: #4f46e5; /* Darker blue */
-    text-decoration: underline;
+/* Single Column on Very Small Devices */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
     </style>
   </head>
@@ -443,34 +425,31 @@
 <div class="current-projects">
     <h2 class="section-title">Current Projects</h2>
     <div class="projects-grid">
-        <!-- Figma Card -->
+        <!-- Project Card 1 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="/img/chris.png" alt="Figma Logo" />
+                <img src="figma-logo.png" alt="Figma Logo" />
             </div>
             <h3 class="project-title">Figma</h3>
             <p class="project-year">2024</p>
         </div>
-        <!-- Croods V2 Card -->
+        <!-- Project Card 2 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="/img/chris.png" alt="Croods V2 Logo" />
-                <span class="project-tag wip">WIP</span>
+                <img src="croods-logo.png" alt="Croods V2 Logo" />
             </div>
             <h3 class="project-title">Croods V2</h3>
             <p class="project-year">2024</p>
         </div>
-        <!-- Cool Shapes Card -->
+        <!-- Project Card 3 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="/img/chris.png" alt="Cool Shapes Logo" />
-                <span class="project-tag new">NEW</span>
+                <img src="cool-shapes-logo.png" alt="Cool Shapes Logo" />
             </div>
             <h3 class="project-title">Cool Shapes</h3>
             <p class="project-year">2024</p>
         </div>
     </div>
-    <a href="#" class="view-all">All Works &rarr;</a>
 </div>
 
 
