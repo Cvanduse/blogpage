@@ -267,8 +267,11 @@
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Added for centering content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
 }
-
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
@@ -279,6 +282,7 @@
     height: 80px;
     margin-bottom: 12px;
     border-radius: 10px;
+    display: block; /* Ensure it's treated as a block element */
 }
 
 .project-title {
