@@ -287,6 +287,24 @@
     margin: 8px 0;
 }
 
+.project-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.project-tag.wip {
+    background-color: #34d399; /* Green */
+}
+
+.project-tag.new {
+    background-color: #f87171; /* Red */
 .project-year {
     font-size: 0.875rem;
     color: #9ca3af; /* Gray */
@@ -429,23 +447,25 @@
             <div class="project-image">
                 <img src="figma-logo.png" alt="Figma Logo" />
             </div>
-            <h3 class="project-title">Figma</h3>
+            <h3 class="project-title">Advisory</h3>
             <p class="project-year">2024</p>
         </div>
         <!-- Project Card 2 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="/img/stealth.jpg" alt="Stealth Mode" />
+                <span class="project-tag wip">WIP</span>
             </div>
-            <h3 class="project-title">Croods V2</h3>
+            <h3 class="project-title">Proj. Aurora</h3>
             <p class="project-year">2024</p>
         </div>
         <!-- Project Card 3 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="/img/stealth.jpg" alt="Stealth Mode" />
+                 <span class="project-tag new">NEW</span>
             </div>
-            <h3 class="project-title">Cool Shapes</h3>
+            <h3 class="project-title">Proj. Avanti</h3>
             <p class="project-year">2024</p>
         </div>
     </div>
