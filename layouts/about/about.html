@@ -266,17 +266,16 @@
         padding-top: 10px;
     }
 
-    .inspired-list-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+   .inspired-list-item a {
+    display: inline-flex;
+    align-items: center; /* Ensures text and icon align properly */
+    text-decoration: none; /* Optional: removes underlines */
+}
 
-    .inspired-list-item a {
-        color: #007bff;
-        text-decoration: none;
-        font-size: 16px;
-    }
+.inspired-list-item svg {
+    margin-left: 4px; /* Creates space between text and icon */
+    vertical-align: middle; /* Ensures alignment with the text */
+}
 
     .inspired-list-item a:hover {
         text-decoration: underline;
