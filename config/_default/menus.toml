@@ -23,9 +23,9 @@
     weight = 4
 
 [[main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags"
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
     weight = 5
 
 [[main]]
