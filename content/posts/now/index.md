@@ -10,15 +10,13 @@ tags:
 ---
 
 
-## What I'm doing now
+## I'm writing a "Now" page because it makes sense. I like to do things differently. When most people zig, I want to zag.
 
-# I'm writing a "Now" page because it makes sense. I like to do things differently. When most people zig, I want to zag.
+## The "Now" page is incredibly useful. It's not being different, just for different's sake.
 
-# The "Now" page is incredibly useful. It's not being different, just for different's sake.
+## It is interesting to know what people are up to. When I meet new people one of my favorite questions is "What fun projects are you working on now?"
 
-# It is interesting to know what people are up to. When I meet new people one of my favorite questions is "What fun projects are you working on now?"
-
-# If you asked me that question. This is how I would answer.
+## If you asked me that question. This is how I would answer.
 
 
 ## What I'm working on right now:
@@ -31,11 +29,19 @@ tags:
 ---
 
 
-## What i'm currently learning:
+## What I'm currently learning:
 ---
 
 
 ---
-# Other things i'm up to...
+## Other things I'm up to...
+
+
+
+---
+Here is what I was doing (a log of all my updates to the Now page)
+
+This page was last updated on Sunday 5 JAN 2025 and is inspired by Derek Sivers.
+
 
 
