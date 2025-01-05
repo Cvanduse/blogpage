@@ -16,30 +16,38 @@ tags:
 
 ## It is interesting to know what people are up to. When I meet new people one of my favorite questions is "What fun projects are you working on now?"
 
-## If you asked me that question. This is how I would answer.
+## If you asked me that question. This is how I would answer in no particular order.
 
 
-## What I'm working on right now:
+### What I'm working on right now:
+- Being the best husband and learning from, playing with, and taking care of my 8 month old daughter
+- Writing and coding everyday, by pushing a daily commit
+- I have been mentoring individuals on Salesforce, off and on for a few years now and find it incredibly rewarding
+- Developing better daily habits: sleep 8 hours, floss, meditate, stretch, exercise and cook healthy food
+
+
+### Who I'm seeking:
+- Experienced developers, designers and creatives who are curious about entrepreneurship and learning
+- Young Salesforce Professionals who are looking for mentorship and guidance
+
+
+### What I'm currently learning:
+- Practicing my latte art and espresso pulls with my home machine, intending to reach barista level art and espresso (focusing on form first and than speed)
+
+
+
+### Other things I'm up to...
+- Reading a new book roughly once a month and most recently it is 
+- Meeting new people. My goal is to talk to someone new everyday. It's hard but that is why I love it. I fail most days but I keep at it
+- Listening to lots of podcasts and audiobooks
+- Wandering around Detroit, MI
+
+
 ---
-
-- [14" MacBook Pro, Liquid Retina XDR display, M3, 16GB of RAM](https://www.apple.com/shop/buy-mac/macbook-pro "Macbook Pro")
-    Prior to this I was using a 2015 5K iMac as my main machine and a 2014 13" MacBook Pro for travel. This machine is more powerful than my iMac and feels just as portable as my 13" did — really love this computer.
-
-## Who I'm seeking:
----
+I'm learning everyday and embracing the challenges and opportunities that come my way. I'm grateful for the journey and excited about what the future holds.
 
 
-## What I'm currently learning:
----
-
-
----
-## Other things I'm up to...
-
-
-
----
-Here is what I was doing (a log of all my updates to the Now page)
+Here is what I Was doing (a log of all my updates to the Now page)
 
 This page was last updated on Sunday 5 JAN 2025 and is inspired by Derek Sivers.
 
