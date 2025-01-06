@@ -1,5 +1,5 @@
 ---
-title: "What I'm doing now"
+title: "What I'm doing now.."
 draft: false
 date: 2024-09-18T09:16:45.000Z
 description: " What I'm working on right now. What I'm looking for. What I'm currently learning and other things I'm up to ..."
