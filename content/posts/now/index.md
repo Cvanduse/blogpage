@@ -6,7 +6,7 @@ description: " What I'm working on right now. What I'm looking for. What I'm cur
 categories:
   
 tags:
-  - Now
+  
 ---
 
 
