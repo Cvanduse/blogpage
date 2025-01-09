@@ -10,11 +10,11 @@ tags:
 ---
 
 
-## I'm writing a "Now" page because it makes sense. I like to do things differently. When most people zig, I want to zag.
+## I'm writing a **"Now"** page because it makes sense. I like to do things differently. When most people zig, I want to zag.
 
 ## The "Now" page is incredibly useful. It's not being different, just for different's sake.
 
-## It is interesting to know what people are up to. When I meet new people one of my favorite questions is "What fun projects are you working on now?"
+## It is interesting to know what people are up to. When I meet new people one of my favorite questions is **"What fun projects are you working on now?"**
 
 ## If you asked me that question. This is how I would answer in no particular order.
 
@@ -47,9 +47,9 @@ tags:
 I'm learning everyday and embracing the challenges and opportunities that come my way. I'm grateful for the journey and excited about what the future holds.
 
 
-Here is what I Was doing (a log of all my updates to the Now page)
+Here is what I [Was](https://www.example.com "Link Title") doing (a log of all my updates to the Now page)
 
-This page was last updated on Sunday 5 JAN 2025 and is inspired by Derek Sivers.
+This page was last updated on **Sunday 5 JAN 2025** and is inspired by **Derek Sivers**.
 
 
 
