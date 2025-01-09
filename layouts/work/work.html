@@ -372,7 +372,17 @@
         var contentMap = {
           anyone: "Hello there, I’m a designer who cares about making beautiful things that help people.",
           recruiters: "Hello there, I’m looking for a job and care about making beautiful things that help people.",
-          directors: "def hello (visitor):                                                        if visitor. you == 'new': introduce self( myName = 'Chris', mywork = ['Salesforce','Adminstration','Development','Low Code'] myLocation = '@ Michigan') else: welcome_back() "
+           directors: "def hello(visitor):\n" +
+                  "    if visitor.you == 'new':\n" +
+                  "        introduce_self(\n" +
+                  "            myName = 'Chris',\n" +
+                  "            myWork = ['Salesforce',\n" +
+                  "                      'Administration',\n" +
+                  "                      'Development',\n" +
+                  "                      'Low Code'],\n" +
+                  "            myLocation = '@ Michigan')\n" +
+                  "    else:\n" +
+                  "        welcome_back()"
         };
 
         document.getElementById('dynamic-content').innerText = contentMap[target];
