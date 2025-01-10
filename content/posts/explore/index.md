@@ -16,7 +16,7 @@ In 2020, we did an international trup to italy where I drove from the almafi coa
 
 
 {{< img
-  src="map.jpg"
+  src="/img/map.jpg"
   alt="Map"
   caption= "Train route I took across the country" >}}
 
