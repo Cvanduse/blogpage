@@ -16,7 +16,7 @@ In 2020, we did an international trip to Italy where I drove from the Almafi Coa
 
 
 {{< img
-  src="/img/map.jpg"
+  src="map.jpg"
   alt="Map"
   caption= "Train route I took across the country" >}}
 
