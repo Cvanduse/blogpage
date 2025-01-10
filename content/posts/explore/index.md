@@ -12,8 +12,13 @@ tags:
 
 Traveling and exploring are two very important things for me. In 2010, I spent 3 days on a train traveling across the country with my family. 
 
-In 2020, we did an international trup to italy where I drove from the almafi coast all the way to venice. It is also the place where I proposed to my wife.
+In 2020, we did an international trip to Italy where I drove from the Almafi Coast all the way to Venice. It is also the place where I proposed to my wife.
 
+
+{{< img
+  src="/img/map.jpg"
+  alt="Map"
+  caption= "Train route I took across the country" >}}
 
 ---
 
