@@ -79,6 +79,8 @@
         .mobile-menu {
             display: none;
         }
+
+
 .case-study-container {
   display: flex;
   gap: 20px; /* Space between cards */
@@ -110,17 +112,21 @@
 .case-study .case-study-image-area {
   position: relative;
   width: 100%;
+  height: auto;
 }
 
-.case-study .case-study-image-area img {
+.case-study .case-study-image-area img:first-child {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 12px;
+  animation: none; /* Default state */
+  transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
 }
 
-/* Red Notebook Image Styling */
-.case-study .case-study-image-area img:first-child {
-  border-radius: 12px;
+/* Hover Animation */
+.case-study-link:hover .case-study-image-area img:first-child {
+  content: url("/img/rednotebookopen.png"); /* Swap the image */
 }
 
 /* Coming Soon Image Styling */
@@ -187,18 +193,6 @@
   }
 }
 
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .case-study-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .case-study {
-    width: 100%;
-  }
-}
     
     /* Wrapper for the testimonials */
     .carousel-wrapper {
