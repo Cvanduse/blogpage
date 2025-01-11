@@ -618,6 +618,49 @@
     </div>
 </section>
 
+<section id="dynamic-content">
+  <section style="max-width: 800px; margin: 0 auto;">
+    <br>
+  </section>
+  <h2 style="font-size: 1.5rem; color: #333; text-align: left; margin-bottom: 20px;">
+    Work Experience
+  </h2>
+
+  <!-- Job 1 -->
+  <div
+    style="background-color: #fff7f3; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 2px solid #fdbf8f;"
+  >
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h3 style="font-size: 1.3rem; color: #333;">Sr. System Administrator, Salesforce</h3>
+        <p style="font-size: 0.9rem; color: #777;">SiriusXM &middot; Oct 2024 – Present</p>
+      </div>
+      <div>
+        <img
+          src="/img/sirius.png"
+          alt="Sirius logo"
+          style="width: 50px; height: auto; border-radius: 10px;"
+        />
+      </div>
+    </div>
+    <div style="margin-top: 10px; text-align: left;">
+      <button
+        onclick="toggleDetails('details1')"
+        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+      >
+        Expand
+      </button>
+    </div>
+    <div id="details1" style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;">
+      <p>
+        In this role, I am responsible for managing and maintaining Salesforce
+        environments, optimizing workflows, and implementing new solutions to
+        enhance business efficiency.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="case-study-container">
   <!-- Case Study Card 1 -->
   <a href="/case-studies/balancing-innovation" class="case-study-link">
@@ -831,13 +874,13 @@
 
     <script>
   function toggleDetails(id) {
-    const details = document.getElementById(id);
-    if (details.style.display === "none" || details.style.display === "") {
-      details.style.display = "block";
-    } else {
-      details.style.display = "none";
-    }
+  const details = document.getElementById(id);
+  if (details.style.display === "none" || details.style.display === "") {
+    details.style.display = "block";
+  } else {
+    details.style.display = "none";
   }
+}
 </script>
   </body>
 </html>
