@@ -598,37 +598,79 @@
     </div>
 </section>
 
-<section class="case-study-container">
-  <!-- Case Study Card 1 -->
-  <a href="/case-studies/balancing-innovation" class="case-study-link">
-    <div class="case-study">
-      <div class="case-study-image-area">
-        <img src="/img/rednotebook.png" alt="Notebook Cover 1">
-        <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
-        <div class="case-study-overlay">
-          <h3 class="case-study-title">Balancing Innovation with Legacy Systems</h3>
-          <p class="case-study-subtitle">My journey in creating effective designs at ANZ Bank.</p>
-          <p class="case-study-meta">15 min read</p>
-        </div>
-      </div>
-    </div>
-  </a>
+<section id="dynamic-content">
+  <section style="max-width: 800px; margin: 0 auto;">
+    <br>
+  </section>
+  <h2 style="font-size: 1.5rem; color: #333; text-align: left; margin-bottom: 20px;">
+    Work Experience
+  </h2>
 
-  <!-- Case Study Card 2 -->
-  <a href="/case-studies/six-months-four-projects" class="case-study-link">
-    <div class="case-study">
-      <div class="case-study-image-area">
-        <img src="/img/rednotebook.png" alt="Notebook Cover 2">
-        <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
-        <div class="case-study-overlay">
-          <h3 class="case-study-title">Six Months. Four Projects. One Designer.</h3>
-          <p class="case-study-subtitle">My six-month role shaping UX at a property analytics startup.</p>
-          <p class="case-study-meta">8 min read</p>
-        </div>
+  <!-- Job 1 -->
+  <div class="job-container">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; background-color: #fff7f3; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 2px solid #fdbf8f;"
+    >
+      <div style="flex: 1;">
+        <h3 style="font-size: 1.3rem; color: #333;">Sr. System Administrator, Salesforce</h3>
+        <p style="font-size: 0.9rem; color: #777;">SiriusXM &middot; Oct 2024 – Present</p>
       </div>
+      <div>
+        <img
+          src="/img/sirius.png"
+          alt="Sirius logo"
+          style="width: 50px; height: auto; border-radius: 10px;"
+        />
+      </div>
+      <button
+        onclick="toggleDetails('details1')"
+        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+      >
+        Expand
+      </button>
     </div>
-  </a>
+    <div id="details1" style="display: none; padding: 10px 20px; color: #555;">
+      <p>
+        In this role, I am responsible for managing and maintaining Salesforce
+        environments, optimizing workflows, and implementing new solutions to
+        enhance business efficiency.
+      </p>
+    </div>
+  </div>
+
+  <!-- Job 2 -->
+  <div class="job-container">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px;"
+    >
+      <div style="flex: 1;">
+        <h3 style="font-size: 1.3rem; color: #333;">Developer & System Analyst, Salesforce</h3>
+        <p style="font-size: 0.9rem; color: #777;">Builders Vision &middot; Jul 2021 – Sept 2024</p>
+      </div>
+      <div>
+        <img
+          src="/img/brick.jpg"
+          alt="BV logo"
+          style="width: 50px; height: auto; border-radius: 10px;"
+        />
+      </div>
+      <button
+        onclick="toggleDetails('details2')"
+        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+      >
+        Expand
+      </button>
+    </div>
+    <div id="details2" style="display: none; padding: 10px 20px; color: #555;">
+      <p>
+        Developed and analyzed Salesforce applications, ensuring seamless
+        integration with existing systems and delivering customized solutions
+        for stakeholders.
+      </p>
+    </div>
+  </div>
 </section>
+
 
 
 </section>
@@ -808,5 +850,16 @@
         }
       });
     </script>
+
+    <script>
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details.style.display === "none" || details.style.display === "") {
+      details.style.display = "block";
+    } else {
+      details.style.display = "none";
+    }
+  }
+</script>
   </body>
 </html>
