@@ -92,11 +92,11 @@
   text-decoration: none;
   color: inherit; /* Ensures text color stays consistent */
   display: block;
+  transition: transform 0.3s ease;
 }
 
 .case-study-link:hover {
-  transform: scale(1.03); /* Slight zoom on hover for the entire card */
-  transition: transform 0.3s ease;
+  transform: scale(1.03); /* Slight zoom on hover */
 }
 
 /* Case Study Card */
@@ -112,30 +112,17 @@
 .case-study .case-study-image-area {
   position: relative;
   width: 100%;
-  height: auto;
-  overflow: hidden;
 }
 
-.case-study .case-study-image-area img:first-child {
+.case-study .case-study-image-area img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+/* Red Notebook Image Styling */
+.case-study .case-study-image-area img:first-child {
   border-radius: 12px;
-  animation: fadeToOpen 3s ease-in-out forwards; /* Slower animation */
-}
-
-.case-study-link:hover .case-study-image-area img:first-child {
-  animation: fadeToOpen 3s ease-in-out forwards; /* Trigger animation on hover */
-}
-
-/* Keyframes for the Smooth Transition */
-@keyframes fadeToOpen {
-  0% {
-    content: url("/img/rednotebook.png"); /* Original image */
-  }
-  100% {
-    content: url("/img/rednotebookopen.png"); /* Open notebook image */
-  }
 }
 
 /* Coming Soon Image Styling */
@@ -189,6 +176,19 @@
   font-size: 0.9em;
   color: #e0e0e0;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .case-study-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .case-study {
+    width: 100%;
+  }
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -592,7 +592,7 @@
       <!-- Wrap the logo with an anchor tag -->
       <a href="https://www.buildersvision.com" target="_blank" rel="noopener noreferrer">
         <img
-          src="/img/brick.png"
+          src="/img/brick.jpg"
           alt="BVlogo"
           style="width: 50px; height: auto; border-radius: 10px;"
         />
@@ -631,7 +631,7 @@
       <!-- Wrap the logo with an anchor tag -->
       <a href="https://www.uwm.com" target="_blank" rel="noopener noreferrer">
         <img
-          src="/img/uwm.png"
+          src="/img/uwm.jpg"
           alt="uwm logo"
           style="width: 50px; height: auto; border-radius: 10px;"
         />
