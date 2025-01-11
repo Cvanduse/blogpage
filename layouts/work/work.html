@@ -434,6 +434,19 @@
   </style>
 </head>
 
+<script>
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
+    const isHidden = details.style.display === "none" || details.style.display === "";
+    
+    // Toggle the display style
+    details.style.display = isHidden ? "block" : "none";
+
+    // Change the button text
+    const button = event.target;
+    button.textContent = isHidden ? "Collapse" : "Expand";
+  }
+</script>
 
 <style>
   @media (max-width: 600px) {
@@ -655,7 +668,10 @@
         Expand
       </button>
     </div>
-    <div id="details1" style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;">
+    <div
+      id="details1"
+      style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
+    >
       <p>
         In this role, I am responsible for managing and maintaining Salesforce
         environments, optimizing workflows, and implementing new solutions to
@@ -664,6 +680,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="case-study-container">
   <!-- Case Study Card 1 -->
