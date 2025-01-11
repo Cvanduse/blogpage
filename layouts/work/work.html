@@ -100,18 +100,24 @@
   padding: 20px;
 }
 
-.case-study .case-study-spine {
-  background: #f4a3a2;
-  width: 12px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Image Area */
+.case-study .case-study-image-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.case-study .case-study-image-area img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Content Area */
 .case-study .case-study-content {
-  margin-bottom: 20px;
+  padding: 20px 0;
 }
 
 .case-study .case-study-title {
@@ -130,16 +136,6 @@
 .case-study .case-study-meta {
   font-size: 0.9em;
   color: #9c9c9c;
-}
-
-/* Image Area */
-.case-study .case-study-image-area img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
 }
 
 /* Responsive Design */
@@ -552,27 +548,25 @@
 <section class="case-study-container">
   <!-- Case Study Card 1 -->
   <div class="case-study">
-    <div class="case-study-spine"></div>
+    <div class="case-study-image-area">
+      <img src="/img/rednotebook.png" alt="Notebook Cover 1">
+    </div>
     <div class="case-study-content">
       <h3 class="case-study-title">Balancing Innovation with Legacy Systems</h3>
       <p class="case-study-subtitle">My journey in creating effective designs at ANZ Bank.</p>
       <p class="case-study-meta">15 min read</p>
     </div>
-    <div class="case-study-image-area">
-      <img src="/img/rednotebook.png" alt="Notebook Cover 1">
-    </div>
   </div>
 
   <!-- Case Study Card 2 -->
   <div class="case-study">
-    <div class="case-study-spine"></div>
+    <div class="case-study-image-area">
+      <img src="/img/rednotebook.png" alt="Notebook Cover 2">
+    </div>
     <div class="case-study-content">
       <h3 class="case-study-title">Six Months. Four Projects. One Designer.</h3>
       <p class="case-study-subtitle">My six-month role shaping UX at a property analytics startup.</p>
       <p class="case-study-meta">8 min read</p>
-    </div>
-    <div class="case-study-image-area">
-      <img src="/img/rednotebook.png" alt="Notebook Cover 2">
     </div>
   </div>
 </section>
