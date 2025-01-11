@@ -92,11 +92,11 @@
   text-decoration: none;
   color: inherit; /* Ensures text color stays consistent */
   display: block;
-  transition: transform 0.3s ease;
 }
 
 .case-study-link:hover {
-  transform: scale(1.03); /* Slight zoom on hover */
+  transform: scale(1.03); /* Slight zoom on hover for the entire card */
+  transition: transform 0.3s ease;
 }
 
 /* Case Study Card */
@@ -113,6 +113,7 @@
   position: relative;
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .case-study .case-study-image-area img:first-child {
@@ -120,13 +121,21 @@
   height: auto;
   object-fit: cover;
   border-radius: 12px;
-  animation: none; /* Default state */
-  transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+  animation: fadeToOpen 3s ease-in-out forwards; /* Slower animation */
 }
 
-/* Hover Animation */
 .case-study-link:hover .case-study-image-area img:first-child {
-  content: url("/img/rednotebookopen.png"); /* Swap the image */
+  animation: fadeToOpen 3s ease-in-out forwards; /* Trigger animation on hover */
+}
+
+/* Keyframes for the Smooth Transition */
+@keyframes fadeToOpen {
+  0% {
+    content: url("/img/rednotebook.png"); /* Original image */
+  }
+  100% {
+    content: url("/img/rednotebookopen.png"); /* Open notebook image */
+  }
 }
 
 /* Coming Soon Image Styling */
