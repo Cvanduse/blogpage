@@ -79,7 +79,87 @@
         .mobile-menu {
             display: none;
         }
+.case-study-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
+/* Case Study Card Styling */
+.case-study {
+  display: flex;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 320px;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.case-study:hover {
+  transform: scale(1.03);
+}
+
+/* Notebook Spine */
+.case-study .case-study-spine {
+  background: linear-gradient(to bottom, #fa8072, #ff6347);
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+/* Card Content */
+.case-study .case-study-content {
+  padding: 20px;
+}
+
+.case-study .case-study-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  color: #2c2c2c;
+}
+
+.case-study .case-study-subtitle {
+  font-size: 1em;
+  color: #6c6c6c;
+  margin: 10px 0;
+}
+
+.case-study .case-study-meta {
+  font-size: 0.9em;
+  color: #9c9c9c;
+  margin-bottom: 20px;
+}
+
+/* Image Area */
+.case-study .case-study-image-area {
+  display: flex;
+  gap: 10px;
+}
+
+.case-study .case-study-image-area img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .case-study-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .case-study {
+    width: 100%;
+  }
+}
     
     /* Wrapper for the testimonials */
     .carousel-wrapper {
@@ -475,6 +555,37 @@
         </div>
     </div>
 </section>
+
+<section class="case-studies">
+  <!-- Case Study Card -->
+  <div class="case-study-card">
+    <div class="notebook-spine"></div>
+    <div class="content">
+      <h3 class="title">Balancing Innovation with Legacy Systems</h3>
+      <p class="subtitle">My journey in creating effective designs at ANZ Bank.</p>
+      <div class="meta">15 min read</div>
+      <div class="image-area">
+        <img src="august-rise.png" alt="August Rise">
+        <img src="september-bloom.png" alt="September Bloom">
+      </div>
+    </div>
+  </div>
+
+  <div class="case-study-card">
+    <div class="notebook-spine"></div>
+    <div class="content">
+      <h3 class="title">Six Months. Four Projects. One Designer.</h3>
+      <p class="subtitle">
+        My six-month role shaping UX at a property analytics startup.
+      </p>
+      <div class="meta">8 min read</div>
+      <div class="image-area">
+        <img src="analytics-dashboard.png" alt="Analytics Dashboard">
+      </div>
+    </div>
+  </div>
+</section>
+
 </section>
 <!--
   <h3 class="title-small text-2xl font-bold gradient-text"> What people i've worked with say about me</h3>
