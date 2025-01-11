@@ -81,79 +81,72 @@
         }
 .case-study-container {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: center;
 }
 
-/* Case Study Card Styling */
+/* Case Study Card */
 .case-study {
-  display: flex;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 320px;
+  display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform 0.3s ease-in-out;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
-.case-study:hover {
-  transform: scale(1.03);
-}
-
-/* Notebook Spine */
 .case-study .case-study-spine {
-  background: linear-gradient(to bottom, #fa8072, #ff6347);
-  width: 20px;
+  background: #f4a3a2;
+  width: 12px;
   height: 100%;
   position: absolute;
+  top: 0;
   left: 0;
 }
 
-/* Card Content */
+/* Content Area */
 .case-study .case-study-content {
-  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .case-study .case-study-title {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 0;
   color: #2c2c2c;
+  margin-bottom: 10px;
 }
 
 .case-study .case-study-subtitle {
   font-size: 1em;
   color: #6c6c6c;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
 .case-study .case-study-meta {
   font-size: 0.9em;
   color: #9c9c9c;
-  margin-bottom: 20px;
 }
 
 /* Image Area */
-.case-study .case-study-image-area {
-  display: flex;
-  gap: 10px;
-}
-
 .case-study .case-study-image-area img {
-  width: 100px;
-  height: 100px;
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .case-study-container {
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
   }
 
   .case-study {
@@ -556,34 +549,34 @@
     </div>
 </section>
 
-<section class="case-studies">
-  <!-- Case Study Card -->
-  <div class="case-study-card">
-    <div class="notebook-spine"></div>
-    <div class="content">
-      <h3 class="title">Balancing Innovation with Legacy Systems</h3>
-      <p class="subtitle">My journey in creating effective designs at ANZ Bank.</p>
-      <div class="meta">15 min read</div>
-      <div class="image-area">
-        <img src="/img/rednotebook.png" alt="August Rise">
-      </div>
+<section class="case-study-container">
+  <!-- Case Study Card 1 -->
+  <div class="case-study">
+    <div class="case-study-spine"></div>
+    <div class="case-study-content">
+      <h3 class="case-study-title">Balancing Innovation with Legacy Systems</h3>
+      <p class="case-study-subtitle">My journey in creating effective designs at ANZ Bank.</p>
+      <p class="case-study-meta">15 min read</p>
+    </div>
+    <div class="case-study-image-area">
+      <img src="/img/rednotebook.png" alt="Notebook Cover 1">
     </div>
   </div>
 
-  <div class="case-study-card">
-    <div class="notebook-spine"></div>
-    <div class="content">
-      <h3 class="title">Six Months. Four Projects. One Designer.</h3>
-      <p class="subtitle">
-        My six-month role shaping UX at a property analytics startup.
-      </p>
-      <div class="meta">8 min read</div>
-      <div class="image-area">
-        <img src="/img/rednotebook.png" alt="Analytics Dashboard">
-      </div>
+  <!-- Case Study Card 2 -->
+  <div class="case-study">
+    <div class="case-study-spine"></div>
+    <div class="case-study-content">
+      <h3 class="case-study-title">Six Months. Four Projects. One Designer.</h3>
+      <p class="case-study-subtitle">My six-month role shaping UX at a property analytics startup.</p>
+      <p class="case-study-meta">8 min read</p>
+    </div>
+    <div class="case-study-image-area">
+      <img src="/img/rednotebook.png" alt="Notebook Cover 2">
     </div>
   </div>
 </section>
+
 
 </section>
 <!--
