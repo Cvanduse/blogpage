@@ -2,7 +2,7 @@
 title: "What I'm doing now.."
 draft: false
 date: 2024-09-18T09:16:45.000Z
-description: " What I'm working on right now. What I'm looking for. What I'm currently learning and other things I'm up to ..."
+description: " I’m writing a “Now” page to keep things fresh and honest. Instead of a typical “About” section, this page answers one of my favorite questions: “What fun projects are you working on right now?” It’s not about being different for difference’s sake—it’s about sharing what really matters in this moment. In the spirit of curiosity and connection, here’s a snapshot of what I’m up to, who I’m seeking, and what I’m learning along the way. Let’s dive in."
 categories:
   
 tags:

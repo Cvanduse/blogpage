@@ -2,7 +2,7 @@
 title: "Just a few of my favorite things"
 draft: false
 date: 2024-09-18T09:16:45.000Z
-description: " A few of my favorite things ranging from my workspace to productivity tools that I use on the daily."
+description: "I often get questions about which tools and gear I rely on to get my work done, so I decided to pull them all together on this “uses” page. Here, you’ll find everything from my workstation setup to the apps and services that keep my day running smoothly. I hope sharing my favorites sparks a few ideas for your own setup—let’s dive in!"
 categories:
   - Favorite Things
 tags:
