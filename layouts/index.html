@@ -9,8 +9,8 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js" as="script">
-    <link rel="preload" href="/img/profilecv.png" as="image">
-    <link rel="preload" href="/img/header2.jpg" as="image">
+    <!-- Only preload the most critical images -->
+    <link rel="preload" href="/img/profilecv-optimized.webp" as="image" fetchpriority="high">
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -51,12 +51,13 @@
             text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
         }
 
-        /* Layout components */
+        /* Layout components - Optimized background images */
         .header-container {
             position: relative;
             width: 100%;
             height: 400px;
-            background-image: url('/img/header2.jpg');
+            background-color: #f5f7fa; /* Fallback color */
+            background-image: url('/img/header2-optimized-1200.webp');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -77,7 +78,8 @@
             position: relative;
             width: 100%;
             height: 250px;
-            background-image: url('/img/footer2.jpg');
+            background-color: #f5f7fa; /* Fallback color */
+            background-image: url('/img/footer2-optimized-1200.webp');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -245,7 +247,7 @@
             scrollbar-width: none;
         }
 
-        /* Responsive adjustments */
+        /* Responsive adjustments and responsive background images */
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -254,6 +256,14 @@
             
             .gradient-text {
                 font-size: 2em;
+            }
+            
+            .header-container {
+                background-image: url('/img/header2-optimized-768.webp');
+            }
+            
+            .footer-container {
+                background-image: url('/img/footer2-optimized-768.webp');
             }
         }
 
@@ -268,6 +278,11 @@
             
             .header-container {
                 height: 350px;
+                background-image: url('/img/header2-optimized-480.webp');
+            }
+            
+            .footer-container {
+                background-image: url('/img/footer2-optimized-480.webp');
             }
         }
     </style>
@@ -282,7 +297,16 @@
                     <div class="flex flex-col items-center md:flex-row md:items-center">
                         <div class="flex-none w-20 h-20 rounded-full overflow-hidden">
                             <a href="#">
-                                <img src="/img/profilecv.png" width="80" height="80" alt="Christopher Van Dusen" fetchpriority="high" />
+                                <!-- Optimized profile image with srcset for responsive loading -->
+                                <img 
+                                    src="/img/profilecv-optimized-80.webp" 
+                                    srcset="/img/profilecv-optimized-80.webp 80w,
+                                            /img/profilecv-optimized-160.webp 160w"
+                                    sizes="(max-width: 768px) 80px, 160px"
+                                    width="80" 
+                                    height="80" 
+                                    alt="Christopher Van Dusen" 
+                                    fetchpriority="high" />
                             </a>
                         </div>
                         <div class="ml-0 md:ml-5 mt-2 md:mt-0 text-center md:text-left">
@@ -366,7 +390,14 @@
             </div>
 
             <h2 class="title-small text-lg gradient-text">
-                <img src="/img/waving-hand.gif" alt="Waving Hand" class="inline-block w-20 h-20" loading="lazy" width="80" height="80">Hey there! I'm Chris
+                <!-- Optimized GIF - consider replacing with animated SVG or WebP for better performance -->
+                <img 
+                    src="/img/waving-hand-optimized.webp" 
+                    alt="Waving Hand" 
+                    class="inline-block w-20 h-20" 
+                    loading="lazy" 
+                    width="80" 
+                    height="80">Hey there! I'm Chris
             </h2>
             
             <section class="leading-relaxed text-lg">
@@ -380,7 +411,14 @@
                 <br>
                 Best,
                 <h3 class="title-small text-2xl font-bold gradient-text">
-                    <img src="/img/chris.png" alt="signature" class="inline-block w-30 h-10" loading="lazy" width="120" height="40">
+                    <!-- Optimized signature image -->
+                    <img 
+                        src="/img/chris-optimized.webp" 
+                        alt="signature" 
+                        class="inline-block w-30 h-10" 
+                        loading="lazy" 
+                        width="120" 
+                        height="40">
                 </h3>
                 <br>
                 <p>Based in <s>Chicago, IL</s> Detroit, MI</p>
@@ -389,27 +427,42 @@
                 <div class="current-projects">
                     <h2 class="section-title">Current Projects</h2>
                     <div class="projects-grid">
-                        <!-- Project Card 1 -->
+                        <!-- Project Card 1 - Optimized image -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/img/chat.jpg" alt="Advisory Logo" loading="lazy" width="80" height="80" />
+                                <img 
+                                    src="/img/chat-optimized.webp" 
+                                    alt="Advisory Logo" 
+                                    loading="lazy" 
+                                    width="80" 
+                                    height="80" />
                             </div>
                             <h3 class="project-title">Advisory Committee</h3>
                             <p class="project-year">2024</p>
                         </div>
-                        <!-- Project Card 2 -->
+                        <!-- Project Card 2 - Optimized image -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/img/stealth.jpg" alt="Stealth Mode" loading="lazy" width="80" height="80" />
+                                <img 
+                                    src="/img/stealth-optimized.webp" 
+                                    alt="Stealth Mode" 
+                                    loading="lazy" 
+                                    width="80" 
+                                    height="80" />
                                 <span class="project-tag wip">WIP</span>
                             </div>
                             <h3 class="project-title">Proj. Aurora</h3>
                             <p class="project-year">2024</p>
                         </div>
-                        <!-- Project Card 3 -->
+                        <!-- Project Card 3 - Optimized image -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/img/stealth.jpg" alt="Stealth Mode" loading="lazy" width="80" height="80" />
+                                <img 
+                                    src="/img/stealth-optimized.webp" 
+                                    alt="Stealth Mode" 
+                                    loading="lazy" 
+                                    width="80" 
+                                    height="80" />
                                 <span class="project-tag new">NEW</span>
                             </div>
                             <h3 class="project-title">Proj. Avanti</h3>
