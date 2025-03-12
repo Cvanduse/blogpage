@@ -26,7 +26,7 @@
         .gradient-text {
             font-size: 2.5em;
             font-weight: 900;
-            background-image: linear-gradient(90deg, #A9BCF5 10%, #89ABE3 20%, #6D82D1 50%, #5359BF 75%, #3A30A8 100%);       
+            background-image: linear-gradient(#A9BCF5 10%, #89ABE3 20%, #6D82D1 50%, #5359BF 75%, #3A30A8 100%);       
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -320,6 +320,7 @@
 
 .project-tag.new {
     background-color: #f87171; /* Red */
+}
 .project-year {
     font-size: 0.875rem;
     color: #9ca3af; /* Gray */
@@ -363,7 +364,7 @@
                     </div>
 
                     <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black">
-                        <span class="mr-2">{{ "{{ menuOpen ? 'Close' : 'Menu' }}" | safeHTML }}</span>
+                        <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
                         <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
@@ -439,11 +440,11 @@
         <h2 class="title-small text-lg gradient-text">
   <img src="/img/waving-hand.gif" alt="Waving Hand" class="inline-block w-20 h-20">Hey there! I'm Chris </h2>
         <section class="leading-relaxed text-lg">
-          <p>I’m a technologist on a mission to build, innovate and turn dreams into reality. </p> <br>
-            <p>It all began with a big box of Legos. As a kid, I spent hours building castles, spaceships and anything else my imagination could dream up. These days, I’ve swapped the blocks for <a href="https://blog.fwd2cv.com/work/" class="highlighted-link"><strong>code</strong> </a>, crafting digital experiences that bring bold ideas to life—with a bit more coffee and a few extra keystrokes.</p><br>
+          <p>I'm a technologist on a mission to build, innovate and turn dreams into reality. </p> <br>
+            <p>It all began with a big box of Legos. As a kid, I spent hours building castles, spaceships and anything else my imagination could dream up. These days, I've swapped the blocks for <a href="https://blog.fwd2cv.com/work/" class="highlighted-link"><strong>code</strong> </a>, crafting digital experiences that bring bold ideas to life—with a bit more coffee and a few extra keystrokes.</p><br>
            <p>Curious about how I work or what I am doing right <a href="https://blog.fwd2cv.com/posts/now/" class="highlighted-link"><strong>now</strong> </a>? Check out my <a href="https://blog.fwd2cv.com/posts/uses/" class="highlighted-link"><strong>uses page</strong></a>  for a full list of the software and gadgets I rely on or connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="highlighted-link"><strong>LinkedIn.</strong></a> 🚀 </a>
           </p>
-          <p> Let’s create something amazing together! </p>
+          <p> Let's create something amazing together! </p>
           <br />
           Best,
           <h3 class="title-small text-2xl font-bold gradient-text">
@@ -508,7 +509,7 @@
             <footer class="pt-6 pb-8 px-6 md:px-10 md:pb-10 flex justify-between items-center">
                 <div class="footer-content">
                     <div class="text-xs font-semibold text-gray-500">
-                        © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
+                        © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Detroit.</a>
                     </div>
                     <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
                         <span>Say Hello ⮕ </span>
