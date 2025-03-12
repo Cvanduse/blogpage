@@ -1,45 +1,58 @@
 <!DOCTYPE html>
-<html lang="en-US" class="scroll-smooth dark">
+<html lang="en-US" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Christopher Van Dusen - Technologist and innovator based in Detroit, MI">
     <title>Christopher Van Dusen</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js" as="script">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
+    <!-- Load styles -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-
+    
     <style>
-           body {
+        /* Base styles */
+        :root {
+            --primary-gradient: linear-gradient(#A9BCF5 10%, #89ABE3 20%, #6D82D1 50%, #5359BF 75%, #3A30A8 100%);
+            --highlight-blue: #a0d8f1;
+            --highlight-pink: #fcdfe5;
+            --card-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            --card-hover-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: white;
             color: #333;
+            font-display: swap;
         }
 
-         nav a {
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .mobile-menu a {
-    font-family: 'Roboto', sans-serif;
-  }
-        
+        /* Typography */        
         .gradient-text {
             font-size: 2.5em;
             font-weight: 900;
-            background-image: linear-gradient(#A9BCF5 10%, #89ABE3 20%, #6D82D1 50%, #5359BF 75%, #3A30A8 100%);       
+            background-image: var(--primary-gradient);       
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
-
         }
 
+        /* Layout components */
         .header-container {
             position: relative;
             width: 100%;
             height: 400px;
-            background-image: url('/img/header2.jpg');
+            background-color: #f5f7fa;
+            background-image: url('/api/placeholder/1200/400');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -54,296 +67,229 @@
             transform: translate(-50%, -50%);
             color: white;
             text-align: center;
+            width: 90%;
+            max-width: 1200px;
         }
 
         .footer-container {
             position: relative;
             width: 100%;
             height: 250px;
-            background-image: url('/img/footer2.jpg');
+            background-color: #f5f7fa;
+            background-image: url('/api/placeholder/1200/250');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 0px;
         }
 
         .footer-content {
             color: black;
             text-align: center;
+            width: 90%;
+            max-width: 1200px;
         }
 
-        /* Hide content when menu is open */
+        /* Navigation */
+        nav a, .mobile-menu a {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transition: color 0.2s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 300px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            padding: 1rem;
+        }
+
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 10px;
+        }
+
+        .mobile-menu a {
+            font-size: 1.25rem;
+            color: #000;
+        }
+
+        .mobile-menu a:hover {
+            color: #6D82D1;
+        }
+
+        /* Show/hide content based on menu state */
         .menu-open .main-content,
         .menu-open .footer-container {
             display: none;
         }
 
-        /* Show mobile menu */
         .menu-open .mobile-menu {
             display: block;
         }
 
-        /* Initially hide the mobile menu */
-        .mobile-menu {
+        /* Links styling */
+        .highlighted-link {
+            position: relative;
+            display: inline-block;
+            color: black;
+            text-decoration: none;
+        }
+
+        .highlighted-link::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 0.8em;
+            background-color: var(--highlight-blue);
+            z-index: -1;
+            transition: height 0.2s ease;
+        }
+
+        .highlighted-link-blue::before {
+            background-color: var(--highlight-pink);
+        }
+
+        .highlighted-link:hover::before {
+            height: 1em;
+        }
+
+        /* Projects section */
+        .current-projects {
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            box-shadow: var(--card-shadow);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .project-image img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        .project-tag.wip {
+            background-color: #34d399;
+        }
+
+        .project-tag.new {
+            background-color: #f87171;
+        }
+        
+        .project-year {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .gradient-text {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gradient-text {
+                font-size: 1.8em;
+            }
+            
+            .header-container {
+                height: 350px;
+            }
+        }
+
+        /* Utility classes */
+        .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
-
-     .highlighted-link {
-    position: relative;
-    display: inline-block;
-    color: black;
-    text-decoration: none; /* Remove default underline */
-}
-
-.highlighted-link::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.8em;
-    background-color: #a0d8f1; /* Pink highlight */
-    z-index: -1;
-}
-
-.highlighted-link-blue::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 0.8em;
-    background-color: #fcdfe5; /* Light Blue highlight */
-    z-index: -1;
-}
-
-.highlighted-link:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-.testimonials-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper {
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .swiper-slide {
-      background-color: white;
-      border-radius: 10px;
-      padding: 16px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .testimonial-text {
-      font-size: 16px;
-      color: black;
-      margin-bottom: 10px;
-    }
-
-    .highlight {
-      color: #00C853;
-      font-weight: bold;
-    }
-
-    .author {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .author-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-      object-fit: cover;
-    }
-
-    .author-details {
-      color: #999;
-    }
-
-    /* Swiper Pagination and Navigation */
-    .swiper-pagination-bullet {
-      background-color: #00C853;
-    }
-
-    @media (max-width: 768px) {
-      .swiper-slide {
-        width: 90%;
-      }
-    }
-
-     .gradient-divider {
-            height: 4px; /* Thin line */
-            background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
-            border: none;
-            margin: 20px 0;
+        
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-
-   .mobile-menu {
-  position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
-  top: 300px; /* Adjust this value to move the menu lower */
-  left: 0;
-  right: 0;
-  z-index: 0; /* Ensure it stays on top of other content */
-}
-
-.mobile-menu ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Controls spacing between list items */
-  padding: 0 10px;
-}
-
-.mobile-menu a {
-  font-size: 1rem; /* Keeps the 2xl text size */
-  color: #000;
-}
-
-.mobile-menu a:hover {
-  color: #gray-500;
-}
-
-.current-projects {
-    text-align: center;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 1200px;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #6b7280; /* Gray */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.current-projects {
-    text-align: center;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 1200px;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #6b7280; /* Gray */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.current-projects {
-    text-align: center;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 1200px;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #6b7280; /* Gray */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    background-color: #ffffff;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Added for centering content */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-}
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project-image img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    display: block; /* Ensure it's treated as a block element */
-}
-
-.project-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 8px 0;
-}
-
-.project-tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 10px;
-    font-weight: 700;
-    color: #ffffff;
-    padding: 4px 8px;
-    border-radius: 8px;
-    text-transform: uppercase;
-}
-
-.project-tag.wip {
-    background-color: #34d399; /* Green */
-}
-
-
-.project-tag.new {
-    background-color: #f87171; /* Red */
-.project-year {
-    font-size: 0.875rem;
-    color: #9ca3af; /* Gray */
-}
-
-
-/* Responsive Design for 2 Cards Per Row */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-/* Single Column on Very Small Devices */
-@media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        
+        .content-container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
     </style>
   </head>
 
-   <body>
+  <body>
     <div id="app" :class="{'menu-open': menuOpen}">
         <!-- Header Section -->
         <header class="header-container">
@@ -508,19 +454,55 @@
         </footer>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- 
+    SIMPLEST SOLUTION: No external Vue dependency.
+    Instead of loading Vue from an external source which might fail,
+    we'll use vanilla JavaScript to handle the menu toggle functionality.
+    -->
     <script>
-      new Vue({
-        el: '#app',
-        data: {
-          menuOpen: false
-        },
-        methods: {
-          toggleMenu: function () {
-            this.menuOpen = !this.menuOpen;
-          }
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        var app = document.getElementById('app');
+        var menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+        var menuOpenClass = 'menu-open';
+        var menuOpen = false;
+        
+        // Update button text and icon visibility
+        function updateMenuButton() {
+          var buttonText = menuButton.querySelector('span');
+          var openIcon = menuButton.querySelector('svg[v-if="!menuOpen"]');
+          var closeIcon = menuButton.querySelector('svg[v-if="menuOpen"]');
+          
+          buttonText.textContent = menuOpen ? 'Close' : 'Menu';
+          
+          // Toggle icon visibility
+          openIcon.style.display = menuOpen ? 'none' : 'inline-block';
+          closeIcon.style.display = menuOpen ? 'inline-block' : 'none';
         }
+        
+        // Toggle menu function
+        function toggleMenu() {
+          menuOpen = !menuOpen;
+          
+          // Toggle class on app element
+          if (menuOpen) {
+            app.classList.add(menuOpenClass);
+          } else {
+            app.classList.remove(menuOpenClass);
+          }
+          
+          // Update button
+          updateMenuButton();
+          
+          // Prevent body scrolling when menu is open
+          document.body.style.overflow = menuOpen ? 'hidden' : '';
+        }
+        
+        // Set initial state
+        updateMenuButton();
+        
+        // Add click event listener to menu button
+        menuButton.addEventListener('click', toggleMenu);
       });
     </script>
   </body>
