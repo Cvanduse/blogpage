@@ -563,6 +563,101 @@
     </div>
 </div>
     <br>
+    <!-- Inspired People Section -->
+<div class="bucket-list-container">
+    <div class="inspired-list">
+        <div class="inspired-list-header" onclick="toggleInspiredList()">
+            <h3 class="section-title" style="margin-left: 10px;">People I'm Inspired By</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-inspired">
+                <path d="M6 9l6 6 6-6"></path>
+            </svg>
+        </div>
+
+        <div class="inspired-list-content">
+            <p class="mb-4">I've met people from around the world who are my source of inspiration and I hope to meet more in the future to learn something new from them. Thank you all. This list is for my own motivation.</p>
+            
+            <div class="inspired-people-grid">
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Chase Jarvis</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Ryan Holiday</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Scott Galloway</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Mat Ishbia</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Daniel Caudill</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Jean Stoffer</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Ilya Birman</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Alexander Kirov</span>
+                </div>
+                <div class="inspired-person-item">
+                    <div class="person-check-circle">✓</div>
+                    <span>Artem Polikarpov</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add these styles to your CSS */
+    .inspired-people-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+    
+    .inspired-person-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .person-check-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+        .inspired-people-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .inspired-people-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
    <!-- Values Section 
     <div class="bucket-list-container">
         <div class="values-list">
