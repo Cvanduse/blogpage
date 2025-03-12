@@ -315,6 +315,45 @@
         .topics div:hover {
             background-color: #f0f0f0;
         }
+
+    /* New styles for the People I'm Inspired By section */
+    .inspired-people-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+    
+    .inspired-person-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .person-check-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+        .inspired-people-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .inspired-people-grid {
+            grid-template-columns: 1fr;
+        }
+    }
   </style>
 </head>
 
@@ -338,7 +377,7 @@
                     </div>
 
                     <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black">
-                        <span class="mr-2">{{ "{{ menuOpen ? 'Close' : 'Menu' }}" | safeHTML }}</span>
+                        <span class="mr-2">Menu</span>
                         <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
@@ -382,7 +421,7 @@
 
                 <div class="about-me-item">
                     <h3 class="inline-header"></h3>
-                    <p class="section-content"> I’m a Salesforce architect based in Detroit, MI, passionate about the synergy between people and technology. I’m continually exploring how software can transform everyday experiences and make an impact. </p> 
+                    <p class="section-content"> I'm a Salesforce architect based in Detroit, MI, passionate about the synergy between people and technology. I'm continually exploring how software can transform everyday experiences and make an impact. </p> 
 <br> <br>
                      <p class="section-content"> Currently, I work at SiriusXM, enhancing the audio experience for customers by merging my love for technology with my deep appreciation for music. Previously, I led Salesforce development at Builders Vision, an innovative venture, foundation, and asset management firm focused on creating a healthier, more humane planet. This role allowed me to combine purpose with technology, delivering solutions that drive meaningful change.</p>
 <br> <br>
@@ -492,244 +531,96 @@
         </div>
     </div>
 <br>
+    <!-- People I'm Inspired By - Updated Section -->
     <div class="bucket-list-container">
-        <!-- Inspired List Section -->
-      <div class="bucket-list-container">
-    <!-- Inspired List Section -->
-    <div class="inspired-list">
-        <div class="inspired-list-header" onclick="toggleInspiredList()">
-            <h3 class="section-title" style="margin-left: 10px;">People I'm Inspired By</h3>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-inspired">
-                <path d="M6 9l6 6 6-6"></path>
-            </svg>
-        </div>
-
-        <div class="inspired-list-content">
-            <div class="inspired-list-item">
-                <a href="https://chasejarvis.com/never-play-it-safe/" target="_blank">
-                    Chase Jarvis
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="inspired-list-item">
-                <a href="https://ryanholiday.net/" target="_blank">
-                    Ryan Holiday
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="inspired-list-item">
-                <a href="https://www.profgalloway.com/" target="_blank">
-                    Scott Galloway
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="inspired-list-item">
-                <a href="https://www.uwm.com/about-ishbia" target="_blank">
-                    Mat Ishbia
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="inspired-list-item">
-                <a href="#" target="_blank">
-                    Daniel Caudill
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-            <div class="inspired-list-item">
-                <a href="https://www.jeanstofferdesign.com/stoffer-home" target="_blank">
-                    Jean Stoffer
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-left: 4px;">
-                        <path d="M14 3h7v7h-2V5.414l-9.293 9.293-1.414-1.414L17.586 4H14V3z"></path>
-                        <path d="M5 5h6v2H6v11h11v-5h2v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-    <br>
-    <!-- Inspired People Section -->
-<div class="bucket-list-container">
-    <div class="inspired-list">
-        <div class="inspired-list-header" onclick="toggleInspiredList()">
-            <h3 class="section-title" style="margin-left: 10px;">People I'm Inspired By</h3>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-inspired">
-                <path d="M6 9l6 6 6-6"></path>
-            </svg>
-        </div>
-
-        <div class="inspired-list-content">
-            <p class="mb-4">I've met people from around the world who are my source of inspiration and I hope to meet more in the future to learn something new from them. Thank you all. This list is for my own motivation.</p>
-            
-            <div class="inspired-people-grid">
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Chase Jarvis</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Ryan Holiday</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Scott Galloway</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Mat Ishbia</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Daniel Caudill</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Jean Stoffer</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Ilya Birman</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Alexander Kirov</span>
-                </div>
-                <div class="inspired-person-item">
-                    <div class="person-check-circle">✓</div>
-                    <span>Artem Polikarpov</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* Add these styles to your CSS */
-    .inspired-people-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        width: 100%;
-    }
-    
-    .inspired-person-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .person-check-circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        background-color: #f2f2f2;
-        border-radius: 50%;
-        font-size: 14px;
-        color: #333;
-    }
-    
-    /* Responsive adjustment */
-    @media (max-width: 768px) {
-        .inspired-people-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .inspired-people-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-   <!-- Values Section 
-    <div class="bucket-list-container">
-        <div class="values-list">
-            <div class="values-list-header flex justify-between items-center cursor-pointer" onclick="toggleValuesList()">
-                <h3 class="section-title" style="margin-left: 10px;">My Values</h3>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-values">
+        <div class="inspired-list">
+            <div class="inspired-list-header" onclick="toggleInspiredList()">
+                <h3 class="section-title" style="margin-left: 10px;">People I'm Inspired By</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon-inspired">
                     <path d="M6 9l6 6 6-6"></path>
                 </svg>
             </div>
 
-            <div class="values-list-content" style="display: none;"> -->
-                <!-- Value Item 1 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
-                <div class="icon bg-gray-300 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 text-xl font-bold">Curiosity</h4>
-                    <p class="text-gray-700">
-                        Adopting a beginner’s mindset and asking questions help me gather context to break down complex concepts into simple, easy-to-use solutions.
-                    </p>
-                </div>
-            </div>-->
-
-                 <!-- Value Item 2 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
-                <div class="icon bg-gray-300 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                    </svg>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 text-xl font-bold">Bias for Action</h4>
-                    <p class="text-gray-700">
-                        Being outcome-oriented helps me spearhead action plans to discover needs and problems, define solution spaces, design explorations, and deliver products rapidly.
-                    </p>
-                </div>
-            </div> -->
-               <!-- Value Item 3 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
-                <div class="icon bg-gray-300 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 9v4H7V9H4V7l3-3h10l3 3v2h-3z" />
-                    </svg>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 text-xl font-bold">Inclusion</h4>
-                    <p class="text-gray-700">
-                        Break down silos to provide transparency and build trust by involving cross-functional partners in the design process and sharing ideas regularly.
-                    </p>
-                </div>
-            </div> -->
-
-                <!-- Value Item 4 
-            <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-start gap-4">
-                <div class="icon bg-gray-300 rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-yellow-500">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.5v7m-6 2.5v-1.5h12V18H6z" />
-                    </svg>
-                </div>
-                <div>
-                    <h4 class="text-gray-900 text-xl font-bold">Win-Win</h4>
-                    <p class="text-gray-700">
-                        Build a shared alignment with collaborators, partners, and stakeholders to deliver positive outcomes for both users and the business.
-                    </p>
+            <div class="inspired-list-content">
+                <p class="mb-4">I've met people from around the world who are my source of inspiration and I hope to meet more in the future to learn something new from them. Thank you all. This list is for my own motivation.</p>
+                
+                <div class="inspired-people-grid">
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Ilya Birman</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Alexander Kirov</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Artem Polikarpov</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Irma Boom</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Sergey Korol</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Sergey Rasskazov</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Tim van Damme</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Eddie Lobanovskiy</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Krijn Rijshouwer</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Kostya Gorsky</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Neven Mrgan</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Jonas Treub</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Jessica Hische</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Vitaly Odemchuk</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Yura Vetrov</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Rogie King</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Artur Paikin</span>
+                    </div>
+                    <div class="inspired-person-item">
+                        <div class="person-check-circle">✓</div>
+                        <span>Alexander Zaytsev</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> 
-</section> -->
+    </div>
 
 <script>
     function toggleBucketList() {
@@ -775,7 +666,7 @@
 <br>
 <br> 
 <div class="section-title-wrapper mb-6">
-      <h2 class="section-title" style="margin-left: 10px;">Topics I’d love to chat about over coffee!</h2>
+      <h2 class="section-title" style="margin-left: 10px;">Topics I'd love to chat about over coffee!</h2>
     </div>
     <div class="topics">
         <div>🖥️ Tech & Media</div>
@@ -828,6 +719,7 @@
                         © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
                     </div>
                     <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
+                        <span>Say
                         <span>Say Hello ⮕ </span>
                         <ul class="flex gap-5">
                             <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
