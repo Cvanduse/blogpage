@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
-        body {
+           body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -15,13 +15,13 @@
             color: #333;
         }
 
-        nav a {
-            font-family: 'Roboto', sans-serif;
-        }
+         nav a {
+    font-family: 'Roboto', sans-serif;
+  }
 
-        .mobile-menu a {
-            font-family: 'Roboto', sans-serif;
-        }
+  .mobile-menu a {
+    font-family: 'Roboto', sans-serif;
+  }
         
         .gradient-text {
             font-size: 2.5em;
@@ -32,13 +32,14 @@
             background-clip: text;
             text-fill-color: transparent;
             text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
+
         }
 
         .header-container {
             position: relative;
             width: 100%;
             height: 400px;
-            background-image: url('/api/placeholder/1200/400');
+            background-image: url('/img/header2.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -59,7 +60,7 @@
             position: relative;
             width: 100%;
             height: 250px;
-            background-image: url('/api/placeholder/1200/250');
+            background-image: url('/img/footer2.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -89,306 +90,322 @@
             display: none;
         }
 
-        .highlighted-link {
-            position: relative;
-            display: inline-block;
-            color: black;
-            text-decoration: none; /* Remove default underline */
-        }
+     .highlighted-link {
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none; /* Remove default underline */
+}
 
-        .highlighted-link::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0.8em;
-            background-color: #a0d8f1; /* Light blue highlight */
-            z-index: -1;
-        }
+.highlighted-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.8em;
+    background-color: #a0d8f1; /* Pink highlight */
+    z-index: -1;
+}
 
-        .highlighted-link-blue::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0.8em;
-            background-color: #fcdfe5; /* Pink highlight */
-            z-index: -1;
-        }
+.highlighted-link-blue::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.8em;
+    background-color: #fcdfe5; /* Light Blue highlight */
+    z-index: -1;
+}
 
-        .highlighted-link:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
+.highlighted-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
 
-        .testimonials-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.testimonials-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .swiper {
-            width: 100%;
-            max-width: 1200px;
-        }
+    .swiper {
+      width: 100%;
+      max-width: 1200px;
+    }
 
-        .swiper-slide {
-            background-color: white;
-            border-radius: 10px;
-            padding: 16px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .swiper-slide {
+      background-color: white;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .testimonial-text {
-            font-size: 16px;
-            color: black;
-            margin-bottom: 10px;
-        }
+    .testimonial-text {
+      font-size: 16px;
+      color: black;
+      margin-bottom: 10px;
+    }
 
-        .highlight {
-            color: #00C853;
-            font-weight: bold;
-        }
+    .highlight {
+      color: #00C853;
+      font-weight: bold;
+    }
 
-        .author {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
+    .author {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
 
-        .author-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
+    .author-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
 
-        .author-details {
-            color: #999;
-        }
+    .author-details {
+      color: #999;
+    }
 
-        /* Swiper Pagination and Navigation */
-        .swiper-pagination-bullet {
-            background-color: #00C853;
-        }
+    /* Swiper Pagination and Navigation */
+    .swiper-pagination-bullet {
+      background-color: #00C853;
+    }
 
-        @media (max-width: 768px) {
-            .swiper-slide {
-                width: 90%;
-            }
-        }
+    @media (max-width: 768px) {
+      .swiper-slide {
+        width: 90%;
+      }
+    }
 
-        .gradient-divider {
+     .gradient-divider {
             height: 4px; /* Thin line */
             background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
             border: none;
             margin: 20px 0;
         }
 
-        .mobile-menu {
-            position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
-            top: 300px; /* Adjust this value to move the menu lower */
-            left: 0;
-            right: 0;
-            z-index: 0; /* Ensure it stays on top of other content */
-        }
+   .mobile-menu {
+  position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
+  top: 300px; /* Adjust this value to move the menu lower */
+  left: 0;
+  right: 0;
+  z-index: 0; /* Ensure it stays on top of other content */
+}
 
-        .mobile-menu ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Controls spacing between list items */
-            padding: 0 10px;
-        }
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Controls spacing between list items */
+  padding: 0 10px;
+}
 
-        .mobile-menu a {
-            font-size: 1rem; /* Keeps the 2xl text size */
-            color: #000;
-        }
+.mobile-menu a {
+  font-size: 1rem; /* Keeps the 2xl text size */
+  color: #000;
+}
 
-        .mobile-menu a:hover {
-            color: #gray-500;
-        }
+.mobile-menu a:hover {
+  color: #gray-500;
+}
 
-        .current-projects {
-            text-align: center;
-            margin: 40px auto;
-            padding: 20px;
-            max-width: 1200px;
-        }
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #6b7280; /* Gray */
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
 
-        .project-card {
-            background-color: #ffffff;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            padding: 16px;
-            text-align: center;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex; /* Added for centering content */
-            flex-direction: column; /* Stack children vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-        }
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .project-image img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            display: block; /* Ensure it's treated as a block element */
-        }
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
 
-        .project-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 8px 0;
-        }
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .project-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 10px;
-            font-weight: 700;
-            color: #ffffff;
-            padding: 4px 8px;
-            border-radius: 8px;
-            text-transform: uppercase;
-        }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
 
-        .project-tag.wip {
-            background-color: #34d399; /* Green */
-        }
+.project-card {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Added for centering content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .project-tag.new {
-            background-color: #f87171; /* Red */
-        }
-        
-        .project-year {
-            font-size: 0.875rem;
-            color: #9ca3af; /* Gray */
-        }
+.project-image img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: block; /* Ensure it's treated as a block element */
+}
 
-        /* Responsive Design for 2 Cards Per Row */
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-        }
+.project-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 8px 0;
+}
 
-        /* Single Column on Very Small Devices */
-        @media (max-width: 480px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.project-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
 
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+.project-tag.wip {
+    background-color: #34d399; /* Green */
+}
+
+
+.project-tag.new {
+    background-color: #f87171; /* Red */
+.project-year {
+    font-size: 0.875rem;
+    color: #9ca3af; /* Gray */
+}
+
+
+/* Responsive Design for 2 Cards Per Row */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Single Column on Very Small Devices */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
   </head>
 
-  <body>
-    <!-- Header Section with Image and Overlay Content -->
+   <body>
     <div id="app" :class="{'menu-open': menuOpen}">
+        <!-- Header Section -->
         <header class="header-container">
             <div class="header-content">
                 <header class="flex flex-col items-center md:flex-row md:justify-between gap-2 md:gap-5 pt-16 py-6">
                     <div class="flex flex-col items-center md:flex-row md:items-center">
                         <div class="flex-none w-20 h-20 rounded-full overflow-hidden">
-                            <a href="#">
-                                <img src="/api/placeholder/400/400" width="1080" height="1080" alt="Christopher Van Dusen" />
+                            <a href="#" aria-label="Home">
+                                <img src="/api/placeholder/400/400" width="400" height="400" alt="Christopher Van Dusen" loading="lazy" />
                             </a>
                         </div>
                         <div class="ml-0 md:ml-5 mt-2 md:mt-0 text-center md:text-left">
                             <a href="#">
-                                <h2 id="site-title" class="text-3xl font-bold text-black">Christopher <BR> Van Dusen</h2>
+                                <h1 id="site-title" class="text-3xl font-bold text-black">Christopher <br> Van Dusen</h1>
                             </a>
                         </div>
                     </div>
 
-                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black">
+                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black" aria-label="Toggle menu">
                         <span class="mr-2">{{ menuOpen ? 'Close' : 'Menu' }}</span>
-                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
-                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
                             <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
                         </svg>
                     </button>
                 </header>
+                
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
                   <ul class="flex space-x-6">
-                    <li class="nav-item"><a href="/" class="block text-black dark:text-white">Home</a></li>
-                    <li class="nav-item"><a href="/about" class="block text-black dark:text-white">About Me</a></li>
-                    <li class="nav-item"><a href="/work" class="block text-black dark:text-white">Work</a></li>
-                    <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white">Socials</a></li>
-                    <li class="nav-item"><a href="/posts" class="block text-black dark:text-white">Posts</a></li>
-                    <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white">Support</a></li>
+                    <li class="nav-item"><a href="/" class="block text-black hover:text-blue-600 transition-colors">Home</a></li>
+                    <li class="nav-item"><a href="/about" class="block text-black hover:text-blue-600 transition-colors">About Me</a></li>
+                    <li class="nav-item"><a href="/work" class="block text-black hover:text-blue-600 transition-colors">Work</a></li>
+                    <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black hover:text-blue-600 transition-colors">Socials</a></li>
+                    <li class="nav-item"><a href="/posts" class="block text-black hover:text-blue-600 transition-colors">Posts</a></li>
+                    <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black hover:text-blue-600 transition-colors">Support</a></li>
                   </ul>
                 </nav>
-                 <!-- Mobile Navigation -->
-                <nav class="mobile-menu">
+                
+                <!-- Mobile Navigation -->
+                <nav class="mobile-menu" aria-label="Mobile navigation">
                   <ul class="flex flex-col space-y-1 px-8">
-                    <li>
-                      <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
-                    </li>
-                    <li>
-                      <a href="/about" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
-                    </li>
-                    <li>
-                      <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
-                    </li>
-                    <li>
-                      <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
-                    </li>
-                    <li>
-                      <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Posts</a>
-                    </li>
-                    <li>
-                      <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
-                    </li>
+                    <li><a href="/" class="block text-2xl hover:text-blue-600 transition-colors">Home</a></li>
+                    <li><a href="/about" class="block text-2xl hover:text-blue-600 transition-colors">About Me</a></li>
+                    <li><a href="/work" class="block text-2xl hover:text-blue-600 transition-colors">Work</a></li>
+                    <li><a href="https://links.fwd2cv.com/" class="block text-2xl hover:text-blue-600 transition-colors">Socials</a></li>
+                    <li><a href="/tags" class="block text-2xl hover:text-blue-600 transition-colors">Posts</a></li>
+                    <li><a href="https://buymeacoffee.com/cvandusen" class="block text-2xl hover:text-blue-600 transition-colors">Support</a></li>
                   </ul>
                 </nav>
             </div>
         </header>
 
-        <main v-show="!menuOpen" id="content" class="py-4 px-6 md:px-8 flex flex-col gap-4 max-w-screen-md mx-auto">
+        <!-- Main Content -->
+        <main v-show="!menuOpen" id="content" class="content-container py-4 flex flex-col gap-4">
+            <!-- Status Badge -->
             <div class="w-full">
                 <div class="flex p-1 pr-3 space-x-3 border rounded-full w-max">
-                    <div class="flex px-2 py-1 space-x-2 rounded-full bg-zinc-100 dark:bg-zinc-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
+                    <div class="flex px-2 py-1 space-x-2 rounded-full bg-zinc-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true">
                             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
                         </svg>
                         <span class="text-xs">What's Happening Now</span>
@@ -396,10 +413,10 @@
                     <span class="flex items-center space-x-1 text-xs md:text-xs">
                         <p>New Role</p>
                         <span class="text-blue-500">
-                            <a href="https://siriusxm.com" class="flex items-center text-xs" target="_blank">
+                            <a href="https://siriusxm.com" class="flex items-center text-xs" target="_blank" rel="noopener">
                                 <p>@ SiriusXM </p>
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true">
                                         <path d="M7 7h10v10"></path>
                                         <path d="M7 17 17 7"></path>
                                     </svg>
@@ -410,48 +427,59 @@
                 </div>
             </div>
 
+            <!-- Introduction -->
             <h2 class="title-small text-lg gradient-text">
-                <img src="/api/placeholder/100/100" alt="Waving Hand" class="inline-block w-20 h-20">Hey there! I'm Chris 
+                <img src="/api/placeholder/100/100" width="100" height="100" alt="Waving Hand" class="inline-block w-20 h-20" loading="lazy">
+                Hey there! I'm Chris 
             </h2>
             
+            <!-- Bio Section -->
             <section class="leading-relaxed text-lg">
-                <p>I'm a technologist on a mission to build, innovate and turn dreams into reality. </p> <br>
-                <p>It all began with a big box of Legos. As a kid, I spent hours building castles, spaceships and anything else my imagination could dream up. These days, I've swapped the blocks for <a href="https://blog.fwd2cv.com/work/" class="highlighted-link"><strong>code</strong> </a>, crafting digital experiences that bring bold ideas to life—with a bit more coffee and a few extra keystrokes.</p><br>
-                <p>Curious about how I work or what I am doing right <a href="https://blog.fwd2cv.com/posts/now/" class="highlighted-link"><strong>now</strong> </a>? Check out my <a href="https://blog.fwd2cv.com/posts/uses/" class="highlighted-link"><strong>uses page</strong></a>  for a full list of the software and gadgets I rely on or connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="highlighted-link"><strong>LinkedIn.</strong></a> 🚀 </a>
-                </p>
-                <p> Let's create something amazing together! </p>
-                <br />
-                Best,
-                <h3 class="title-small text-2xl font-bold gradient-text">
-                <img src="/api/placeholder/150/50" alt="signature" class="inline-block w-30 h-10"></h3>
-                <br>
-                <p> Based in <s>Chicago, IL</s> Detroit, MI</p>
-                <p> Personality - ENTJ-A (<s>Sept 2020</s> Nov 2023 Result)</p>
+                <p>I'm a technologist on a mission to build, innovate and turn dreams into reality.</p>
+                
+                <p class="mt-4">It all began with a big box of Legos. As a kid, I spent hours building castles, spaceships and anything else my imagination could dream up. These days, I've swapped the blocks for <a href="https://blog.fwd2cv.com/work/" class="highlighted-link"><strong>code</strong></a>, crafting digital experiences that bring bold ideas to life—with a bit more coffee and a few extra keystrokes.</p>
+                
+                <p class="mt-4">Curious about how I work or what I am doing right <a href="https://blog.fwd2cv.com/posts/now/" class="highlighted-link"><strong>now</strong></a>? Check out my <a href="https://blog.fwd2cv.com/posts/uses/" class="highlighted-link"><strong>uses page</strong></a> for a full list of the software and gadgets I rely on or connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="highlighted-link"><strong>LinkedIn.</strong></a> 🚀</p>
+                
+                <p class="mt-4">Let's create something amazing together!</p>
+                
+                <div class="mt-4">
+                    Best,
+                    <h3 class="title-small text-2xl font-bold gradient-text">
+                        <img src="/api/placeholder/150/50" width="150" height="50" alt="signature" class="inline-block w-30 h-10" loading="lazy">
+                    </h3>
+                </div>
+                
+                <p class="mt-4">Based in <s>Chicago, IL</s> Detroit, MI</p>
+                <p>Personality - ENTJ-A (<s>Sept 2020</s> Nov 2023 Result)</p>
 
+                <!-- Projects Section -->
                 <div class="current-projects">
                     <h2 class="section-title">Current Projects</h2>
                     <div class="projects-grid">
                         <!-- Project Card 1 -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/api/placeholder/80/80" alt="Advisory Logo" />
+                                <img src="/api/placeholder/80/80" width="80" height="80" alt="Advisory Logo" loading="lazy" />
                             </div>
                             <h3 class="project-title">Advisory Committee</h3>
                             <p class="project-year">2024</p>
                         </div>
+                        
                         <!-- Project Card 2 -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/api/placeholder/80/80" alt="Stealth Mode" />
+                                <img src="/api/placeholder/80/80" width="80" height="80" alt="Stealth Mode" loading="lazy" />
                                 <span class="project-tag wip">WIP</span>
                             </div>
                             <h3 class="project-title">Proj. Aurora</h3>
                             <p class="project-year">2024</p>
                         </div>
+                        
                         <!-- Project Card 3 -->
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="/api/placeholder/80/80" alt="Stealth Mode" />
+                                <img src="/api/placeholder/80/80" width="80" height="80" alt="Stealth Mode" loading="lazy" />
                                 <span class="project-tag new">NEW</span>
                             </div>
                             <h3 class="project-title">Proj. Avanti</h3>
@@ -462,25 +490,24 @@
             </section>
         </main>
 
-        <!-- Footer Section -->
+        <!-- Footer -->
         <footer class="footer-container">
-            <footer class="pt-6 pb-8 px-6 md:px-10 md:pb-10 flex justify-between items-center">
-                <div class="footer-content">
-                    <div class="text-xs font-semibold text-gray-500">
-                        © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Detroit.</a>
-                    </div>
-                    <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
-                        <span>Say Hello ⮕ </span>
-                        <ul class="flex gap-5">
-                            <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                            <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        </ul>
-                    </div>
+            <div class="footer-content">
+                <div class="text-xs font-semibold text-gray-500">
+                    © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Detroit.</a>
                 </div>
-            </footer>
+                <div class="flex items-center gap-5 text-xs font-semibold text-gray-500 mt-2">
+                    <span>Say Hello ⮕ </span>
+                    <ul class="flex gap-5">
+                        <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener" class="hover:text-blue-500 transition-colors">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener" class="hover:text-blue-500 transition-colors">Instagram</a></li>
+                        <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener" class="hover:text-blue-500 transition-colors">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
