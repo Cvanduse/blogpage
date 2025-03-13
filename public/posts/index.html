@@ -289,47 +289,78 @@
 
     <!-- Add this script to the bottom of your template, just before the closing </body> tag -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get viewport width
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  // Add this script to the bottom of your HTML files or in a separate JS file
+document.addEventListener('DOMContentLoaded', function() {
+  // Find and fix any elements that overflow the viewport width
+  function fixOverflow() {
+    const viewportWidth = window.innerWidth;
     
-    // Find all elements that might cause overflow
-    const potentialOverflowElements = document.querySelectorAll('pre, code, img, table, blockquote, a, h1, h2, h3, h4, h5, h6');
-    
-    // Apply constraints to each element
-    potentialOverflowElements.forEach(function(element) {
-      // Set max-width
-      element.style.maxWidth = '100%';
+    // Check main content area first
+    const contentArea = document.getElementById('content');
+    if (contentArea) {
+      // Specifically target common problematic elements
+      const potentialOverflowElements = contentArea.querySelectorAll(
+        'pre, code, img, table, blockquote, a, p, h1, h2, h3, h4, h5, h6, .description'
+      );
       
-      // Handle specific element types
-      if (element.tagName === 'IMG') {
-        element.style.height = 'auto';
-      }
+      potentialOverflowElements.forEach(function(element) {
+        const elementWidth = element.offsetWidth;
+        
+        // If element is wider than the viewport
+        if (elementWidth > viewportWidth - 20) { // 20px buffer
+          console.log('Fixing overflow on element:', element);
+          
+          // Apply specific fixes based on element type
+          element.style.maxWidth = '100%';
+          element.style.boxSizing = 'border-box';
+          element.style.overflowWrap = 'break-word';
+          
+          if (element.tagName === 'PRE' || element.tagName === 'CODE') {
+            element.style.whiteSpace = 'pre-wrap';
+            element.style.wordBreak = 'break-word';
+          }
+          
+          if (element.tagName === 'TABLE') {
+            element.style.display = 'block';
+            element.style.overflowX = 'auto';
+          }
+          
+          if (element.tagName === 'A') {
+            element.style.wordBreak = 'break-word';
+          }
+          
+          if (element.tagName === 'IMG') {
+            element.style.height = 'auto';
+          }
+        }
+      });
       
-      if (element.tagName === 'PRE' || element.tagName === 'CODE') {
-        element.style.whiteSpace = 'pre-wrap';
-        element.style.wordBreak = 'break-all';
-        element.style.overflowX = 'auto';
+      // Also look for any direct text nodes that might be causing issues
+      const allElements = contentArea.getElementsByTagName('*');
+      for (let i = 0; i < allElements.length; i++) {
+        const element = allElements[i];
+        
+        // Check for long text content without spaces
+        if (element.childNodes.length === 1 && 
+            element.childNodes[0].nodeType === Node.TEXT_NODE &&
+            element.childNodes[0].nodeValue && 
+            element.childNodes[0].nodeValue.length > 30 && 
+            !element.childNodes[0].nodeValue.includes(' ')) {
+          
+          console.log('Found long text without spaces:', element);
+          element.style.wordBreak = 'break-word';
+          element.style.overflowWrap = 'break-word';
+        }
       }
-      
-      if (element.tagName === 'TABLE') {
-        element.style.display = 'block';
-        element.style.overflowX = 'auto';
-      }
-    });
-    
-    // Check for any elements that might still be causing overflow
-    const allElements = document.querySelectorAll('*');
-    allElements.forEach(function(element) {
-      const rect = element.getBoundingClientRect();
-      if (rect.width > vw) {
-        console.log('Element causing overflow:', element);
-        element.style.maxWidth = '100%';
-        element.style.overflowX = 'auto';
-        element.style.wordBreak = 'break-word';
-      }
-    });
-  });
+    }
+  }
+  
+  // Run on load
+  fixOverflow();
+  
+  // Run when window is resized
+  window.addEventListener('resize', fixOverflow);
+});
 </script>
   </body>
 </html>
