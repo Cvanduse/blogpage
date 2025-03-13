@@ -286,5 +286,50 @@
         }
       });
     </script>
+
+    <!-- Add this script to the bottom of your template, just before the closing </body> tag -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get viewport width
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    
+    // Find all elements that might cause overflow
+    const potentialOverflowElements = document.querySelectorAll('pre, code, img, table, blockquote, a, h1, h2, h3, h4, h5, h6');
+    
+    // Apply constraints to each element
+    potentialOverflowElements.forEach(function(element) {
+      // Set max-width
+      element.style.maxWidth = '100%';
+      
+      // Handle specific element types
+      if (element.tagName === 'IMG') {
+        element.style.height = 'auto';
+      }
+      
+      if (element.tagName === 'PRE' || element.tagName === 'CODE') {
+        element.style.whiteSpace = 'pre-wrap';
+        element.style.wordBreak = 'break-all';
+        element.style.overflowX = 'auto';
+      }
+      
+      if (element.tagName === 'TABLE') {
+        element.style.display = 'block';
+        element.style.overflowX = 'auto';
+      }
+    });
+    
+    // Check for any elements that might still be causing overflow
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(function(element) {
+      const rect = element.getBoundingClientRect();
+      if (rect.width > vw) {
+        console.log('Element causing overflow:', element);
+        element.style.maxWidth = '100%';
+        element.style.overflowX = 'auto';
+        element.style.wordBreak = 'break-word';
+      }
+    });
+  });
+</script>
   </body>
 </html>
