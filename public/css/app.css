@@ -1466,3 +1466,85 @@ body {
   }
 }
 
+/* Add these rules to the end of your app.css file */
+
+/* Override body padding on mobile */
+@media screen and (max-width: 640px) {
+  body {
+    padding: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    text-align: left !important; /* Override justify for better mobile reading */
+  }
+  
+  /* Remove justification on mobile for readability */
+  p, pre, dl {
+    text-align: left !important;
+  }
+  
+  /* Ensure all content is visible */
+  #content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Special handling for description fields */
+  #content .description {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+  
+  /* Handle long words in article titles */
+  #content h1 > a {
+    display: inline-block !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+  
+  /* Fix for code blocks */
+  pre code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+  }
+  
+  /* Make sure images fit */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Handle data tables */
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+}
+
+/* Global fixes for specific elements regardless of screen size */
+pre, code, img, table, blockquote {
+  max-width: 100% !important;
+}
+
+/* Fix any specific issues with text overflow */
+.break-all {
+  word-break: break-all !important;
+}
+
+/* Add this class to long links or text that might overflow */
+.mobile-wrap {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+Last edited just now
+
+
+
+
+
