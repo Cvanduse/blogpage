@@ -112,6 +112,7 @@
             height: 60px; /* Increased height for more gradual fade */
             background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
             pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Ensure the gradient is above the background but below content */
         }
 
         .header-content {
@@ -119,8 +120,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: black; /* Change to black for better readability */
             text-align: center;
+            z-index: 2; /* Ensure content appears above the gradient */
+            width: 100%;
         }
 
         .footer-container {
@@ -146,26 +149,14 @@
             height: 60px; /* Increased height for more gradual fade */
             background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
             pointer-events: none; /* Allow clicks to pass through */
-        }
-
-        /* Responsive background images based on screen size */
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .header-container {
-                background-image: url('/img/responsive/header-medium.webp');
-                height: 225px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .header-container {
-                background-image: url('/img/responsive/header-large.webp');
-                height: 250px;
-            }
+            z-index: 1; /* Ensure the gradient is above the background but below content */
         }
 
         .footer-content {
             color: black;
             text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure content appears above the gradient */
         }
 
         /* Hide content when menu is open */
@@ -443,16 +434,14 @@
 @media (max-width: 767px) {
     /* Position menu button to top right */
     .mobile-menu-button {
-        position: absolute;
+        position: fixed;
         top: 1rem;
         right: 1rem;
-        z-index: 50;
-    }
-    
-    /* Adjust the header content padding for the absolute positioned button */
-    .header-content header {
-        padding-top: 1rem;
-        padding-right: 4rem; /* Make space for the menu button */
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 0.5rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -460,6 +449,37 @@
 .status-indicator {
     margin-left: auto;
     margin-right: 0;
+}
+
+/* Responsive background images based on screen size */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header-container {
+        background-image: url('/img/responsive/header-medium.webp');
+        height: 225px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-container {
+        background-image: url('/img/responsive/header-large.webp');
+        height: 250px;
+    }
+}
+
+/* Ensure nav items are visible */
+.nav-item a {
+    position: relative;
+    transition: color 0.3s ease;
+    color: black; /* Ensure visibility */
+    font-weight: 600; /* Make text bolder for better readability */
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8); /* Add white shadow for readability */
+}
+
+/* Also make mobile navigation more visible */
+.mobile-menu a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
 }
     </style>
   </head>
@@ -483,8 +503,7 @@
                         </div>
                     </div>
 
-                    <button v-on:click="toggleMenu" class="mobile-menu-button flex items-center block md:hidden mt-2 md:mt-0 text-black" aria-label="Toggle menu">
-                        <span class="mr-2" v-text="menuOpen ? 'Close' : 'Menu'"></span>
+                    <button v-on:click="toggleMenu" class="mobile-menu-button flex items-center justify-center block md:hidden" aria-label="Toggle menu">
                         <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
