@@ -392,11 +392,16 @@
         align-items: center;
     }
     
-    .greeting-text-container {
+    .greeting-line-1 {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: nowrap;
+    }
+    
+    .greeting-line-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-top: 0.5rem;
     }
 }
@@ -591,9 +596,12 @@
 </div>
 
         <h2 class="title-small text-lg gradient-text greeting-container">
-  <img src="/img/waving-hand2.gif" alt="Waving Hand" class="inline-block w-14 h-14" width="56" height="56" loading="lazy" decoding="async">
-  <div class="greeting-text-container">
-    <span>Hey there! I'm</span> 
+  <div class="greeting-line-1">
+    <img src="/img/waving-hand2.gif" alt="Waving Hand" class="inline-block w-14 h-14" width="56" height="56" loading="lazy" decoding="async">
+    <span class="ml-2">Hey there!</span> 
+  </div>
+  <div class="greeting-line-2">
+    <span>I'm</span> 
     <div class="profile-image-container mx-2">
       <img src="/img/headshot.webp" alt="Chris Van Dusen" class="profile-image" loading="lazy" decoding="async" width="80" height="56">
     </div>
