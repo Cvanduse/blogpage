@@ -285,15 +285,18 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    border: 2px solid transparent; /* Use border instead of pseudo-elements */
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
+    background-size: 400% 400%;
+    animation: animateProfileBorder 8s linear infinite;
 }
 
-/* Only show border on hover */
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    border-image: linear-gradient(115deg, #A9BCF5, #6D82D1, #5359BF, #3A30A8) 1;
-    border-image-slice: 1;
 }
 
 /* Remove the complex pseudo-elements */
@@ -389,19 +392,19 @@
     .greeting-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
     
     .greeting-line-1 {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .greeting-line-2 {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 0.5rem;
     }
 }
@@ -421,9 +424,9 @@
     background-origin: border-box;
     background-clip: content-box, border-box;
     background-image: linear-gradient(white, white), 
-                      linear-gradient(115deg, #A9BCF5, #89ABE3, #6D82D1, #5359BF, #3A30A8, #5359BF, #6D82D1, #89ABE3);
+                      linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
     background-size: 400% 400%;
-    animation: animateProfileBorder 10s linear infinite;
+    animation: animateProfileBorder 8s linear infinite;
 }
 
 .profile-image-container:hover {
@@ -601,7 +604,7 @@
     <span class="ml-2">Hey there!</span> 
   </div>
   <div class="greeting-line-2">
-    <span>I'm</span> 
+    <span> I'm</span> 
     <div class="profile-image-container mx-2">
       <img src="/img/headshot.webp" alt="Chris Van Dusen" class="profile-image" loading="lazy" decoding="async" width="80" height="56">
     </div>
