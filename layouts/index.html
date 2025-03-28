@@ -102,6 +102,18 @@
             transition: height 0.2s ease-in-out; /* Faster transition */
         }
 
+        /* Add fade effect at the bottom of the header */
+        .header-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, white);
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
         .header-content {
             position: absolute;
             top: 50%;
@@ -122,6 +134,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Add fade effect at the top of the footer */
+        .footer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, transparent, white);
+            pointer-events: none; /* Allow clicks to pass through */
         }
 
         /* Responsive background images based on screen size */
