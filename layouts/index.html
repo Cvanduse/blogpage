@@ -273,10 +273,49 @@
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically */
+    overflow: hidden; /* Ensure the gradient stays within rounded corners */
+    z-index: 1; /* Ensure content stays above the gradient border */
 }
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(115deg, 
+        #b166ff, #7f66ff, #6689ff, #66bfff, 
+        #66ffed, #66ff95, #b3ff66, #ffee66, 
+        #ffb566, #ff6666, #ff66b9);
+    background-size: 300% 300%;
+    border-radius: 14px; /* Slightly larger than the card to account for the border */
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+    animation: animateGradient 5s linear infinite;
+}
+
+@keyframes animateGradient { 
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.2);
+    border: none;
 }
 
 .project-image img {
