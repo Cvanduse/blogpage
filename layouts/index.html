@@ -558,11 +558,12 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: row; /* Changed from column to row */
+  flex-direction: row;
   gap: 0.75rem;
   z-index: 100;
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   display: none; /* Hide by default on all devices */
+  opacity: 1;
 }
 
 /* Only show on mobile devices */
@@ -572,91 +573,11 @@
   }
 }
 
-.fab {
-  width: 2.75rem; /* Smaller size */
-  height: 2.75rem; /* Smaller size */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.fab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.fab-info {
-  background-color: white;
-  color: #333;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 1rem; /* Smaller font size */
-}
-
-.fab-call {
-  background: linear-gradient(115deg, #738bff, #a278f4);
-  color: white;
-  font-weight: 600;
-  font-size: 0.8rem; /* Smaller font size */
-  width: auto;
-  padding: 0 1.25rem;
-  border-radius: 30px;
-}
-
-.social-panel {
-  position: absolute;
-  bottom: 3.5rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background-color: white;
-  border-radius: 12px;
-  padding: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  min-width: 160px;
-  max-width: 80vw;
-}
-
-.social-panel.active {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: auto;
-}
-
-.social-panel a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #333;
-  text-decoration: none;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-  font-size: 0.9rem;
-}
-
-.social-panel a:hover {
-  background-color: #f5f5f5;
-}
-
-.social-panel a svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
 .hidden-fab {
-  opacity: 0;
-  transform: translateY(20px) translateX(-50%);
-  pointer-events: none;
+  opacity: 0 !important;
+  transform: translateY(20px) translateX(-50%) !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
     </style>
   </head>
@@ -890,7 +811,8 @@
             menuOpen: false,
             isPanelOpen: false,
             isHidden: false,
-            lastScrollPosition: 0
+            lastScrollPosition: 0,
+            ticking: false // Used for scroll throttling
           },
           methods: {
             toggleMenu: function () {
@@ -902,28 +824,70 @@
               this.isPanelOpen = !this.isPanelOpen;
             },
             handleScroll: function() {
-              const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-              const pageHeight = document.documentElement.scrollHeight;
-              const viewportHeight = window.innerHeight;
-              const scrollableHeight = pageHeight - viewportHeight;
-              const scrollPercentage = (currentScrollPosition / scrollableHeight) * 100;
-              
-              // Show buttons only at the very top (< 15%) or very bottom (> 85%) of the page
-              // This creates a "middle zone" where buttons are hidden for better reading
-              if (scrollPercentage > 15 && scrollPercentage < 85) {
-                this.isHidden = true;
-              } else {
-                this.isHidden = false;
+              // Use requestAnimationFrame to throttle scroll events
+              if (!this.ticking) {
+                window.requestAnimationFrame(() => {
+                  const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                  const pageHeight = document.documentElement.scrollHeight;
+                  const viewportHeight = window.innerHeight;
+                  
+                  // Handle edge case where scrollableHeight could be zero on some mobile browsers
+                  if (scrollableHeight <= 0) return;
+                  
+                  const scrollPercentage = (currentScrollPosition / scrollableHeight) * 100;
+                  
+                  // Specific thresholds for top and bottom regions
+                  const topThreshold = 10; // Show when in top 10% of page
+                  const bottomThreshold = 85; // Show when in bottom 15% of page
+                  
+                  // Logic to show/hide buttons
+                  if (scrollPercentage > topThreshold && scrollPercentage < bottomThreshold) {
+                    // In the middle section - hide buttons
+                    if (!this.isHidden) {
+                      this.isHidden = true;
+                      // Force reflow to ensure changes are applied immediately
+                      document.querySelector('.floating-actions').offsetHeight;
+                    }
+                  } else {
+                    // At top or bottom - show buttons
+                    if (this.isHidden) {
+                      this.isHidden = false;
+                      // Force reflow to ensure changes are applied immediately
+                      document.querySelector('.floating-actions').offsetHeight;
+                    }
+                  }
+                  
+                  this.lastScrollPosition = currentScrollPosition;
+                  this.ticking = false;
+                });
+                
+                this.ticking = true;
               }
-              
-              this.lastScrollPosition = currentScrollPosition;
+            },
+            // Add this method to check if device is iOS (which needs special handling)
+            isIOS: function() {
+              return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             }
           },
           mounted() {
-            window.addEventListener('scroll', this.handleScroll);
+            // Add passive: true for better scroll performance on mobile
+            window.addEventListener('scroll', this.handleScroll, { passive: true });
+            
+            // Initial check for button visibility
+            this.$nextTick(() => {
+              this.handleScroll();
+            });
+            
+            // Add a touchmove listener specifically for iOS
+            if (this.isIOS()) {
+              window.addEventListener('touchmove', this.handleScroll, { passive: true });
+            }
           },
           beforeDestroy() {
             window.removeEventListener('scroll', this.handleScroll);
+            if (this.isIOS()) {
+              window.removeEventListener('touchmove', this.handleScroll);
+            }
           }
         });
         
