@@ -415,7 +415,7 @@
     margin: 0 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     vertical-align: middle;
-    border: 2px solid transparent;
+    border: 0.5px solid transparent;
     background-origin: border-box;
     background-clip: content-box, border-box;
     background-image: linear-gradient(white, white), 
@@ -514,6 +514,20 @@
 .greeting-line-2 {
     display: flex;
     align-items: center;
+}
+
+/* Desktop-specific adjustments for greeting */
+@media (min-width: 768px) {
+    .greeting-container {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    .greeting-line-1 {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
 }
     </style>
   </head>
