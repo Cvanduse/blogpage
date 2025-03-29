@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-US" class="scroll-smooth dark">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7S1K4DT2P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Z7S1K4DT2P');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Christopher Van Dusen - Technologist and innovator based in Detroit, MI">
     <title>Christopher Van Dusen</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js" as="script">
+    <link rel="preload" href="/img/profilecv.webp" as="image" fetchpriority="high">
+    <!-- Only preload the mobile header to reduce initial load time -->
+    <link rel="preload" href="/img/responsive/header-small.webp" as="image" media="(max-width: 767px)">
+    <!-- Preload responsive header images with appropriate media queries -->
+    <link rel="preload" href="/img/responsive/header-medium.webp" as="image" media="(min-width: 768px) and (max-width: 1199px)">
+    <link rel="preload" href="/img/responsive/header-large.webp" as="image" media="(min-width: 1200px)">
+    
+    <!-- Add DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
             body {
@@ -351,584 +380,93 @@
     <div id="app" :class="{'menu-open': menuOpen}">
         <header class="header-container">
             <div class="header-content">
-                <header class="flex flex-col items-center md:flex-row md:justify-between gap-2 md:gap-5 pt-16 py-6">
+                <header class="flex flex-col items-center md:items-center md:justify-center gap-2 md:gap-5 pt-8 py-4">
                     <div class="flex flex-col items-center md:flex-row md:items-center">
                         <div class="flex-none w-20 h-20 rounded-full overflow-hidden">
                             <a href="#">
-                                <img src="/img/profilecv.png" width="1080" height="1080" alt="Christopher Van Dusen" />
+                                <img src="/img/profilecv.webp" width="160" height="160" alt="Christopher Van Dusen" fetchpriority="high" loading="eager" decoding="async" />
                             </a>
                         </div>
-                        <div class="ml-0 md:ml-5 mt-1 md:mt-0 text-center md:text-left">
+                        <div class="ml-0 md:ml-5 mt-2 md:mt-0 text-center md:text-left">
                             <a href="#">
                                 <h2 id="site-title" class="text-3xl font-bold text-black">Christopher <BR> Van Dusen</h2>
                             </a>
                         </div>
                     </div>
 
-                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-5 md:mt-0 text-black">
-                        <span class="mr-2">{{ "{{ menuOpen ? 'Close' : 'Menu' }}" | safeHTML }}</span>
-                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+                    <button @click="toggleMenu" class="mobile-menu-button flex items-center justify-center block md:hidden" aria-label="Toggle menu">
+                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
-                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
+                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
                             <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
                         </svg>
                     </button>
                 </header>
-<!-- Desktop Navigation -->
-            <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
-              <ul class="flex space-x-6">
-                <li class="nav-item"><a href="/" class="block text-black dark:text-white">Home</a></li>
-                <li class="nav-item"><a href="/about" class="block text-black dark:text-white">About Me</a></li>
-                <li class="nav-item"><a href="/work" class="block text-black dark:text-white">Work</a></li>
-                <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white">Socials</a></li>
-                <li class="nav-item"><a href="/posts" class="block text-black dark:text-white">Posts</a></li>
-                <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white">Support</a></li>
-              </ul>
-            </nav>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
+                    <ul class="flex space-x-6">
+                        <li class="nav-item"><a href="/" class="block text-black dark:text-white">Home</a></li>
+                        <li class="nav-item"><a href="/about" class="block text-black dark:text-white">About Me</a></li>
+                        <li class="nav-item"><a href="/work" class="block text-black dark:text-white">Work</a></li>
+                        <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white">Socials</a></li>
+                        <li class="nav-item"><a href="/posts" class="block text-black dark:text-white">Posts</a></li>
+                        <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white">Support</a></li>
+                    </ul>
+                </nav>
                 <!-- Mobile Navigation -->
                 <nav class="mobile-menu">
-                  <ul class="flex flex-col space-y-1 px-8">
-                    <li>
-                      <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
-                    </li>
-                    <li>
-                      <a href="https://fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
-                    </li>
-                    <li>
-                      <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
-                    </li>
-                    <li>
-                      <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
-                    </li>
-                    <li>
-                      <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Tags</a>
-                    </li>
-                    <li>
-                      <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
-                    </li>
-                  </ul>
+                    <ul class="flex flex-col space-y-1 px-8">
+                        <li>
+                            <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
+                        </li>
+                        <li>
+                            <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+                        </li>
+                        <li>
+                            <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
+                        </li>
+                        <li>
+                            <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Posts</a>
+                        </li>
+                        <li>
+                            <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </header>
 
       <!-- Main Content -->
       <main v-show="!menuOpen" id="content" class="py-4 px-6 md:px-8 flex flex-col gap-4 max-w-screen-md mx-auto">
-        <h3 class="title-small text-4xl font-bold gradient-text text-center mb-0">Work.</h3>
-        <div style="position: relative;">
-    <hr class="gradient-divider" style="position: absolute; left: 175px; right: 175px;">
-</div>
-<p class="text-center text-lg mt-0">
-</p>
-<p class="text-center text-lg mt-0">
-</p>
-      <!-- Sub-navigation -->
-
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css">
-
-  <style>
-    /* General pill styling */
-    .pill {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #f0f0f0;
-      border-radius: 50px;
-      text-decoration: none;
-      color: #000;
-      border: 2px solid transparent;
-      font-size: 1rem;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Hover effect to add border and change background */
-    .pill:hover {
-      background-color: #00bfa6;
-      color: #fff;
-      border-color: #00bfa6;
-    }
-
-    /* Flexbox for centering the navigation */
-    .pill-nav {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin-bottom: 20px;
-    }
-
-    /* Flex items */
-    .pill-nav li {
-      margin: 0 15px;
-    }
-  </style>
-</head>
-
-<script>
-  function toggleDetails(id) {
-    const details = document.getElementById(id);
-    const isHidden = details.style.display === "none" || details.style.display === "";
-    
-    // Toggle the display style
-    details.style.display = isHidden ? "block" : "none";
-
-    // Change the button text
-    const button = event.target;
-    button.textContent = isHidden ? "Collapse" : "Expand";
-  }
-</script>
-
-<style>
-  @media (max-width: 600px) {
-    /* Change flex direction to column and center items */
-    #nav-list {
-      flex-direction: column;
-      align-items: center;
-    }
-    /* Adjust margins for list items */
-    #nav-list li {
-      margin: 10px 0;
-    }
-  }
-</style>
-
-<nav style="margin-bottom: 20px; text-align: center;">
-  <ul id="nav-list" style="display: flex; justify-content: center; list-style: none; padding: 0;">
-    <li style="margin: 0 15px;">
-      <a href="#" onclick="changeContent('anyone')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
-        For anyone
-      </a>
-    </li>
-    <li style="margin: 0 15px;">
-      <a href="#" onclick="changeContent('recruiters')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
-        Recruiters
-      </a>
-    </li>
-    <li style="margin: 0 15px;">
-      <a href="#" onclick="changeContent('directors')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
-         Developers
-      </a>
-    </li>
-  </ul>
-</nav>
-
-<style>
-  @media (max-width: 600px) {
-    /* Change flex direction to column and center items */
-    #nav-list {
-      flex-direction: column;
-      align-items: center;
-    }
-    /* Adjust margins for list items */
-    #nav-list li {
-      margin: 10px 0;
-    }
-  }
-</style>
-
-
-      <!-- Dynamic Content Area -->
-      <section id="dynamic-content">
-        I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build.
-        These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful.
-        This is how I work—transforming possibilities into reality, one piece at a time.  
-      </section>
-
-    <script>
-      function changeContent(target) {
-        var contentMap = {
-          anyone: "I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build. These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful. This is how I work—transforming possibilities into reality, one piece at a time.",
-          recruiters: "I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build. These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful. This is how I work—transforming possibilities into reality, one piece at a time.  ",
-           directors: "def hello(visitor):\n" +
-                  "    Welcome to my portfolio! I'm a Salesforce Architect who transforms business visions into scalable solutions.\n" +
-                  "    if visitor.you == 'new':\n" +
-                  "        introduce_self(\n" +
-                  "            myName = 'Chris',\n" +
-                   "           myRole = 'Salesforce Architect',\n" +
-                  "            myExpertise = ['Salesforce',\n" +
-                  "                      'Administration',\n" +
-                  "                      'Development',\n" +
-                  "                      'Low Code'],\n" +
-                  "            myLocation = '@ Michigan')\n" +
-                  "    else:\n" +
-                  "        welcome_back()"
-        };
-
-        document.getElementById('dynamic-content').innerText = contentMap[target];
-      }
-    </script>
-
-        
-<!-- Job Section-->
-
-<section id="dynamic-content">
-  <section style="max-width: 800px; margin: 0 auto;">
-    <br>
-  </section>
-  <section id="dynamic-content">
-  <section style="max-width: 800px; margin: 0 auto;">
-    <br>
-  </section>
-  <h2 style="font-size: 1.5rem; color: #333; text-align: left; margin-bottom: 20px;">
-    Work Experience
-  </h2>
-
-  <!-- Job 1 -->
-  <div
-    style="background-color: #fff7f3; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 2px solid #fdbf8f;"
-  >
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="font-size: 1.3rem; color: #333;">Sr. System Administrator, Salesforce</h3>
-        <p style="font-size: 0.9rem; color: #777;">SiriusXM &middot; Oct 2024 – Present</p>
-      </div>
-        <div>
-      <!-- Wrap the logo with an anchor tag -->
-      <a href="https://www.siriusxm.com" target="_blank" rel="noopener noreferrer">
-        <img
-          src="/img/sirius.png"
-          alt="SXM logo"
-          style="width: 50px; height: auto; border-radius: 10px;"
-        />
-      </a>
-    </div>
-    </div>
-    <div style="margin-top: 10px; text-align: left;">
-      <button
-        onclick="toggleDetails('details1')"
-        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
-      >
-        Expand
-      </button>
-    </div>
-    <div
-      id="details1"
-      style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
-    >
-      <p>
-        SiriusXM is a leading audio entertainment company in North America, providing satellite and streaming radio services. It offers a vast array of content, including music, sports, news, talk, and comedy, with both commercial-free and curated programming. SiriusXM also owns Pandora, a popular music streaming platform, enhancing its personalized audio offerings. With millions of subscribers, the company is known for its exclusive partnerships, celebrity-hosted channels, and integration into vehicles and smart devices.
-      </p>
-    </div>
-   </div>
-
-<!-- Job 2 -->
-    <div
-    style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
-  >
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="font-size: 1.3rem; color: #333;">Developer & System Analyst, Salesforce </h3>
-        <p style="font-size: 0.9rem; color: #777;">Builders Vision &middot; Jul 2021 – Sept 2024</p>
-      </div>
-       <div>
-      <!-- Wrap the logo with an anchor tag -->
-      <a href="https://www.buildersvision.com" target="_blank" rel="noopener noreferrer">
-        <img
-          src="/img/brick.jpg"
-          alt="BVlogo"
-          style="width: 50px; height: auto; border-radius: 10px;"
-        />
-      </a>
-    </div>
-    </div>
-    <div style="margin-top: 10px; text-align: left;">
-      <button
-        onclick="toggleDetails('details2')"
-        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
-      >
-        Expand
-      </button>
-    </div>
-    <div
-      id="details2"
-      style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
-    >
-      <p>
-        Builders Vision is an impact-driven platform dedicated to fostering sustainable solutions for global challenges. Founded by Lukas Walton, it operates through ventures, philanthropy, and investments, aiming to create a healthier, more humane planet. The company focuses on areas such as sustainable food systems, renewable energy, and conservation, leveraging innovative strategies to drive meaningful change. With a commitment to collaboration and long-term impact, Builders Vision partners with organizations and leaders to address complex societal and environmental issues.
-      </p>
-    </div>
-  </div>
-  <!-- Job 3 -->
-    <div
-    style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
-  >
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="font-size: 1.3rem; color: #333;"> Salesforce Application Developer II</h3>
-        <p style="font-size: 0.9rem; color: #777;">UWM &middot; Aug 2020 – Jul 2021</p>
-      </div>
-       <div>
-      <!-- Wrap the logo with an anchor tag -->
-      <a href="https://www.uwm.com" target="_blank" rel="noopener noreferrer">
-        <img
-          src="/img/uwm.jpg"
-          alt="uwm logo"
-          style="width: 50px; height: auto; border-radius: 10px;"
-        />
-      </a>
-    </div>
-    </div>
-    <div style="margin-top: 10px; text-align: left;">
-      <button
-        onclick="toggleDetails('details3')"
-        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
-      >
-        Expand
-      </button>
-    </div>
-    <div
-      id="details3"
-      style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
-    >
-      <p>
-        United Wholesale Mortgage (UWM) is a leading wholesale mortgage lender specializing in providing home loans through independent mortgage brokers. Based in Pontiac, Michigan, it is known for its innovative technology, streamlined processes, and commitment to fast and efficient loan turnarounds. UWM supports mortgage brokers with tools, resources, and competitive rates to help them deliver exceptional service to their clients. As one of the largest players in the mortgage industry, UWM emphasizes empowering brokers and promoting homeownership nationwide.
-      </p>
-    </div>
-  </div>
-  <!-- Job 4 -->
-    <div
-    style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
-  >
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="font-size: 1.3rem; color: #333;">Senior Sales Associate</h3>
-        <p style="font-size: 0.9rem; color: #777;">J.D. Power &middot; Oct 2017 – Aug 2020</p>
-      </div>
-        <div>
-      <!-- Wrap the logo with an anchor tag -->
-      <a href="https://www.jdpower.com" target="_blank" rel="noopener noreferrer">
-        <img
-          src="/img/jdp.png"
-          alt="J.D. Power logo"
-          style="width: 50px; height: auto; border-radius: 10px;"
-        />
-      </a>
-    </div>
-    </div>
-    <div style="margin-top: 10px; text-align: left;">
-      <button
-        onclick="toggleDetails('details4')"
-        style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
-      >
-        Expand
-      </button>
-    </div>
-    <div
-      id="details4"
-      style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
-    >
-      <p>
-        J.D. Power is a global leader in data analytics and consumer insights, renowned for its benchmark studies on customer satisfaction and product quality. Founded in 1968, the company provides independent research and advisory services across industries like automotive, financial services, healthcare, and telecommunications. J.D. Power's trusted rankings and awards help businesses understand consumer preferences and improve their products and services. With a reputation for accuracy and reliability, the company plays a key role in shaping industry standards and consumer decision-making worldwide.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section class="bg-white text-black py-10">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl font-bold mb-4">My tech and design stack...</h2>
-    <p class="text-gray-600 mb-8">
-      Knowing how to use tools and using them to build things is fascinating.
-    </p>
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-      <!-- Tech Stack Icons -->
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/figma.png" alt="Figma Logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">Figma</p>
-      </div>
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/notion.png" alt="Notion Logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">Notion</p>
-      </div>
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/vscode.png" alt="VS Code logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">VS Code</p>
-      </div>
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/asana.png" alt="Asana Logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">Asana</p>
-      </div>
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/salesforce.png" alt="Salesforce Logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">Salesforce</p>
-      </div>
-      <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
-        <img src="/img/icons/photoshop.png" alt="Photoshop Logo" class="h-8 mb-2">
-        <p class="text-sm font-medium text-gray-700">Photoshop</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="case-study-container">
-  <!-- Case Study Card 1 -->
-  <a href="https://blog.fwd2cv.com/work/" class="case-study-link">
-    <div class="case-study">
-      <div class="case-study-image-area">
-        <img src="/img/rednotebook.png" alt="Notebook Cover 1">
-        <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
-        <div class="case-study-overlay">
-          <h3 class="case-study-title"> Case Study #1</h3>
-          <p class="case-study-subtitle"> Coming Soon</p>
-          <p class="case-study-meta">15 min read</p>
+        <h3 class="title-small text-4xl font-bold gradient-text text-center mb-4">Work.</h3>
+        <div class="flex justify-center">
+          <hr class="gradient-divider w-1/3">
         </div>
-      </div>
-    </div>
-  </a>
-
-  <!-- Case Study Card 2 -->
-  <a href="https://blog.fwd2cv.com/work/" class="case-study-link">
-    <div class="case-study">
-      <div class="case-study-image-area">
-        <img src="/img/rednotebook.png" alt="Notebook Cover 2">
-        <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
-        <div class="case-study-overlay">
-          <h3 class="case-study-title"> Case Study #2</h3>
-          <p class="case-study-subtitle">Coming Soon</p>
-          <p class="case-study-meta">8 min read</p>
-        </div>
-      </div>
-    </div>
-  </a>
-</section>
-
-
-</section>
-<!--
-
-.case-study:hover .case-study-image-area img {
-  transform: scale(0.1);
-  transition: transform 0.3s ease;
-}
-  <h3 class="title-small text-2xl font-bold gradient-text"> What people i've worked with say about me</h3>
-
-
-<section id="dynamic-content">
-        <section style="max-width: 800px; margin: 0 auto;">
-     <section class="testimonials-section">
-   
-    <div class="relative max-w-4xl mx-auto"> -->
-        <!-- 
-        Carousel container 
-        <div id="testimonialCarousel" class="overflow-x-scroll scroll-snap-x snap-mandatory flex space-x-4 p-4 hide-scrollbar"> -->
-             <!-- Testimonial 1 
-    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
-      <p class="text-lg font-semibold text-black">
-        " Oriol is undeniably one of the most talented product designers I've had the pleasure of sharing a team with. 
-          He's also a confident leader. I witnessed him working on <span class="testimonial-highlight">end-to-end journeys that involved alignment between cross-team stakeholders</span>."
-      </p>
-      <div class="flex items-center mt-4">
-        <img src="path-to-image.jpg" alt="Chad Bonner" class="w-10 h-10 rounded-full lazyload">
-        <div class="ml-4">
-          <p class="text-black font-bold">Chad Bonner</p>
-          <p class="text-gray-500">Director of Product Mgmt. @ Typeform</p>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Testimonial 2
-    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
-      <p class="text-lg font-semibold text-green-600">
-        Oriol proved himself to be an invaluable senior member, helping lead projects around engagement and discovery...
-      </p>
-      <div class="flex items-center mt-4">
-        <img src="path-to-image.jpg" alt="Brian Yeung" class="w-10 h-10 rounded-full lazyload">
-        <div class="ml-4">
-          <p class="text-black font-bold">Brian Yeung</p>
-          <p class="text-gray-500">Director of Product Design @ Zalando</p>
-        </div>
-      </div>
-    </div>-->
-
-    <!-- Testimonial 3 
-    <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
-      <p class="text-lg font-semibold text-black">
-        Oriol is undeniably one of the most talented product designers I've had the pleasure of sharing a team with...
-      </p>
-      <div class="flex items-center mt-4">
-        <img src="path-to-image.jpg" alt="Denise Ene" class="w-10 h-10 rounded-full lazyload">
-        <div class="ml-4">
-          <p class="text-black font-bold">Denise Ene</p>
-          <p class="text-gray-500">Senior Product Designer @ Typeform</p>
-        </div>
-      </div>
-    </div>
-  </div>-->
-        <!-- Navigation Arrows 
-        <button id="scrollLeftBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
-            ❮
-        </button>
-        <button id="scrollRightBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
-            ❯
-        </button>
-    </div>
-    
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('testimonialCarousel');
-            const leftBtn = document.getElementById('scrollLeftBtn');
-            const rightBtn = document.getElementById('scrollRightBtn');
-            const debugText = document.getElementById('debugText');
-
-            function updateDebugInfo() {
-                debugText.textContent = `
-                    ScrollLeft: ${container.scrollLeft}
-                    ClientWidth: ${container.clientWidth}
-                    ScrollWidth: ${container.scrollWidth}
-                `;
-            }
-
-            function scroll(direction) {
-                const scrollAmount = container.clientWidth;
-                const currentScroll = container.scrollLeft;
-                const targetScroll = direction === 'left' 
-                    ? Math.max(currentScroll - scrollAmount, 0)
-                    : Math.min(currentScroll + scrollAmount, container.scrollWidth - container.clientWidth);
-                
-                container.scrollTo({
-                    left: targetScroll,
-                    behavior: 'smooth'
-                });
-
-                updateDebugInfo();
-            }
-
-            leftBtn.addEventListener('click', () => scroll('left'));
-            rightBtn.addEventListener('click', () => scroll('right'));
-
-            // Initial debug info
-            updateDebugInfo();
-
-            // Update debug info on scroll
-            container.addEventListener('scroll', updateDebugInfo);
-        });
-    </script> -->
-<br>
-      <h3 class="title-small text-2xl font-bold gradient-text"> And that's a wrap!</h3>
-</body>
-</html>
+        <p class="text-center text-lg mt-4">
+        </p>
+        <p class="text-center text-lg mt-0">
+        </p>
       </main>
 
      <!-- Footer Section -->
         <footer class="footer-container">
-            <footer class="pt-6 pb-8 px-6 md:px-10 md:pb-10 flex justify-between items-center">
-                <div class="footer-content">
-                    <div class="text-xs font-semibold text-gray-500">
-                        © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
-                    </div>
-                    <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
-                        <span>Say Hello ⮕ </span>
-                        <ul class="flex gap-5">
-                            <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                            <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                        </ul>
-                    </div>
+            <div class="footer-content">
+                <div class="text-xs font-semibold text-gray-500">
+                    © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Detroit.</a>
                 </div>
-            </footer>
+                <div class="flex items-center gap-5 text-xs font-semibold text-gray-500 justify-center">
+                    <span>Say Hello ⮕ </span>
+                    <ul class="flex gap-5">
+                        <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     </div>
 
