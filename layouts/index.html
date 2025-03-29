@@ -235,46 +235,29 @@
   background-color: #000;
   z-index: 1000;
   display: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: 120px;
+  overflow-y: auto;
 }
 
 .mobile-menu ul {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   padding: 0 42px;
 }
 
 .mobile-menu a {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #fff;
   text-decoration: none;
   display: block;
   transition: color 0.2s ease;
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
-.mobile-menu-header {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
-}
-
-.mobile-menu-footer {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-}
-
-.mobile-menu-footer .border-t {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1rem;
+.mobile-menu a:hover {
+  color: #999;
 }
 
 /* Style for the close button */
@@ -677,7 +660,7 @@
             </nav>
              <!-- Mobile Navigation -->
                 <nav class="mobile-menu">
-                  <div class="mobile-menu-header">
+                  <div class="flex justify-between items-center px-8 mb-12">
                     <h2 class="text-3xl font-bold text-white">CHRIS VAN DUSEN</h2>
                   </div>
                   <ul class="flex flex-col">
@@ -700,8 +683,8 @@
                       <a href="https://buymeacoffee.com/cvandusen" class="block hover:text-gray-400">Support</a>
                     </li>
                   </ul>
-                  <div class="mobile-menu-footer">
-                    <div class="border-t">
+                  <div class="px-8 mt-auto pt-16">
+                    <div class="border-t border-gray-800 pt-8 pb-4">
                       <ul class="flex gap-6 text-white text-sm">
                         <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener">Twitter</a></li>
                         <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener">Instagram</a></li>
