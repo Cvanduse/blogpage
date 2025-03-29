@@ -532,6 +532,24 @@
         margin-right: 1rem;
     }
 }
+
+/* Add fade-in animation for content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s; /* Small delay to ensure page is loaded */
+}
     </style>
   </head>
 
@@ -641,7 +659,7 @@
   </div>
   </h2>
    
-        <section class="leading-relaxed text-lg">
+        <section class="leading-relaxed text-lg fade-in">
           <p>I'm a technologist on a mission to build, innovate and turn dreams into reality. </p> <br>
             <p>It all began with a big box of Legos. As a kid, I spent hours building castles, spaceships and anything else my imagination could dream up. These days, I've swapped the blocks for <a href="https://blog.fwd2cv.com/work/" class="highlighted-link highlight-purple"><strong>code</strong> </a>, crafting digital experiences that bring bold ideas to life—with a bit more coffee and a few extra keystrokes.</p><br>
            <p>Curious about how I work or what I am doing right <a href="https://blog.fwd2cv.com/posts/now/" class="highlighted-link highlight-blue"><strong>now</strong> </a>? Check out my <a href="https://blog.fwd2cv.com/posts/uses/" class="highlighted-link highlight-red"><strong>uses page</strong></a>  for a full list of the software and gadgets I rely on or connect with me on <a href="https://www.linkedin.com/in/cvanduse/" class="highlighted-link highlight-yellow"><strong>LinkedIn.</strong></a> 🚀 </a>
