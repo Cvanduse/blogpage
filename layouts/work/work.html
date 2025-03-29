@@ -450,6 +450,455 @@
         </p>
         <p class="text-center text-lg mt-0">
         </p>
+        
+        <!-- Sub-navigation -->
+        <style>
+          /* General pill styling */
+          .pill {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #000;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+          }
+
+          /* Hover effect to add border and change background */
+          .pill:hover {
+            background-color: #00bfa6;
+            color: #fff;
+            border-color: #00bfa6;
+          }
+
+          /* Flexbox for centering the navigation */
+          .pill-nav {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+          }
+
+          /* Flex items */
+          .pill-nav li {
+            margin: 0 15px;
+          }
+          
+          @media (max-width: 600px) {
+            /* Change flex direction to column and center items */
+            #nav-list {
+              flex-direction: column;
+              align-items: center;
+            }
+            /* Adjust margins for list items */
+            #nav-list li {
+              margin: 10px 0;
+            }
+          }
+        </style>
+
+        <nav style="margin-bottom: 20px; text-align: center;">
+          <ul id="nav-list" style="display: flex; justify-content: center; list-style: none; padding: 0;">
+            <li style="margin: 0 15px;">
+              <a href="#" onclick="changeContent('anyone')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+                For anyone
+              </a>
+            </li>
+            <li style="margin: 0 15px;">
+              <a href="#" onclick="changeContent('recruiters')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+                Recruiters
+              </a>
+            </li>
+            <li style="margin: 0 15px;">
+              <a href="#" onclick="changeContent('directors')" style="text-decoration: none; font-weight: bold; color: black; font-size: 1rem; padding: 10px 20px; background-color: #f0f0f0; border-radius: 50px; border: 2px solid transparent; transition: background-color 0.3s ease, border-color 0.3s ease;">
+                Developers
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Dynamic Content Area -->
+        <section id="dynamic-content">
+          I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build.
+          These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful.
+          This is how I work—transforming possibilities into reality, one piece at a time.  
+        </section>
+
+        <script>
+          function changeContent(target) {
+            var contentMap = {
+              anyone: "I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build. These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful. This is how I work—transforming possibilities into reality, one piece at a time.",
+              recruiters: "I'm dreaming of a world where everyone has the skills, confidence, and access to bring their boldest ideas to life. It all started with a big box of Legos—as a kid, I spent hours building castles, spaceships, and anything else my imagination could dream up. Those childhood hours taught me something powerful: everyone has the capacity to create, they just need the right tools and space to build. These days, I've swapped the plastic blocks for code, but that core belief remains unchanged. And it's not just about individuals—this vision extends to teams, communities, and brands. Imagine the incredible ideas, collaborations, and expertise just waiting to be unlocked. I'm here to uncover that hidden magic and transform it into something tangible and impactful. This is how I work—transforming possibilities into reality, one piece at a time.  ",
+              directors: "def hello(visitor):\n" +
+                      "    Welcome to my portfolio! I'm a Salesforce Architect who transforms business visions into scalable solutions.\n" +
+                      "    if visitor.you == 'new':\n" +
+                      "        introduce_self(\n" +
+                      "            myName = 'Chris',\n" +
+                      "           myRole = 'Salesforce Architect',\n" +
+                      "            myExpertise = ['Salesforce',\n" +
+                      "                      'Administration',\n" +
+                      "                      'Development',\n" +
+                      "                      'Low Code'],\n" +
+                      "            myLocation = '@ Michigan')\n" +
+                      "    else:\n" +
+                      "        welcome_back()"
+            };
+
+            document.getElementById('dynamic-content').innerText = contentMap[target];
+          }
+        </script>
+            
+        <!-- Job Section-->
+        <section id="dynamic-content">
+          <section style="max-width: 800px; margin: 0 auto;">
+            <br>
+          </section>
+          <section id="dynamic-content">
+          <section style="max-width: 800px; margin: 0 auto;">
+            <br>
+          </section>
+          <h2 style="font-size: 1.5rem; color: #333; text-align: left; margin-bottom: 20px;">
+            Work Experience
+          </h2>
+
+          <!-- Job 1 -->
+          <div
+            style="background-color: #fff7f3; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 2px solid #fdbf8f;"
+          >
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="font-size: 1.3rem; color: #333;">Sr. System Administrator, Salesforce</h3>
+                <p style="font-size: 0.9rem; color: #777;">SiriusXM &middot; Oct 2024 – Present</p>
+              </div>
+                <div>
+              <!-- Wrap the logo with an anchor tag -->
+              <a href="https://www.siriusxm.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/img/sirius.png"
+                  alt="SXM logo"
+                  style="width: 50px; height: auto; border-radius: 10px;"
+                />
+              </a>
+            </div>
+            </div>
+            <div style="margin-top: 10px; text-align: left;">
+              <button
+                onclick="toggleDetails('details1')"
+                style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+              >
+                Expand
+              </button>
+            </div>
+            <div
+              id="details1"
+              style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
+            >
+              <p>
+                SiriusXM is a leading audio entertainment company in North America, providing satellite and streaming radio services. It offers a vast array of content, including music, sports, news, talk, and comedy, with both commercial-free and curated programming. SiriusXM also owns Pandora, a popular music streaming platform, enhancing its personalized audio offerings. With millions of subscribers, the company is known for its exclusive partnerships, celebrity-hosted channels, and integration into vehicles and smart devices.
+              </p>
+            </div>
+          </div>
+
+          <!-- Job 2 -->
+          <div
+            style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
+          >
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="font-size: 1.3rem; color: #333;">Developer & System Analyst, Salesforce </h3>
+                <p style="font-size: 0.9rem; color: #777;">Builders Vision &middot; Jul 2021 – Sept 2024</p>
+              </div>
+              <div>
+                <!-- Wrap the logo with an anchor tag -->
+                <a href="https://www.buildersvision.com" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/img/brick.jpg"
+                    alt="BVlogo"
+                    style="width: 50px; height: auto; border-radius: 10px;"
+                  />
+                </a>
+              </div>
+            </div>
+            <div style="margin-top: 10px; text-align: left;">
+              <button
+                onclick="toggleDetails('details2')"
+                style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+              >
+                Expand
+              </button>
+            </div>
+            <div
+              id="details2"
+              style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
+            >
+              <p>
+                Builders Vision is an impact-driven platform dedicated to fostering sustainable solutions for global challenges. Founded by Lukas Walton, it operates through ventures, philanthropy, and investments, aiming to create a healthier, more humane planet. The company focuses on areas such as sustainable food systems, renewable energy, and conservation, leveraging innovative strategies to drive meaningful change. With a commitment to collaboration and long-term impact, Builders Vision partners with organizations and leaders to address complex societal and environmental issues.
+              </p>
+            </div>
+          </div>
+
+          <!-- Job 3 -->
+          <div
+            style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
+          >
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="font-size: 1.3rem; color: #333;"> Salesforce Application Developer II</h3>
+                <p style="font-size: 0.9rem; color: #777;">UWM &middot; Aug 2020 – Jul 2021</p>
+              </div>
+              <div>
+                <!-- Wrap the logo with an anchor tag -->
+                <a href="https://www.uwm.com" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/img/uwm.jpg"
+                    alt="uwm logo"
+                    style="width: 50px; height: auto; border-radius: 10px;"
+                  />
+                </a>
+              </div>
+            </div>
+            <div style="margin-top: 10px; text-align: left;">
+              <button
+                onclick="toggleDetails('details3')"
+                style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+              >
+                Expand
+              </button>
+            </div>
+            <div
+              id="details3"
+              style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
+            >
+              <p>
+                United Wholesale Mortgage (UWM) is a leading wholesale mortgage lender specializing in providing home loans through independent mortgage brokers. Based in Pontiac, Michigan, it is known for its innovative technology, streamlined processes, and commitment to fast and efficient loan turnarounds. UWM supports mortgage brokers with tools, resources, and competitive rates to help them deliver exceptional service to their clients. As one of the largest players in the mortgage industry, UWM emphasizes empowering brokers and promoting homeownership nationwide.
+              </p>
+            </div>
+          </div>
+
+          <!-- Job 4 -->
+          <div
+            style="background-color: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 15px; border: 0px solid #fdbf8f;"
+          >
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="font-size: 1.3rem; color: #333;">Senior Sales Associate</h3>
+                <p style="font-size: 0.9rem; color: #777;">J.D. Power &middot; Oct 2017 – Aug 2020</p>
+              </div>
+              <div>
+                <!-- Wrap the logo with an anchor tag -->
+                <a href="https://www.jdpower.com" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/img/jdp.png"
+                    alt="J.D. Power logo"
+                    style="width: 50px; height: auto; border-radius: 10px;"
+                  />
+                </a>
+              </div>
+            </div>
+            <div style="margin-top: 10px; text-align: left;">
+              <button
+                onclick="toggleDetails('details4')"
+                style="background-color: #00bfa6; color: white; border: none; border-radius: 20px; padding: 5px 10px; cursor: pointer;"
+              >
+                Expand
+              </button>
+            </div>
+            <div
+              id="details4"
+              style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
+            >
+              <p>
+                J.D. Power is a global leader in data analytics and consumer insights, renowned for its benchmark studies on customer satisfaction and product quality. Founded in 1968, the company provides independent research and advisory services across industries like automotive, financial services, healthcare, and telecommunications. J.D. Power's trusted rankings and awards help businesses understand consumer preferences and improve their products and services. With a reputation for accuracy and reliability, the company plays a key role in shaping industry standards and consumer decision-making worldwide.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="bg-white text-black py-10">
+          <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-4">My tech and design stack...</h2>
+            <p class="text-gray-600 mb-8">
+              Knowing how to use tools and using them to build things is fascinating.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+              <!-- Tech Stack Icons -->
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/figma.png" alt="Figma Logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">Figma</p>
+              </div>
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/notion.png" alt="Notion Logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">Notion</p>
+              </div>
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/vscode.png" alt="VS Code logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">VS Code</p>
+              </div>
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/asana.png" alt="Asana Logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">Asana</p>
+              </div>
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/salesforce.png" alt="Salesforce Logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">Salesforce</p>
+              </div>
+              <div class="p-4 bg-white rounded-lg flex flex-col items-center justify-center border border-gray-200">
+                <img src="/img/icons/photoshop.png" alt="Photoshop Logo" class="h-8 mb-2">
+                <p class="text-sm font-medium text-gray-700">Photoshop</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <style>
+          .case-study-container {
+            display: flex;
+            gap: 20px; /* Space between cards */
+            justify-content: center;
+          }
+
+          /* Clickable Link Styling */
+          .case-study-link {
+            text-decoration: none;
+            color: inherit; /* Ensures text color stays consistent */
+            display: block;
+            transition: transform 0.3s ease;
+          }
+
+          .case-study-link:hover {
+            transform: scale(1.03); /* Slight zoom on hover */
+          }
+
+          /* Case Study Card */
+          .case-study {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 320px;
+            position: relative;
+          }
+
+          /* Image Area */
+          .case-study .case-study-image-area {
+            position: relative;
+            width: 100%;
+          }
+
+          .case-study .case-study-image-area img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+
+          /* Red Notebook Image Styling */
+          .case-study .case-study-image-area img:first-child {
+            border-radius: 12px;
+          }
+
+          /* Coming Soon Image Styling */
+          .case-study .coming-soon-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px; /* Adjust size as needed */
+            pointer-events: none; /* Ensure it doesn't block clicks */
+            border-radius: 0; /* No rounded corners */
+            opacity: 1; /* Fully visible */
+          }
+
+          /* Overlay Styling */
+          .case-study .case-study-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            color: #ffffff;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          .case-study-link:hover .case-study-overlay {
+            opacity: 1; /* Show text on hover */
+          }
+
+          /* Text Styling */
+          .case-study .case-study-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+          }
+
+          .case-study .case-study-subtitle {
+            font-size: 1em;
+            margin: 10px 0;
+          }
+
+          .case-study .case-study-meta {
+            font-size: 0.9em;
+            color: #e0e0e0;
+          }
+
+          /* Responsive Design */
+          @media (max-width: 768px) {
+            .case-study-container {
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            .case-study {
+              width: 100%;
+            }
+          }
+        </style>
+
+        <section class="case-study-container">
+          <!-- Case Study Card 1 -->
+          <a href="https://blog.fwd2cv.com/work/" class="case-study-link">
+            <div class="case-study">
+              <div class="case-study-image-area">
+                <img src="/img/rednotebook.png" alt="Notebook Cover 1">
+                <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
+                <div class="case-study-overlay">
+                  <h3 class="case-study-title"> Case Study #1</h3>
+                  <p class="case-study-subtitle"> Coming Soon</p>
+                  <p class="case-study-meta">15 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Case Study Card 2 -->
+          <a href="https://blog.fwd2cv.com/work/" class="case-study-link">
+            <div class="case-study">
+              <div class="case-study-image-area">
+                <img src="/img/rednotebook.png" alt="Notebook Cover 2">
+                <img src="/img/comingsoon.png" alt="Coming Soon" class="coming-soon-image">
+                <div class="case-study-overlay">
+                  <h3 class="case-study-title"> Case Study #2</h3>
+                  <p class="case-study-subtitle">Coming Soon</p>
+                  <p class="case-study-meta">8 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+
+        <br>
+        <h3 class="title-small text-2xl font-bold gradient-text"> And that's a wrap!</h3>
       </main>
 
      <!-- Footer Section -->
