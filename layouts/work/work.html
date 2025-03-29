@@ -15,26 +15,75 @@
             color: #333;
         }
         
+        nav a {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .mobile-menu a {
+            font-family: 'Roboto', sans-serif;
+        }
+        
         .gradient-text {
-            font-size: 2em;
-            font-weight: bold;
-            background: linear-gradient(to right, #8EC5FC, #E0C3FC, #FF93D6);
+            font-size: 2.5em;
+            font-weight: 900;
+            background-image: linear-gradient(to right, #A9BCF5, #89ABE3, #6D82D1, #5359BF, #3A30A8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
+            text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
+        /* Desktop navigation hover effect */
+        .nav-item a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive background images */
         .header-container {
             position: relative;
             width: 100%;
-            height: 400px;
-            background-image: url('/img/header2.jpg');
+            height: 260px;
+            background-color: #f5f7fa;
+            background-image: url('/img/responsive/header-small.webp');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: height 0.2s ease-in-out; /* Faster transition */
+        }
+
+        /* Add fade effect at the bottom of the header */
+        .header-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Increased height for more gradual fade */
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Ensure the gradient is above the background but below content */
         }
 
         .header-content {
@@ -42,26 +91,43 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: black; /* Change to black for better readability */
             text-align: center;
+            z-index: 2; /* Ensure content appears above the gradient */
+            width: 100%;
         }
 
         .footer-container {
             position: relative;
             width: 100%;
-            height: 250px;
-            background-image: url('/img/footer2.jpg');
+            height: 125px; /* Increased from 100px */
+            background-color: #f5f7fa;
+            background-image: url('/img/responsive/footer-small.webp');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 0px;
+        }
+
+        /* Add fade effect at the top of the footer */
+        .footer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Increased height for more gradual fade */
+            background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Ensure the gradient is above the background but below content */
         }
 
         .footer-content {
             color: black;
             text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure content appears above the gradient */
         }
 
         /* Hide content when menu is open */
@@ -80,210 +146,57 @@
             display: none;
         }
 
-
-.case-study-container {
-  display: flex;
-  gap: 20px; /* Space between cards */
-  justify-content: center;
+     .highlighted-link {
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none; /* Remove default underline */
 }
 
-/* Clickable Link Styling */
-.case-study-link {
-  text-decoration: none;
-  color: inherit; /* Ensures text color stays consistent */
-  display: block;
-  transition: transform 0.3s ease;
+.highlighted-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.4em; /* Thinner highlight */
+    background-color: #a0d8f1; /* Light blue highlight */
+    z-index: -1;
 }
 
-.case-study-link:hover {
-  transform: scale(1.03); /* Slight zoom on hover */
+/* Create multiple highlight colors */
+.highlight-purple::before {
+    background-color: #d8b6ff; /* Purple highlight */
+    height: 0.4em; /* Thinner highlight */
 }
 
-/* Case Study Card */
-.case-study {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  width: 320px;
-  position: relative;
+.highlight-blue::before {
+    background-color: #a0d8f1; /* Light blue highlight */
+    height: 0.4em; /* Thinner highlight */
 }
 
-/* Image Area */
-.case-study .case-study-image-area {
-  position: relative;
-  width: 100%;
+.highlight-red::before {
+    background-color: #ffb6b6; /* Red highlight */
+    height: 0.4em; /* Thinner highlight */
 }
 
-.case-study .case-study-image-area img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.highlight-yellow::before {
+    background-color: #fff2b6; /* Yellow highlight */
+    height: 0.4em; /* Thinner highlight */
 }
 
-/* Red Notebook Image Styling */
-.case-study .case-study-image-area img:first-child {
-  border-radius: 12px;
+.highlighted-link:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
-/* Coming Soon Image Styling */
-.case-study .coming-soon-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px; /* Adjust size as needed */
-  pointer-events: none; /* Ensure it doesn't block clicks */
-  border-radius: 0; /* No rounded corners */
-  opacity: 1; /* Fully visible */
+.gradient-divider {
+    height: 4px; /* Thin line */
+    background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
+    border: none;
+    margin: 20px 0;
 }
 
-/* Overlay Styling */
-.case-study .case-study-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  color: #ffffff;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.case-study-link:hover .case-study-overlay {
-  opacity: 1; /* Show text on hover */
-}
-
-/* Text Styling */
-.case-study .case-study-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin: 0;
-}
-
-.case-study .case-study-subtitle {
-  font-size: 1em;
-  margin: 10px 0;
-}
-
-.case-study .case-study-meta {
-  font-size: 0.9em;
-  color: #e0e0e0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .case-study-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .case-study {
-    width: 100%;
-  }
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .case-study-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .case-study {
-    width: 100%;
-  }
-}
-
-    
-    /* Wrapper for the testimonials */
-    .carousel-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%; /* Set width to accommodate sliding */
-    }
-
-    /* Individual testimonial card */
-    .testimonial-card {
-      background-color: white;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      min-width: 350px; /* Ensures consistent width for each item */
-      margin-right: 20px; /* Adds spacing between items */
-    }
-
-    .testimonial-text {
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-highlight {
-      color: green;
-      font-weight: bold;
-    }
-
-    .testimonial-author {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .testimonial-role {
-      color: gray;
-      font-size: 0.9rem;
-    }
-
-    .testimonial-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-left: 10px;
-      object-fit: cover;
-    }
-
-    .author-info {
-      display: flex;
-      align-items: center;
-    }
-
-    /* Navigation buttons */
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 100;
-    }
-
-    .prev-btn {
-      left: 10px;
-    }
-
-    .next-btn {
-      right: 10px;
-    }
-
-    /* Media Query for mobile */
-    @media (max-width: 768px) {
-      .testimonial-card {
-        min-width: 300px; /* Smaller width for mobile */
-      }
-    }
-
-    .mobile-menu {
+.mobile-menu {
   position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
   top: 300px; /* Adjust this value to move the menu lower */
   left: 0;
@@ -304,16 +217,133 @@
 }
 
 .mobile-menu a:hover {
-  color: #gray-500;
+  color: #555;
 }
 
-.gradient-divider {
-            height: 4px; /* Thin line */
-            background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
-            border: none;
-            margin: -10px 0;
-        }
-  </style>
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    /* Adjust the mobile menu top position to account for the new header height */
+    .mobile-menu {
+        top: 280px;
+    }
+    
+    /* Add some extra space for the header content on mobile */
+    .header-content header {
+        padding-top: 2rem;
+    }
+
+    .greeting-container {
+        align-items: flex-start;
+    }
+    
+    .greeting-line-1 {
+        justify-content: flex-start;
+        margin-bottom: 0.5rem; /* Less space on mobile */
+    }
+    
+    .greeting-line-2 {
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+}
+
+/* Profile image styling - Smaller and more optimized */
+.profile-image-container {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 56px;
+    border-radius: 28px;
+    overflow: hidden;
+    margin: 0 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+    border: 0.5px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(white, white), 
+                    linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
+    background-size: 400% 400%;
+    animation: animateProfileBorder 10s linear infinite;
+}
+
+.profile-image-container:hover {
+    transform: translateY(-2px);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+@keyframes animateProfileBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Mobile header positioning */
+@media (max-width: 767px) {
+    /* Position menu button to top right */
+    .mobile-menu-button {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 0.5rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Responsive background images based on screen size */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header-container {
+        background-image: url('/img/responsive/header-medium.webp');
+        height: 225px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-container {
+        background-image: url('/img/responsive/header-large.webp');
+        height: 250px;
+    }
+}
+
+/* Ensure nav items are visible */
+.nav-item a {
+    position: relative;
+    transition: color 0.3s ease;
+    color: black; /* Ensure visibility */
+    font-weight: 600; /* Make text bolder for better readability */
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8); /* Add white shadow for readability */
+}
+
+/* Also make mobile navigation more visible */
+.mobile-menu a {
+    color: black; /* Ensure visibility */
+    font-weight: 600; /* Make text bolder for better readability */
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+}
+    </style>
 
 </head>
 <body>
@@ -687,7 +717,7 @@
       style="display: none; margin-top: 10px; color: #555; font-size: 0.9rem;"
     >
       <p>
-        J.D. Power is a global leader in data analytics and consumer insights, renowned for its benchmark studies on customer satisfaction and product quality. Founded in 1968, the company provides independent research and advisory services across industries like automotive, financial services, healthcare, and telecommunications. J.D. Power’s trusted rankings and awards help businesses understand consumer preferences and improve their products and services. With a reputation for accuracy and reliability, the company plays a key role in shaping industry standards and consumer decision-making worldwide.
+        J.D. Power is a global leader in data analytics and consumer insights, renowned for its benchmark studies on customer satisfaction and product quality. Founded in 1968, the company provides independent research and advisory services across industries like automotive, financial services, healthcare, and telecommunications. J.D. Power's trusted rankings and awards help businesses understand consumer preferences and improve their products and services. With a reputation for accuracy and reliability, the company plays a key role in shaping industry standards and consumer decision-making worldwide.
       </p>
     </div>
   </div>
@@ -786,8 +816,8 @@
              <!-- Testimonial 1 
     <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
       <p class="text-lg font-semibold text-black">
-        " Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with. 
-          He’s also a confident leader. I witnessed him working on <span class="testimonial-highlight">end-to-end journeys that involved alignment between cross-team stakeholders</span>."
+        " Oriol is undeniably one of the most talented product designers I've had the pleasure of sharing a team with. 
+          He's also a confident leader. I witnessed him working on <span class="testimonial-highlight">end-to-end journeys that involved alignment between cross-team stakeholders</span>."
       </p>
       <div class="flex items-center mt-4">
         <img src="path-to-image.jpg" alt="Chad Bonner" class="w-10 h-10 rounded-full lazyload">
@@ -815,7 +845,7 @@
     <!-- Testimonial 3 
     <div class="testimonial snap-center flex-shrink-0 w-4/5 sm:w-1/2 md:w-1/3 bg-white p-4 rounded-lg shadow-lg">
       <p class="text-lg font-semibold text-black">
-        Oriol is undeniably one of the most talented product designers I’ve had the pleasure of sharing a team with...
+        Oriol is undeniably one of the most talented product designers I've had the pleasure of sharing a team with...
       </p>
       <div class="flex items-center mt-4">
         <img src="path-to-image.jpg" alt="Denise Ene" class="w-10 h-10 rounded-full lazyload">
