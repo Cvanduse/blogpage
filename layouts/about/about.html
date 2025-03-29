@@ -1,41 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" class="scroll-smooth dark">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7S1K4DT2P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z7S1K4DT2P');
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="About Christopher Van Dusen - Technologist and innovator based in Detroit, MI">
-    <title>About - Christopher Van Dusen</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js" as="script">
-    <link rel="preload" href="/img/profilecv.webp" as="image" fetchpriority="high">
-    <!-- Only preload the mobile header to reduce initial load time -->
-    <link rel="preload" href="/img/responsive/header-small.webp" as="image" media="(max-width: 767px)">
-    <!-- Preload responsive header images with appropriate media queries -->
-    <link rel="preload" href="/img/responsive/header-medium.webp" as="image" media="(min-width: 768px) and (max-width: 1199px)">
-    <link rel="preload" href="/img/responsive/header-large.webp" as="image" media="(min-width: 1200px)">
-    
-    <!-- Add DNS prefetch for external domains -->
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-
+    <title>Christopher Van Dusen</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet" />
     <style>
+        /* All your CSS styles here */
         body {
             margin: 0;
             padding: 0;
@@ -43,76 +14,27 @@
             background-color: white;
             color: #333;
         }
-
-        nav a {
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .mobile-menu a {
-            font-family: 'Roboto', sans-serif;
-        }
         
         .gradient-text {
-            font-size: 2.5em;
-            font-weight: 900;
-            background-image: linear-gradient(to right, #A9BCF5, #89ABE3, #6D82D1, #5359BF, #3A30A8);
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(to right, #8EC5FC, #E0C3FC, #FF93D6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
         }
 
-        /* Desktop navigation hover effect */
-        .nav-item a {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-item a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: currentColor;
-            transition: width 0.3s ease;
-        }
-
-        .nav-item a:hover::after {
-            width: 100%;
-        }
-
-        /* Responsive background images */
         .header-container {
             position: relative;
             width: 100%;
-            height: 260px;
-            background-color: #f5f7fa;
-            background-image: url('/img/responsive/header-small.webp');
+            height: 400px;
+            background-image: url('/img/header2.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: height 0.2s ease-in-out; /* Faster transition */
-        }
-
-        /* Add fade effect at the bottom of the header */
-        .header-container::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60px; /* Increased height for more gradual fade */
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
-            pointer-events: none; /* Allow clicks to pass through */
-            z-index: 1; /* Ensure the gradient is above the background but below content */
         }
 
         .header-content {
@@ -120,43 +42,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: black; /* Change to black for better readability */
+            color: white;
             text-align: center;
-            z-index: 2; /* Ensure content appears above the gradient */
-            width: 100%;
         }
 
         .footer-container {
             position: relative;
             width: 100%;
-            height: 125px; /* Increased from 100px */
-            background-color: #f5f7fa;
-            background-image: url('/img/responsive/footer-small.webp');
+            height: 250px;
+            background-image: url('/img/footer2.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        /* Add fade effect at the top of the footer */
-        .footer-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px; /* Increased height for more gradual fade */
-            background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
-            pointer-events: none; /* Allow clicks to pass through */
-            z-index: 1; /* Ensure the gradient is above the background but below content */
+            padding-top: 0px;
         }
 
         .footer-content {
             color: black;
             text-align: center;
-            position: relative;
-            z-index: 2; /* Ensure content appears above the gradient */
         }
 
         /* Hide content when menu is open */
@@ -175,468 +80,339 @@
             display: none;
         }
 
-        .highlighted-link {
-            position: relative;
-            display: inline-block;
-            color: black;
-            text-decoration: none; /* Remove default underline */
-        }
-
-        .highlighted-link::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0.4em; /* Thinner highlight */
-            background-color: #a0d8f1; /* Light blue highlight */
-            z-index: -1;
-        }
-
-        /* Create multiple highlight colors */
-        .highlight-purple::before {
-            background-color: #d8b6ff; /* Purple highlight */
-            height: 0.4em; /* Thinner highlight */
-        }
-
-        .highlight-blue::before {
-            background-color: #a0d8f1; /* Light blue highlight */
-            height: 0.4em; /* Thinner highlight */
-        }
-
-        .highlight-red::before {
-            background-color: #ffb6b6; /* Red highlight */
-            height: 0.4em; /* Thinner highlight */
-        }
-
-        .highlight-yellow::before {
-            background-color: #fff2b6; /* Yellow highlight */
-            height: 0.4em; /* Thinner highlight */
-        }
-
-        .highlighted-link:hover {
-            text-decoration: underline; /* Underline on hover */
-        }
-
-        .gradient-divider {
-            height: 4px; /* Thin line */
-            background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
-            border: none;
-            margin: 20px 0;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #000;
-            z-index: 1000;
-            display: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .mobile-menu ul {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            padding: 0 42px;
-        }
-
-        .mobile-menu a {
-            font-size: 1.75rem;
-            font-weight: 500;
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            transition: color 0.2s ease;
-            padding: 4px 0;
-        }
-
-        .mobile-menu-header {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            right: 2rem;
-        }
-
-        .mobile-menu-footer {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            right: 2rem;
-        }
-
-        .mobile-menu-footer .border-t {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1rem;
-        }
-
-        /* Style for the close button */
-        .mobile-menu-button {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            z-index: 1001;
-            background-color: transparent !important;
-            border-radius: 0;
-            padding: 0.5rem;
-            box-shadow: none !important;
-            color: #000;
-            transition: color 0.2s ease;
-        }
-
-        .menu-open .mobile-menu-button {
-            color: #fff;
-        }
-
-        .menu-open .mobile-menu {
-            display: block;
-            animation: fadeIn 0.3s ease forwards;
-        }
-
-        /* Site title adjustments for mobile menu */
-        .menu-open #site-title {
-            color: white;
-        }
-
-        /* Hide mobile menu on desktop */
-        @media (min-width: 768px) {
-            .mobile-menu {
-                display: none !important;
-            }
-        }
-
-        /* Add fade-in animation for content */
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .fade-in {
-          opacity: 0;
-          animation: fadeIn 1s ease-out forwards;
-          animation-delay: 0.3s; /* Small delay to ensure page is loaded */
-        }
-
-        /* Floating action button - simplified for reliability */
-        .floating-actions {
-          position: fixed;
-          bottom: 24px;
-          left: 50%;
-          transform: translateX(-50%);
-          transition: transform 0.2s ease, opacity 0.2s ease;
-          z-index: 100;
-          display: none;
-        }
-
-        @media (max-width: 767px) {
-          .floating-actions {
-            display: block;
-          }
-        }
-
-        .fab-call {
-          background: linear-gradient(115deg, #738bff, #a278f4);
-          color: white;
-          font-weight: 500;
-          font-size: 0.875rem;
-          padding: 12px 20px;
-          border-radius: 50px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          text-decoration: none;
-          display: inline-block;
-          white-space: nowrap;
-        }
-
-        .floating-actions.hidden {
-          transform: translateX(-50%) translateY(80px);
-          opacity: 0;
-          pointer-events: none;
-        }
-
-        /* Responsive Design for Mobile */
-        @media (max-width: 767px) {
-            /* Add some extra space for the header content on mobile */
-            .header-content header {
-                padding-top: 2rem;
-            }
-        }
-
-        /* Responsive background images based on screen size */
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .header-container {
-                background-image: url('/img/responsive/header-medium.webp');
-                height: 225px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .header-container {
-                background-image: url('/img/responsive/header-large.webp');
-                height: 250px;
-            }
-        }
-
-        /* Ensure nav items are visible */
-        .nav-item a {
-            position: relative;
-            transition: color 0.3s ease;
-            color: black; /* Ensure visibility */
-            font-weight: 600; /* Make text bolder for better readability */
-            text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8); /* Add white shadow for readability */
-        }
-
-        /* Also make mobile navigation more visible */
-        .mobile-menu a {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 600;
-            text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
-        }
-
-        /* Additional About Page Styles */
-        .section-title {
-          font-size: 2.0rem;
-          font-weight: bold;
-          color: #333;
-          text-align: left;
-        }
-
-        .section-title-wrapper {
-          display: flex;
-          align-items: left;
-        }
-
-        .inline-header {
-          font-size: 1.25rem;
-          font-weight: bold;
-          color: #f39ac9;
-          display: inline; /* Keep heading and text inline */
-        }
-
-        .section-content {
-          display: inline; /* Keep content on the same line as the heading */
-          margin-left: 10px; /* Spacing between heading and content */
-          color: #666;
-          text-align: left;
-        }
-
-        .about-me-container {
-          margin-top: 40px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto auto;
-          grid-gap: 20px;
-        }
-
-        .about-me-item {
-          padding: 10px;
-          /* Transparent background */
-        }
-
-        /* Ensure two columns layout for mobile screens */
-        @media (max-width: 600px) {
-          .about-me-container {
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 10px;
-          }
-        }
-
-        /* BUCKET LIST START */
-        .bucket-list-container,
-        .inspired-list-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0px 0px; 
-            border-radius: 10px;
-            color: #333;
-        }
-
-        .bucket-list-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* Ensure the text and arrow are vertically centered */
-            cursor: pointer;
-            margin-bottom: 5px; /* Adjust the gap below the title */
-            font-size: 1.00rem; /* Adjust font size */
-            font-weight: bold;
-        }
-
-        .bucket-list-header h2 {
-            margin: 0; /* Remove any extra margin around the h3 title */
-            line-height: 1; /* Ensure consistent line height */
-        }
-
-        .arrow-icon {
-            transition: transform 0.2s ease;
-            margin-left: auto; /* Push the arrow to the far right */
-            display: flex;
-            align-items: center; /* Ensure the arrow is vertically centered */
-        }
-
-        .bucket-list-content,
-        .inspired-list-content {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0px;
-            padding-top: 0px; 
-        }
-
-        .bucket-list-item,
-        .inspired-list-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .bucket-list-item label,
-        .inspired-list-item a {
-            margin-left: 8px;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .checkbox {
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #aaa;
-            padding: 6px;
-            border-radius: 4px;
-            display: inline-block;
-            position: relative;
-            width: 20px;
-            height: 20px;
-            cursor: default;
-        }
-
-        .checkbox:checked {
-            background-color: #00bfa6;
-            border-color: #00bfa6;
-        }
-
-        .checkbox:checked::after {
-            content: '✓';
-            font-size: 14px;
-            color: white;
-            position: absolute;
-            top: 0;
-            left: 3px;
-        }
-
-        .inspired-list-container {
-            max-width: 800px; /* Match with the bucket list width */
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            color: #333;
-        }
-
-        .inspired-list-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* Ensure the text and arrow are vertically centered */
-            cursor: pointer;
-            margin-bottom: 5px; /* Adjust the gap below the title */
-            font-size: 1.25rem; /* Adjust font size */
-            font-weight: bold;
-        }
-
-        .inspired-list-header h3 {
-            margin: 0; /* Remove any extra margin around the h3 title */
-            line-height: 1; /* Ensure consistent line height */
-        }
     </style>
+    <style>
+    body {
+      background-color: white; /* White background */
+      color: #333; /* Darker text for readability */
+      font-family: Arial, sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(to right, #8EC5FC, #E0C3FC, #FF93D6); /* Gradient from pink to purple */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 2.0rem;
+      font-weight: bold;
+      color: #333;
+      text-align: left;
+    }
+
+    .section-title-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .inline-header {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #f39ac9;
+      display: inline; /* Keep heading and text inline */
+    }
+
+    .section-content {
+      display: inline; /* Keep content on the same line as the heading */
+      margin-left: 10px; /* Spacing between heading and content */
+      color: #666;
+      text-align: left;
+    }
+
+    .about-me-container {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-gap: 20px;
+    }
+
+    .about-me-item {
+      padding: 10px;
+      /* Transparent background */
+    }
+
+
+    /* Ensure two columns layout for mobile screens */
+    @media (max-width: 600px) {
+      .about-me-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+      }
+    }
+  
+
+  /* BUCKET LIST START */
+    .bucket-list-container,
+    .inspired-list-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0px 0px; 
+        border-radius: 10px;
+        color: #333;
+    }
+
+   .bucket-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure the text and arrow are vertically centered */
+    cursor: pointer;
+    margin-bottom: 5px; /* Adjust the gap below the title */
+    font-size: 1.00rem; /* Adjust font size */
+    font-weight: bold;
+    }
+
+.bucket-list-header h2 {
+    margin: 0; /* Remove any extra margin around the h3 title */
+    line-height: 1; /* Ensure consistent line height */
+}
+
+    .arrow-icon {
+    transition: transform 0.2s ease;
+    margin-left: auto; /* Push the arrow to the far right */
+    display: flex;
+    align-items: center; /* Ensure the arrow is vertically centered */
+}
+
+    .bucket-list-content,
+    .inspired-list-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0px;
+        padding-top: 0px; 
+    }
+
+    .bucket-list-item,
+    .inspired-list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .bucket-list-item label,
+    .inspired-list-item a {
+        margin-left: 8px;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .checkbox {
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        padding: 6px;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        cursor: default;
+    }
+
+    .checkbox:checked {
+        background-color: #00bfa6;
+        border-color: #00bfa6;
+    }
+
+    .checkbox:checked::after {
+        content: '✓';
+        font-size: 14px;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 3px;
+
+          /* BUCKET LIST END */
+    }
+
+    .inspired-list-container {
+        max-width: 800px; /* Match with the bucket list width */
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        color: #333;
+    }
+
+    .inspired-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure the text and arrow are vertically centered */
+    cursor: pointer;
+    margin-bottom: 5px; /* Adjust the gap below the title */
+    font-size: 1.25rem; /* Adjust font size */
+    font-weight: bold;
+}
+
+.inspired-list-header h3 {
+    margin: 0; /* Remove any extra margin around the h3 title */
+    line-height: 1; /* Ensure consistent line height */
+}
+
+
+    .arrow-icon-inspired {
+    transition: transform 0.2s ease;
+    margin-left: auto; /* Push the arrow to the far right */
+    display: flex;
+    align-items: center; /* Ensure the arrow is vertically centered */
+}
+
+    /* Grid layout for two columns */
+    .inspired-list-content {
+        display: none;
+        grid-template-columns: repeat(2, 1fr); /* Create a 2-column grid */
+        gap: 10px; /* Space between items */
+        padding-top: 10px;
+    }
+
+   .inspired-list-item a {
+    display: inline-flex;
+    align-items: center; /* Ensures text and icon align properly */
+    text-decoration: none; /* Optional: removes underlines */
+}
+
+.inspired-list-item svg {
+    margin-left: 4px; /* Creates space between text and icon */
+    vertical-align: middle; /* Ensures alignment with the text */
+}
+
+    .inspired-list-item a:hover {
+        text-decoration: underline;
+    }
+
+    .bucket-list-header,
+.inspired-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 5px; /* Reduce the gap below the title */
+    font-size: 1.25rem; /* Adjust the font size */
+    font-weight: bold;
+}
+
+.arrow-icon,
+.arrow-icon-inspired {
+    transition: transform 0.2s ease;
+    margin-left: auto; /* Push the arrow to the far right */
+}
+
+.topics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .topics div {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .topics div:hover {
+            background-color: #f0f0f0;
+        }
+
+    /* New styles for the People I'm Inspired By section */
+    .inspired-people-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+    
+    .inspired-person-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .person-check-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+        .inspired-people-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .inspired-people-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+  </style>
 </head>
 
 <body>
     <!-- Header Section with Image and Overlay Content -->
-    <div id="app" v-bind:class="{'menu-open': menuOpen}">
+    <div id="app" :class="{'menu-open': menuOpen}">
         <header class="header-container">
             <div class="header-content">
-                <header class="flex flex-col items-center md:items-center md:justify-center gap-2 md:gap-5 pt-8 py-4">
+                <header class="flex flex-col items-center md:flex-row md:justify-between gap-2 md:gap-5 pt-16 py-6">
                     <div class="flex flex-col items-center md:flex-row md:items-center">
                         <div class="flex-none w-20 h-20 rounded-full overflow-hidden">
-                            <a href="/">
-                                <img src="/img/profilecv.webp" width="160" height="160" alt="Christopher Van Dusen" fetchpriority="high" loading="eager" decoding="async" />
+                            <a href="#">
+                                <img src="/img/profilecv.png" width="1080" height="1080" alt="Christopher Van Dusen" />
                             </a>
                         </div>
                         <div class="ml-0 md:ml-5 mt-2 md:mt-0 text-center md:text-left">
-                            <a href="/">
-                                <h2 id="site-title" class="text-3xl font-bold text-black">Christopher <BR> Van Dusen</h2>
+                            <a href="#">
+                                <h2 id="site-title" class="text-3xl font-bold text-black">Christopher <br> Van Dusen</h2>
                             </a>
                         </div>
                     </div>
 
-                    <button v-on:click="toggleMenu" class="mobile-menu-button flex items-center justify-center block md:hidden" aria-label="Toggle menu">
-                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
+                    <button @click="toggleMenu" class="flex items-center block md:hidden mt-2 md:mt-0 text-black">
+                        <span class="mr-2">Menu</span>
+                        <svg v-if="!menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
                             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                         </svg>
-                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6" aria-hidden="true">
+                        <svg v-if="menuOpen" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-6 w-6">
                             <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
                         </svg>
                     </button>
                 </header>
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
-                  <ul class="flex space-x-6">
-                    <li class="nav-item"><a href="/" class="block text-black dark:text-white">Home</a></li>
-                    <li class="nav-item"><a href="/about" class="block text-black dark:text-white">About Me</a></li>
-                    <li class="nav-item"><a href="/work" class="block text-black dark:text-white">Work</a></li>
-                    <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white">Socials</a></li>
-                    <li class="nav-item"><a href="/posts" class="block text-black dark:text-white">Posts</a></li>
-                    <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white">Support</a></li>
-                  </ul>
-                </nav>
+<!-- Desktop Navigation -->
+            <nav class="hidden md:flex flex-row justify-center space-x-6 mb-2">
+              <ul class="flex space-x-6">
+                <li class="nav-item"><a href="/" class="block text-black dark:text-white">Home</a></li>
+                <li class="nav-item"><a href="/about" class="block text-black dark:text-white">About Me</a></li>
+                <li class="nav-item"><a href="/work" class="block text-black dark:text-white">Work</a></li>
+                <li class="nav-item"><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white">Socials</a></li>
+                <li class="nav-item"><a href="/posts" class="block text-black dark:text-white">Posts</a></li>
+                <li class="nav-item"><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white">Support</a></li>
+              </ul>
+            </nav>
                 <!-- Mobile Navigation -->
                 <nav class="mobile-menu">
-                  <div class="mobile-menu-header">
-                    <h2 class="text-3xl font-bold text-white">CHRIS VAN DUSEN</h2>
-                  </div>
-                  <ul class="flex flex-col">
-                    <li>
-                      <a href="/" class="block hover:text-gray-400">Home</a>
-                    </li>
-                    <li>
-                      <a href="/about" class="block hover:text-gray-400">About Me</a>
-                    </li>
-                    <li>
-                      <a href="/work" class="block hover:text-gray-400">Work</a>
-                    </li>
-                    <li>
-                      <a href="https://links.fwd2cv.com/" class="block hover:text-gray-400">Socials</a>
-                    </li>
-                    <li>
-                      <a href="/posts" class="block hover:text-gray-400">Posts</a>
-                    </li>
-                    <li>
-                      <a href="https://buymeacoffee.com/cvandusen" class="block hover:text-gray-400">Support</a>
-                    </li>
-                  </ul>
-                  <div class="mobile-menu-footer">
-                    <div class="border-t">
-                      <ul class="flex gap-6 text-white text-sm">
-                        <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener">Twitter</a></li>
-                        <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener">Instagram</a></li>
-                        <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener">GitHub</a></li>
-                      </ul>
-                    </div>
-                  </div>
+                    <ul class="flex flex-col space-y-2 px-8">
+                        <li><a href="/" class="block text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a></li>
+                        <li><a href="https://fwd2cv.com/" class="block text-black dark:text-white hover:text-gray-500 dark:hover=text-gray-300">About Me</a></li>
+                        <li><a href="/work" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Work</a></li>
+                        <li><a href="https://links.fwd2cv.com/" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Socials</a></li>
+                        <li><a href="/tags" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Tags</a></li>
+                        <li><a href="https://buymeacoffee.com/cvandusen" class="block text-black dark:text-white hover=text-gray-500 dark:hover=text-gray-300">Support</a></li>
+                    </ul>
                 </nav>
             </div>
         </header>
 
-        <!-- Main content sections - preserving the original About page content -->
-        <main v-show="!menuOpen" id="content" class="py-4 px-6 md:px-8 flex flex-col gap-4 max-w-screen-md mx-auto fade-in">
+        <!-- Main Content -->
+        <main class="main-content py-4 px-6 md:px-12 md:py-0 flex flex-col gap-4 max-w-screen-md mx-auto">
             <section class="text-left py-2 px-8">
                 <div class="section-title-wrapper mb-6">
                     <h2 class="section-title gradient-text">About</h2>
@@ -943,11 +719,12 @@
                         © 2024 — <a href="#">Chris Van Dusen. Made with ♥️ in Chicago.</a>
                     </div>
                     <div class="flex items-center gap-5 text-xs font-semibold text-gray-500">
+                        <span>Say
                         <span>Say Hello ⮕ </span>
                         <ul class="flex gap-5">
-                            <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener">Twitter</a></li>
-                            <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener">Instagram</a></li>
-                            <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                            <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                         </ul>
                     </div>
                 </div>
@@ -955,64 +732,19 @@
         </footer>
     </div>
 
-    <!-- Floating Action Buttons -->
-    <div class="floating-actions" id="floatingBtn">
-        <!-- Book a Call Button -->
-        <a href="https://calendly.com/cvandusen" target="_blank" class="fab-call">
-            Book a call
-        </a>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
-      // Initialize Vue AFTER the DOM is loaded to prevent conflicts with Hugo templating
-      document.addEventListener('DOMContentLoaded', function() {
-        // Simple vanilla JS implementation for the floating button
-        const floatingBtn = document.getElementById('floatingBtn');
-        let lastScrollTop = 0;
-        
-        function handleScroll() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
-          // Determine scroll direction - simple and direct approach
-          if (scrollTop > lastScrollTop) {
-            // Scrolling DOWN
-            floatingBtn.classList.add('hidden');
-          } else {
-            // Scrolling UP
-            floatingBtn.classList.remove('hidden');
-          }
-          
-          lastScrollTop = scrollTop;
-        }
-        
-        // Apply scroll listener with passive flag for performance
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        
-        // Vue app initialization for other functionality 
         new Vue({
-          el: '#app',
-          data: {
-            menuOpen: false
-          },
-          methods: {
-            toggleMenu: function () {
-              this.menuOpen = !this.menuOpen;
-              // Prevent body scrolling when menu is open
-              document.body.style.overflow = this.menuOpen ? 'hidden' : '';
+            el: '#app',
+            data: {
+                menuOpen: false
+            },
+            methods: {
+                toggleMenu() {
+                    this.menuOpen = !this.menuOpen;
+                }
             }
-          }
         });
-        
-        // Lazy load non-critical images
-        if ('loading' in HTMLImageElement.prototype) {
-          // Browser supports native lazy loading
-          const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-          lazyImages.forEach(img => {
-            img.setAttribute('loading', 'lazy');
-          });
-        }
-      });
     </script>
 </body>
 </html>
