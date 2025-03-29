@@ -285,13 +285,13 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    border: 2px solid transparent;
+    border: 0.5px solid transparent;
     background-origin: border-box;
     background-clip: content-box, border-box;
     background-image: linear-gradient(white, white), 
                       linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
     background-size: 400% 400%;
-    animation: animateProfileBorder 8s linear infinite;
+    animation: animateProfileBorder 10s linear infinite;
 }
 
 .project-card:hover {
@@ -390,22 +390,17 @@
     }
 
     .greeting-container {
-        display: flex;
-        flex-direction: column;
         align-items: flex-start;
     }
     
     .greeting-line-1 {
-        display: flex;
-        align-items: center;
         justify-content: flex-start;
+        margin-bottom: 0.5rem; /* Less space on mobile */
     }
     
     .greeting-line-2 {
-        display: flex;
-        align-items: center;
         justify-content: flex-start;
-        margin-top: 0.5rem;
+        margin-top: 0;
     }
 }
 
@@ -426,7 +421,7 @@
     background-image: linear-gradient(white, white), 
                       linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
     background-size: 400% 400%;
-    animation: animateProfileBorder 8s linear infinite;
+    animation: animateProfileBorder 10s linear infinite;
 }
 
 .profile-image-container:hover {
@@ -502,6 +497,23 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Greeting styling for all devices */
+.greeting-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-line-1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem; /* Add space between lines on desktop */
+}
+
+.greeting-line-2 {
+    display: flex;
+    align-items: center;
 }
     </style>
   </head>
