@@ -602,9 +602,9 @@
 }
 
 .hidden-fab {
-  opacity: 0;
-  transform: translateX(-50%) translateY(100px);
-  pointer-events: none;
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(100px) !important;
+  pointer-events: none !important;
 }
     </style>
   </head>
@@ -787,7 +787,7 @@
     </div>
 
     <!-- Floating Action Buttons -->
-    <div class="floating-actions" :class="{ 'hidden-fab': isHidden }">
+    <div id="floating-btn" class="floating-actions">
         <!-- Book a Call Button -->
         <a href="https://calendly.com/cvandusen" target="_blank" class="fab fab-call">
             Book a call
@@ -802,70 +802,56 @@
         new Vue({
           el: '#app',
           data: {
-            menuOpen: false,
-            isHidden: false,
-            lastScrollPosition: 0,
-            scrollDirection: 'up',
-            scrollDistance: 0
+            menuOpen: false
           },
           methods: {
             toggleMenu: function () {
               this.menuOpen = !this.menuOpen;
               // Prevent body scrolling when menu is open
               document.body.style.overflow = this.menuOpen ? 'hidden' : '';
-            },
-            handleScroll: function() {
-              // Get current scroll position
-              const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-              
-              // Determine scroll direction
-              if (currentScroll > this.lastScrollPosition) {
-                // Scrolling down
-                this.scrollDirection = 'down';
-                this.scrollDistance += (currentScroll - this.lastScrollPosition);
-              } else {
-                // Scrolling up
-                this.scrollDirection = 'up';
-                this.scrollDistance = 0; // Reset distance on upward scroll
-              }
-              
-              // Update button visibility based on scroll direction and distance
-              // Hide when scrolling down and after scrolling some distance (100px)
-              if (this.scrollDirection === 'down' && this.scrollDistance > 100 && currentScroll > 100) {
-                this.isHidden = true;
-              } else if (this.scrollDirection === 'up') {
-                this.isHidden = false;
-              }
-              
-              // Store the current position for next comparison
-              this.lastScrollPosition = currentScroll;
             }
-          },
-          mounted() {
-            // Initial setup with throttling for better performance
-            let scrollTimeout;
-            const throttledScroll = () => {
-              if (!scrollTimeout) {
-                scrollTimeout = setTimeout(() => {
-                  this.handleScroll();
-                  scrollTimeout = null;
-                }, 10); // Small delay for performance
-              }
-            };
-            
-            window.addEventListener('scroll', throttledScroll, { passive: true });
-            
-            // Set initial state
-            this.handleScroll();
-            
-            // Force update on resize to handle orientation changes
-            window.addEventListener('resize', this.handleScroll, { passive: true });
-          },
-          beforeDestroy() {
-            window.removeEventListener('scroll', this.handleScroll);
-            window.removeEventListener('resize', this.handleScroll);
           }
         });
+        
+        // Handle floating button visibility with plain JavaScript
+        // This approach is similar to how itssam.io implements their button behavior
+        (function() {
+          const floatingBtn = document.getElementById('floating-btn');
+          let lastScrollTop = 0;
+          let scrollingDown = false;
+          let hideTimeout;
+          
+          function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Determine if scrolling down or up
+            scrollingDown = scrollTop > lastScrollTop;
+            
+            // Clear any existing timeout
+            if (hideTimeout) clearTimeout(hideTimeout);
+            
+            // If scrolling down and past initial area, hide the button
+            if (scrollingDown && scrollTop > 100) {
+              floatingBtn.classList.add('hidden-fab');
+            } 
+            // If scrolling up, show the button
+            else if (!scrollingDown) {
+              floatingBtn.classList.remove('hidden-fab');
+            }
+            
+            // Update last scroll position
+            lastScrollTop = scrollTop;
+          }
+          
+          // Use passive event listener for better performance
+          window.addEventListener('scroll', function() {
+            // Use requestAnimationFrame for better performance
+            requestAnimationFrame(handleScroll);
+          }, { passive: true });
+          
+          // Initial call to set correct state
+          handleScroll();
+        })();
         
         // Lazy load non-critical images
         if ('loading' in HTMLImageElement.prototype) {
