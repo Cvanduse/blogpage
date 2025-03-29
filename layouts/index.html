@@ -561,10 +561,8 @@
   flex-direction: row;
   gap: 0.75rem;
   z-index: 100;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition: all 0.3s ease;
   display: none; /* Hide by default on all devices */
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }
 
 /* Only show on mobile devices */
@@ -603,8 +601,9 @@
 
 .hidden-fab {
   opacity: 0;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(80px);
   pointer-events: none;
+  visibility: hidden;
 }
     </style>
   </head>
@@ -804,9 +803,9 @@
           data: {
             menuOpen: false,
             isHidden: false,
-            lastScrollPosition: 0,
-            scrollDirection: 'up',
-            scrollDistance: 0
+            lastScrollY: window.scrollY || window.pageYOffset,
+            scrollingDown: false,
+            touchStartY: 0
           },
           methods: {
             toggleMenu: function () {
@@ -815,55 +814,81 @@
               document.body.style.overflow = this.menuOpen ? 'hidden' : '';
             },
             handleScroll: function() {
-              // Get current scroll position
-              const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+              // Simplified approach: just check if we're scrolling up or down
+              const currentScrollY = window.scrollY || window.pageYOffset;
               
-              // Determine scroll direction
-              if (currentScroll > this.lastScrollPosition) {
-                // Scrolling down
-                this.scrollDirection = 'down';
-                this.scrollDistance += (currentScroll - this.lastScrollPosition);
-              } else {
-                // Scrolling up
-                this.scrollDirection = 'up';
-                this.scrollDistance = 0; // Reset distance on upward scroll
-              }
+              // Determine if scrolling up or down
+              this.scrollingDown = currentScrollY > this.lastScrollY;
               
-              // Update button visibility based on scroll direction and distance
-              // Hide when scrolling down and after scrolling some distance (100px)
-              if (this.scrollDirection === 'down' && this.scrollDistance > 100 && currentScroll > 100) {
+              // Hide button when scrolling down, show when scrolling up
+              if (this.scrollingDown) {
                 this.isHidden = true;
-              } else if (this.scrollDirection === 'up') {
+              } else {
                 this.isHidden = false;
               }
               
-              // Store the current position for next comparison
-              this.lastScrollPosition = currentScroll;
+              // Update last position
+              this.lastScrollY = currentScrollY;
+            },
+            
+            // Add touch event handlers to improve mobile experience
+            handleTouchStart: function(e) {
+              this.touchStartY = e.touches[0].clientY;
+            },
+            
+            handleTouchMove: function(e) {
+              if (!this.touchStartY) return;
+              
+              const touchY = e.touches[0].clientY;
+              const diff = this.touchStartY - touchY;
+              
+              // If scrolling down (diff > 0), hide the button
+              if (diff > 5) {
+                this.isHidden = true;
+              } 
+              // If scrolling up (diff < 0), show the button
+              else if (diff < -5) {
+                this.isHidden = false;
+              }
+            },
+            
+            handleTouchEnd: function() {
+              this.touchStartY = 0;
             }
           },
           mounted() {
-            // Initial setup with throttling for better performance
-            let scrollTimeout;
-            const throttledScroll = () => {
-              if (!scrollTimeout) {
-                scrollTimeout = setTimeout(() => {
-                  this.handleScroll();
-                  scrollTimeout = null;
-                }, 10); // Small delay for performance
-              }
-            };
+            // Use a debounced scroll handler for better performance
+            let isScrolling;
+            window.addEventListener('scroll', () => {
+              // Clear the timeout throughout the scroll
+              window.clearTimeout(isScrolling);
+              
+              // Run the scroll handler immediately for responsive feel
+              this.handleScroll();
+              
+              // Set a timeout to detect when scrolling stops
+              isScrolling = setTimeout(() => {
+                // If at the top of the page, always show the button
+                if (window.scrollY < 100) {
+                  this.isHidden = false;
+                }
+              }, 100);
+            }, { passive: true });
             
-            window.addEventListener('scroll', throttledScroll, { passive: true });
+            // Add touch event listeners for mobile
+            document.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+            document.addEventListener('touchmove', this.handleTouchMove, { passive: true });
+            document.addEventListener('touchend', this.handleTouchEnd, { passive: true });
             
-            // Set initial state
-            this.handleScroll();
-            
-            // Force update on resize to handle orientation changes
+            // Force update on resize
             window.addEventListener('resize', this.handleScroll, { passive: true });
           },
           beforeDestroy() {
             window.removeEventListener('scroll', this.handleScroll);
             window.removeEventListener('resize', this.handleScroll);
+            document.removeEventListener('touchstart', this.handleTouchStart);
+            document.removeEventListener('touchmove', this.handleTouchMove);
+            document.removeEventListener('touchend', this.handleTouchEnd);
           }
         });
         
