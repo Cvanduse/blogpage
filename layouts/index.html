@@ -312,8 +312,8 @@
           <h3 class="title-small text-2xl font-bold gradient-text">
           <img src="/img/chris.png" alt="signature" class="inline-block w-30 h-10" width="120" height="40" loading="lazy" decoding="async"></h3>
           <br>
-          <p> Based in <s>Chicago, IL</s> Detroit, MI</p>
-          <p> Personality - ENTJ-A (<s>Sept 2020</s> Nov 2023 Result)</p>
+          <p> Based in Chicago, IL</p>
+          <p> Personality - ENTJ-A (Sept 2020)</p>
 
 
 
@@ -375,7 +375,7 @@
     <!-- Floating Action Buttons -->
     <div id="floating-btn" class="floating-actions">
         <!-- Book a Call Button -->
-        <a href="https://calendly.com/cvandusen" target="_blank" class="fab-call">
+        <a href="https://calendly.com/cvandusen" target="_blank" class="fab fab-call">
             Book a call
         </a>
     </div>
@@ -389,57 +389,72 @@
     
     <!-- Initialize Vue and scripts after content is loaded -->
     <script>
-      // Create a file for main.css with all the non-critical CSS
+      // Initialize Vue AFTER the DOM is loaded to prevent conflicts with Hugo templating
       document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Vue
-        setTimeout(function() {
-          new Vue({
-            el: '#app',
-            data: {
-              menuOpen: false
-            },
-            methods: {
-              toggleMenu: function () {
-                this.menuOpen = !this.menuOpen;
-                document.body.style.overflow = this.menuOpen ? 'hidden' : '';
-              }
+        new Vue({
+          el: '#app',
+          data: {
+            menuOpen: false
+          },
+          methods: {
+            toggleMenu: function () {
+              this.menuOpen = !this.menuOpen;
+              // Prevent body scrolling when menu is open
+              document.body.style.overflow = this.menuOpen ? 'hidden' : '';
             }
-          });
-        }, 100); // Small delay to prioritize rendering
+          }
+        });
         
-        // Handle floating button visibility
+        // Handle floating button visibility with plain JavaScript
+        // This approach is similar to how itssam.io implements their button behavior
         (function() {
           const floatingBtn = document.getElementById('floating-btn');
           let lastScrollTop = 0;
-          let ticking = false;
+          let scrollingDown = false;
+          let hideTimeout;
           
           function handleScroll() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollingDown = scrollTop > lastScrollTop;
             
+            // Determine if scrolling down or up
+            scrollingDown = scrollTop > lastScrollTop;
+            
+            // Clear any existing timeout
+            if (hideTimeout) clearTimeout(hideTimeout);
+            
+            // If scrolling down and past initial area, hide the button
             if (scrollingDown && scrollTop > 100) {
               floatingBtn.classList.add('hidden-fab');
-            } else if (!scrollingDown) {
+            } 
+            // If scrolling up, show the button
+            else if (!scrollingDown) {
               floatingBtn.classList.remove('hidden-fab');
             }
             
+            // Update last scroll position
             lastScrollTop = scrollTop;
-            ticking = false;
           }
           
+          // Use passive event listener for better performance
           window.addEventListener('scroll', function() {
-            if (!ticking) {
-              window.requestAnimationFrame(function() {
-                handleScroll();
-              });
-              ticking = true;
-            }
+            // Use requestAnimationFrame for better performance
+            requestAnimationFrame(handleScroll);
           }, { passive: true });
           
+          // Initial call to set correct state
           handleScroll();
         })();
+        
+        // Lazy load non-critical images
+        if ('loading' in HTMLImageElement.prototype) {
+          // Browser supports native lazy loading
+          const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+          lazyImages.forEach(img => {
+            img.setAttribute('loading', 'lazy');
+          });
+        }
       });
-    </script>
+</script>
     
     <!-- Google Analytics - loaded with delay and async -->
     <script>
