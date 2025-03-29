@@ -905,10 +905,12 @@
               const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
               const pageHeight = document.documentElement.scrollHeight;
               const viewportHeight = window.innerHeight;
-              const scrollThreshold = pageHeight * 0.7;
+              const scrollableHeight = pageHeight - viewportHeight;
+              const scrollPercentage = (currentScrollPosition / scrollableHeight) * 100;
               
-              // Check if scrolled past 70% of the page height
-              if (currentScrollPosition > scrollThreshold) {
+              // Show buttons only at the very top (< 15%) or very bottom (> 85%) of the page
+              // This creates a "middle zone" where buttons are hidden for better reading
+              if (scrollPercentage > 15 && scrollPercentage < 85) {
                 this.isHidden = true;
               } else {
                 this.isHidden = false;
