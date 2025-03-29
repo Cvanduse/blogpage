@@ -35,164 +35,578 @@
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
 
-    <!-- Critical CSS inlined to eliminate render-blocking -->
     <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: white;
-        color: #333;
-      }
-
-      /* Header styles */
-      .header-container {
-        position: relative;
-        width: 100%;
-        height: 260px;
-        background-color: #f5f7fa;
-        background-image: url('/img/responsive/header-small.webp');
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .header-container::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .header-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: black;
-        text-align: center;
-        z-index: 2;
-        width: 100%;
-      }
-
-      /* Mobile menu styles */
-      .mobile-menu {
-        display: none;
-      }
-      
-      .menu-open .mobile-menu {
-        display: block;
-      }
-      
-      .menu-open .main-content,
-      .menu-open .footer-container {
-        display: none;
-      }
-
-      /* Responsive styles */
-      @media (max-width: 767px) {
-        .mobile-menu-button {
-          position: fixed;
-          top: 1rem;
-          right: 1rem;
-          z-index: 100;
-          background-color: rgba(255, 255, 255, 0.8);
-          border-radius: 50%;
-          padding: 0.5rem;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+           body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
         }
-      }
 
-      /* Floating button styles */
-      .floating-actions {
+         nav a {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .mobile-menu a {
+    font-family: 'Roboto', sans-serif;
+  }
+        
+        .gradient-text {
+            font-size: 2.5em;
+            font-weight: 900;
+            background-image: linear-gradient(to right, #A9BCF5, #89ABE3, #6D82D1, #5359BF, #3A30A8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Desktop navigation hover effect */
+        .nav-item a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive background images */
+        .header-container {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background-color: #f5f7fa;
+            background-image: url('/img/responsive/header-small.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: height 0.2s ease-in-out; /* Faster transition */
+        }
+
+        /* Add fade effect at the bottom of the header */
+        .header-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Increased height for more gradual fade */
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Ensure the gradient is above the background but below content */
+        }
+
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black; /* Change to black for better readability */
+            text-align: center;
+            z-index: 2; /* Ensure content appears above the gradient */
+            width: 100%;
+        }
+
+        .footer-container {
+            position: relative;
+            width: 100%;
+            height: 125px; /* Increased from 100px */
+            background-color: #f5f7fa;
+            background-image: url('/img/responsive/footer-small.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Add fade effect at the top of the footer */
+        .footer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Increased height for more gradual fade */
+            background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0.8), white);
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Ensure the gradient is above the background but below content */
+        }
+
+        .footer-content {
+            color: black;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure content appears above the gradient */
+        }
+
+        /* Hide content when menu is open */
+        .menu-open .main-content,
+        .menu-open .footer-container {
+            display: none;
+        }
+
+        /* Show mobile menu */
+        .menu-open .mobile-menu {
+            display: block;
+        }
+
+        /* Initially hide the mobile menu */
+        .mobile-menu {
+            display: none;
+        }
+
+     .highlighted-link {
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none; /* Remove default underline */
+}
+
+.highlighted-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.4em; /* Thinner highlight */
+    background-color: #a0d8f1; /* Light blue highlight */
+    z-index: -1;
+}
+
+/* Create multiple highlight colors */
+.highlight-purple::before {
+    background-color: #d8b6ff; /* Purple highlight */
+    height: 0.4em; /* Thinner highlight */
+}
+
+.highlight-blue::before {
+    background-color: #a0d8f1; /* Light blue highlight */
+    height: 0.4em; /* Thinner highlight */
+}
+
+.highlight-red::before {
+    background-color: #ffb6b6; /* Red highlight */
+    height: 0.4em; /* Thinner highlight */
+}
+
+.highlight-yellow::before {
+    background-color: #fff2b6; /* Yellow highlight */
+    height: 0.4em; /* Thinner highlight */
+}
+
+.highlighted-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+     .gradient-divider {
+            height: 4px; /* Thin line */
+            background-image: linear-gradient(to right, #f8e8d4, #e6d2ee); /* Gradient from pale yellow to light purple */
+            border: none;
+            margin: 20px 0;
+        }
+
+   .mobile-menu {
+  position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
+  top: 300px; /* Adjust this value to move the menu lower */
+  left: 0;
+  right: 0;
+  z-index: 0; /* Ensure it stays on top of other content */
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Controls spacing between list items */
+  padding: 0 10px;
+}
+
+.mobile-menu a {
+  font-size: 1rem; /* Keeps the 2xl text size */
+  color: #000;
+}
+
+.mobile-menu a:hover {
+  color: #555; /* Fixed the invalid color value */
+}
+
+.current-projects {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    /* Create a very thin gradient border */
+    border: 0.5px solid transparent;
+    position: relative;
+}
+
+/* Add gradient border using pseudo-element to ensure it's thin */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -0.5px; /* Creates a thin 0.5px border */
+    border-radius: 12px;
+    background: linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
+    background-size: 400% 400%;
+    animation: animateProfileBorder 10s linear infinite;
+    z-index: -1;
+}
+
+/* Prevent background from affecting content */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Fill the entire card */
+    background: white;
+    border-radius: 11.5px; /* Slightly smaller to leave thin border */
+    z-index: -1;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-image img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: block; /* Ensure it's treated as a block element */
+}
+
+.project-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.project-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.project-tag.wip {
+    background-color: #34d399; /* Green */
+}
+
+
+.project-tag.new {
+    background-color: #f87171; /* Red */
+}
+.project-year {
+    font-size: 0.875rem;
+    color: #9ca3af; /* Gray */
+}
+
+
+/* Responsive Design for 2 Cards Per Row */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* Single Column on Very Small Devices */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    /* Adjust the mobile menu top position to account for the new header height */
+    .mobile-menu {
+        top: 280px;
+    }
+    
+    /* Add some extra space for the header content on mobile */
+    .header-content header {
+        padding-top: 2rem;
+    }
+
+    .greeting-container {
+        align-items: flex-start;
+    }
+    
+    .greeting-line-1 {
+        justify-content: flex-start;
+        margin-bottom: 0.5rem; /* Less space on mobile */
+    }
+    
+    .greeting-line-2 {
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+}
+
+/* Profile image styling - Smaller and more optimized */
+.profile-image-container {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 56px;
+    border-radius: 28px;
+    overflow: hidden;
+    margin: 0 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+    border: 0.5px solid transparent;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
+    background-size: 400% 400%;
+    animation: animateProfileBorder 10s linear infinite;
+}
+
+.profile-image-container:hover {
+    transform: translateY(-2px);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+@keyframes animateProfileBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Mobile header positioning */
+@media (max-width: 767px) {
+    /* Position menu button to top right */
+    .mobile-menu-button {
         position: fixed;
-        bottom: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: row;
-        gap: 0.75rem;
+        top: 1rem;
+        right: 1rem;
         z-index: 100;
-        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-        display: none;
-        opacity: 1;
-      }
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        padding: 0.5rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+}
 
-      @media (max-width: 767px) {
-        .floating-actions {
-          display: flex;
-        }
-      }
+/* Right-align the "What's Happening Now" section */
+.status-indicator {
+    margin-left: auto;
+    margin-right: 0;
+}
 
-      .fab-call {
-        background: linear-gradient(115deg, #738bff, #a278f4);
-        color: white;
-        font-weight: 600;
-        font-size: 0.8rem;
-        width: auto;
-        padding: 0 1.25rem;
-        border-radius: 30px;
-        height: 2.75rem;
-        display: flex;
+/* Responsive background images based on screen size */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .header-container {
+        background-image: url('/img/responsive/header-medium.webp');
+        height: 225px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-container {
+        background-image: url('/img/responsive/header-large.webp');
+        height: 250px;
+    }
+}
+
+/* Ensure nav items are visible */
+.nav-item a {
+    position: relative;
+    transition: color 0.3s ease;
+    color: black; /* Ensure visibility */
+    font-weight: 600; /* Make text bolder for better readability */
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8); /* Add white shadow for readability */
+}
+
+/* Also make mobile navigation more visible */
+.mobile-menu a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Greeting styling for all devices */
+.greeting-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-line-1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem; /* Add space between lines on desktop */
+}
+
+.greeting-line-2 {
+    display: flex;
+    align-items: center;
+}
+
+/* Desktop-specific adjustments for greeting */
+@media (min-width: 768px) {
+    .greeting-container {
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-      }
+        flex-wrap: nowrap;
+    }
+    
+    .greeting-line-1 {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+}
 
-      .hidden-fab {
-        opacity: 0 !important;
-        transform: translateX(-50%) translateY(100px) !important;
-        pointer-events: none !important;
-      }
-      
-      /* Add fade-in animation for content */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+/* Add fade-in animation for content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      .fade-in {
-        opacity: 0;
-        animation: fadeIn 1s ease-out forwards;
-        animation-delay: 0.3s;
-      }
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s; /* Small delay to ensure page is loaded */
+}
 
-      /* Layout utilities */
-      .flex { display: flex; }
-      .items-center { align-items: center; }
-      .justify-center { justify-content: center; }
-      .flex-col { flex-direction: column; }
-      .gap-2 { gap: 0.5rem; }
-      .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-      .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .mx-auto { margin-left: auto; margin-right: auto; }
-      .text-center { text-align: center; }
-      .hidden { display: none; }
+/* Refined floating action buttons styles */
+.floating-actions {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  z-index: 100;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  display: none; /* Hide by default on all devices */
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Only show on mobile devices */
+@media (max-width: 767px) {
+  .floating-actions {
+    display: flex; /* Show only on mobile */
+  }
+}
+
+.fab {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.fab-call {
+  background: linear-gradient(115deg, #738bff, #a278f4);
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  width: auto;
+  padding: 0 1.25rem;
+  border-radius: 30px;
+}
+
+.hidden-fab {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100px);
+  pointer-events: none;
+}
     </style>
-    
-    <!-- Deferred non-critical CSS -->
-    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
-    
-    <!-- Inline loader for CSS -->
-    <script>
-      // Tiny CSS loader
-      (function(w){"use strict";var loadCSS=function(href,before,media,attributes){var doc=w.document;var ss=doc.createElement("link");var ref;if(before){ref=before}else{var refs=(doc.body||doc.getElementsByTagName("head")[0]).childNodes;ref=refs[refs.length-1]}var sheets=doc.styleSheets;if(attributes){for(var attributeName in attributes){if(attributes.hasOwnProperty(attributeName)){ss.setAttribute(attributeName,attributes[attributeName])}}}ss.rel="stylesheet";ss.href=href;ss.media="only x";function ready(cb){if(doc.body){return cb()}setTimeout(function(){ready(cb)})}ready(function(){ref.parentNode.insertBefore(ss,(before?ref:ref.nextSibling))});var onloadcssdefined=function(cb){var resolvedHref=ss.href;var i=sheets.length;while(i--){if(sheets[i].href===resolvedHref){return cb()}}setTimeout(function(){onloadcssdefined(cb)})};function loadCB(){if(ss.addEventListener){ss.removeEventListener("load",loadCB)}ss.media=media||"all"}if(ss.addEventListener){ss.addEventListener("load",loadCB)}ss.onloadcssdefined=onloadcssdefined;onloadcssdefined(loadCB);return ss};if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this));
-    </script>
   </head>
 
   <body>
@@ -312,8 +726,8 @@
           <h3 class="title-small text-2xl font-bold gradient-text">
           <img src="/img/chris.png" alt="signature" class="inline-block w-30 h-10" width="120" height="40" loading="lazy" decoding="async"></h3>
           <br>
-          <p> Based in Chicago, IL</p>
-          <p> Personality - ENTJ-A (Sept 2020)</p>
+          <p> Based in <s>Chicago, IL</s> Detroit, MI</p>
+          <p> Personality - ENTJ-A (<s>Sept 2020</s> Nov 2023 Result)</p>
 
 
 
@@ -373,7 +787,7 @@
     </div>
 
     <!-- Floating Action Buttons -->
-    <div id="floating-btn" class="floating-actions">
+    <div class="floating-actions" :class="{ 'hidden-fab': isHidden }">
         <!-- Book a Call Button -->
         <a href="https://calendly.com/cvandusen" target="_blank" class="fab fab-call">
             Book a call
@@ -381,69 +795,77 @@
     </div>
 </div>
 
-    <!-- Create a separate CSS file for non-critical styles -->
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all'">
-
-    <!-- Deferred JavaScript loading -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js" defer></script>
-    
-    <!-- Initialize Vue and scripts after content is loaded -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
     <script>
       // Initialize Vue AFTER the DOM is loaded to prevent conflicts with Hugo templating
       document.addEventListener('DOMContentLoaded', function() {
         new Vue({
           el: '#app',
           data: {
-            menuOpen: false
+            menuOpen: false,
+            isHidden: false,
+            lastScrollPosition: 0,
+            scrollDirection: 'up',
+            scrollDistance: 0
           },
           methods: {
             toggleMenu: function () {
               this.menuOpen = !this.menuOpen;
               // Prevent body scrolling when menu is open
               document.body.style.overflow = this.menuOpen ? 'hidden' : '';
+            },
+            handleScroll: function() {
+              // Get current scroll position
+              const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+              
+              // Determine scroll direction
+              if (currentScroll > this.lastScrollPosition) {
+                // Scrolling down
+                this.scrollDirection = 'down';
+                this.scrollDistance += (currentScroll - this.lastScrollPosition);
+              } else {
+                // Scrolling up
+                this.scrollDirection = 'up';
+                this.scrollDistance = 0; // Reset distance on upward scroll
+              }
+              
+              // Update button visibility based on scroll direction and distance
+              // Hide when scrolling down and after scrolling some distance (100px)
+              if (this.scrollDirection === 'down' && this.scrollDistance > 100 && currentScroll > 100) {
+                this.isHidden = true;
+              } else if (this.scrollDirection === 'up') {
+                this.isHidden = false;
+              }
+              
+              // Store the current position for next comparison
+              this.lastScrollPosition = currentScroll;
             }
+          },
+          mounted() {
+            // Initial setup with throttling for better performance
+            let scrollTimeout;
+            const throttledScroll = () => {
+              if (!scrollTimeout) {
+                scrollTimeout = setTimeout(() => {
+                  this.handleScroll();
+                  scrollTimeout = null;
+                }, 10); // Small delay for performance
+              }
+            };
+            
+            window.addEventListener('scroll', throttledScroll, { passive: true });
+            
+            // Set initial state
+            this.handleScroll();
+            
+            // Force update on resize to handle orientation changes
+            window.addEventListener('resize', this.handleScroll, { passive: true });
+          },
+          beforeDestroy() {
+            window.removeEventListener('scroll', this.handleScroll);
+            window.removeEventListener('resize', this.handleScroll);
           }
         });
-        
-        // Handle floating button visibility with plain JavaScript
-        // This approach is similar to how itssam.io implements their button behavior
-        (function() {
-          const floatingBtn = document.getElementById('floating-btn');
-          let lastScrollTop = 0;
-          let scrollingDown = false;
-          let hideTimeout;
-          
-          function handleScroll() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Determine if scrolling down or up
-            scrollingDown = scrollTop > lastScrollTop;
-            
-            // Clear any existing timeout
-            if (hideTimeout) clearTimeout(hideTimeout);
-            
-            // If scrolling down and past initial area, hide the button
-            if (scrollingDown && scrollTop > 100) {
-              floatingBtn.classList.add('hidden-fab');
-            } 
-            // If scrolling up, show the button
-            else if (!scrollingDown) {
-              floatingBtn.classList.remove('hidden-fab');
-            }
-            
-            // Update last scroll position
-            lastScrollTop = scrollTop;
-          }
-          
-          // Use passive event listener for better performance
-          window.addEventListener('scroll', function() {
-            // Use requestAnimationFrame for better performance
-            requestAnimationFrame(handleScroll);
-          }, { passive: true });
-          
-          // Initial call to set correct state
-          handleScroll();
-        })();
         
         // Lazy load non-critical images
         if ('loading' in HTMLImageElement.prototype) {
@@ -453,24 +875,6 @@
             img.setAttribute('loading', 'lazy');
           });
         }
-      });
-</script>
-    
-    <!-- Google Analytics - loaded with delay and async -->
-    <script>
-      // Delay loading Google Analytics
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          var gtmScript = document.createElement('script');
-          gtmScript.async = true;
-          gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-Z7S1K4DT2P";
-          document.head.appendChild(gtmScript);
-          
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-Z7S1K4DT2P');
-        }, 3000); // Load after 3 seconds
       });
     </script>
   </body>
