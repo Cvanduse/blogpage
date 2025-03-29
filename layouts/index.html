@@ -227,27 +227,89 @@
         }
 
    .mobile-menu {
-  position: absolute; /* Or use 'fixed' if you want it to stay in the same position while scrolling */
-  top: 300px; /* Adjust this value to move the menu lower */
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 0; /* Ensure it stays on top of other content */
+  bottom: 0;
+  background-color: #000;
+  z-index: 1000;
+  display: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mobile-menu ul {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Controls spacing between list items */
-  padding: 0 10px;
+  gap: 16px;
+  padding: 0 42px;
 }
 
 .mobile-menu a {
-  font-size: 1rem; /* Keeps the 2xl text size */
-  color: #000;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s ease;
+  padding: 4px 0;
 }
 
-.mobile-menu a:hover {
-  color: #555; /* Fixed the invalid color value */
+.mobile-menu-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.mobile-menu-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.mobile-menu-footer .border-t {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+
+/* Style for the close button */
+.mobile-menu-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1001;
+  background-color: transparent !important;
+  border-radius: 0;
+  padding: 0.5rem;
+  box-shadow: none !important;
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.menu-open .mobile-menu-button {
+  color: #fff;
+}
+
+.menu-open .mobile-menu {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Site title adjustments for mobile menu */
+.menu-open #site-title {
+  color: white;
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
 }
 
 .current-projects {
@@ -450,21 +512,6 @@
     }
 }
 
-/* Mobile header positioning */
-@media (max-width: 767px) {
-    /* Position menu button to top right */
-    .mobile-menu-button {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 100;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 50%;
-        padding: 0.5rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-}
-
 /* Right-align the "What's Happening Now" section */
 .status-indicator {
     margin-left: auto;
@@ -630,26 +677,38 @@
             </nav>
              <!-- Mobile Navigation -->
                 <nav class="mobile-menu">
-                  <ul class="flex flex-col space-y-1 px-8">
+                  <div class="mobile-menu-header">
+                    <h2 class="text-3xl font-bold text-white">CHRIS VAN DUSEN</h2>
+                  </div>
+                  <ul class="flex flex-col">
                     <li>
-                      <a href="/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Home</a>
+                      <a href="/" class="block hover:text-gray-400">Home</a>
                     </li>
                     <li>
-                      <a href="/about" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">About Me</a>
+                      <a href="/about" class="block hover:text-gray-400">About Me</a>
                     </li>
                     <li>
-                      <a href="/work" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+                      <a href="/work" class="block hover:text-gray-400">Work</a>
                     </li>
                     <li>
-                      <a href="https://links.fwd2cv.com/" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Socials</a>
+                      <a href="https://links.fwd2cv.com/" class="block hover:text-gray-400">Socials</a>
                     </li>
                     <li>
-                      <a href="/tags" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Posts</a>
+                      <a href="/posts" class="block hover:text-gray-400">Posts</a>
                     </li>
                     <li>
-                      <a href="https://buymeacoffee.com/cvandusen" class="block text-2xl text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-300">Support</a>
+                      <a href="https://buymeacoffee.com/cvandusen" class="block hover:text-gray-400">Support</a>
                     </li>
                   </ul>
+                  <div class="mobile-menu-footer">
+                    <div class="border-t">
+                      <ul class="flex gap-6 text-white text-sm">
+                        <li><a href="https://x.com/FWD2CV" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/fwd2cv/" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://github.com/Cvanduse" target="_blank" rel="noopener">GitHub</a></li>
+                      </ul>
+                    </div>
+                  </div>
                 </nav>
             </div>
         </header>
