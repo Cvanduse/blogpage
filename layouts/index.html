@@ -285,33 +285,36 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    /* Create a very thin gradient border */
     border: 0.5px solid transparent;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    background-image: linear-gradient(white, white), 
-                      linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
+    position: relative;
+}
+
+/* Add gradient border using pseudo-element to ensure it's thin */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -0.5px; /* Creates a thin 0.5px border */
+    border-radius: 12px;
+    background: linear-gradient(115deg, #ff6b6b, #ffb86c, #feca57, #68e0cf, #64c8ff, #738bff, #a278f4, #ff78a7);
     background-size: 400% 400%;
     animation: animateProfileBorder 10s linear infinite;
+    z-index: -1;
+}
+
+/* Prevent background from affecting content */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Fill the entire card */
+    background: white;
+    border-radius: 11.5px; /* Slightly smaller to leave thin border */
+    z-index: -1;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Remove the complex pseudo-elements */
-.project-card::before, .project-card::after {
-    display: none;
-}
-
-/* Remove animation to improve performance */
-@keyframes animateGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
 }
 
 .project-image img {
