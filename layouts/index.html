@@ -551,59 +551,40 @@
   animation-delay: 0.3s; /* Small delay to ensure page is loaded */
 }
 
-/* Refined floating action buttons styles */
+/* Floating action button - simplified for reliability */
 .floating-actions {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  gap: 0.75rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 100;
-  transition: all 0.3s ease;
-  display: none; /* Hide by default on all devices */
+  display: none;
 }
 
-/* Only show on mobile devices */
 @media (max-width: 767px) {
   .floating-actions {
-    display: flex; /* Show only on mobile */
+    display: block;
   }
-}
-
-.fab {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.fab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .fab-call {
   background: linear-gradient(115deg, #738bff, #a278f4);
   color: white;
-  font-weight: 600;
-  font-size: 0.8rem;
-  width: auto;
-  padding: 0 1.25rem;
-  border-radius: 30px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
 }
 
-.hidden-fab {
-  opacity: 0;
+.floating-actions.hidden {
   transform: translateX(-50%) translateY(80px);
+  opacity: 0;
   pointer-events: none;
-  visibility: hidden;
 }
     </style>
   </head>
@@ -786,9 +767,9 @@
     </div>
 
     <!-- Floating Action Buttons -->
-    <div class="floating-actions" :class="{ 'hidden-fab': isHidden }">
+    <div class="floating-actions" id="floatingBtn">
         <!-- Book a Call Button -->
-        <a href="https://calendly.com/cvandusen" target="_blank" class="fab fab-call">
+        <a href="https://calendly.com/cvandusen" target="_blank" class="fab-call">
             Book a call
         </a>
     </div>
@@ -798,97 +779,40 @@
     <script>
       // Initialize Vue AFTER the DOM is loaded to prevent conflicts with Hugo templating
       document.addEventListener('DOMContentLoaded', function() {
+        // Simple vanilla JS implementation for the floating button
+        const floatingBtn = document.getElementById('floatingBtn');
+        let lastScrollTop = 0;
+        
+        function handleScroll() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Determine scroll direction - simple and direct approach
+          if (scrollTop > lastScrollTop) {
+            // Scrolling DOWN
+            floatingBtn.classList.add('hidden');
+          } else {
+            // Scrolling UP
+            floatingBtn.classList.remove('hidden');
+          }
+          
+          lastScrollTop = scrollTop;
+        }
+        
+        // Apply scroll listener with passive flag for performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Vue app initialization for other functionality 
         new Vue({
           el: '#app',
           data: {
-            menuOpen: false,
-            isHidden: false,
-            lastScrollY: window.scrollY || window.pageYOffset,
-            scrollingDown: false,
-            touchStartY: 0
+            menuOpen: false
           },
           methods: {
             toggleMenu: function () {
               this.menuOpen = !this.menuOpen;
               // Prevent body scrolling when menu is open
               document.body.style.overflow = this.menuOpen ? 'hidden' : '';
-            },
-            handleScroll: function() {
-              // Simplified approach: just check if we're scrolling up or down
-              const currentScrollY = window.scrollY || window.pageYOffset;
-              
-              // Determine if scrolling up or down
-              this.scrollingDown = currentScrollY > this.lastScrollY;
-              
-              // Hide button when scrolling down, show when scrolling up
-              if (this.scrollingDown) {
-                this.isHidden = true;
-              } else {
-                this.isHidden = false;
-              }
-              
-              // Update last position
-              this.lastScrollY = currentScrollY;
-            },
-            
-            // Add touch event handlers to improve mobile experience
-            handleTouchStart: function(e) {
-              this.touchStartY = e.touches[0].clientY;
-            },
-            
-            handleTouchMove: function(e) {
-              if (!this.touchStartY) return;
-              
-              const touchY = e.touches[0].clientY;
-              const diff = this.touchStartY - touchY;
-              
-              // If scrolling down (diff > 0), hide the button
-              if (diff > 5) {
-                this.isHidden = true;
-              } 
-              // If scrolling up (diff < 0), show the button
-              else if (diff < -5) {
-                this.isHidden = false;
-              }
-            },
-            
-            handleTouchEnd: function() {
-              this.touchStartY = 0;
             }
-          },
-          mounted() {
-            // Use a debounced scroll handler for better performance
-            let isScrolling;
-            window.addEventListener('scroll', () => {
-              // Clear the timeout throughout the scroll
-              window.clearTimeout(isScrolling);
-              
-              // Run the scroll handler immediately for responsive feel
-              this.handleScroll();
-              
-              // Set a timeout to detect when scrolling stops
-              isScrolling = setTimeout(() => {
-                // If at the top of the page, always show the button
-                if (window.scrollY < 100) {
-                  this.isHidden = false;
-                }
-              }, 100);
-            }, { passive: true });
-            
-            // Add touch event listeners for mobile
-            document.addEventListener('touchstart', this.handleTouchStart, { passive: true });
-            document.addEventListener('touchmove', this.handleTouchMove, { passive: true });
-            document.addEventListener('touchend', this.handleTouchEnd, { passive: true });
-            
-            // Force update on resize
-            window.addEventListener('resize', this.handleScroll, { passive: true });
-          },
-          beforeDestroy() {
-            window.removeEventListener('scroll', this.handleScroll);
-            window.removeEventListener('resize', this.handleScroll);
-            document.removeEventListener('touchstart', this.handleTouchStart);
-            document.removeEventListener('touchmove', this.handleTouchMove);
-            document.removeEventListener('touchend', this.handleTouchEnd);
           }
         });
         
